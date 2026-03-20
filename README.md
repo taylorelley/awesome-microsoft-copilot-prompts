@@ -19,6 +19,7 @@ Biweekly briefing: what shipped in GenAI, tested M365 Copilot prompts for one ro
 - **The Takeaway** — One insight on human+AI collaboration that changes how you think about your workflow
 
 👉 **[Subscribe free](https://newsletter.kesslernity.com)** — no spam, no fluff, unsubscribe anytime.
+Subscribers from Microsoft, CBRE, Johnson & Johnson, the Federal Reserve, and 20+ organizations worldwide.
 
 ## 🎓 Free AI Course
 
