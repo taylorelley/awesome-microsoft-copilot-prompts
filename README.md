@@ -1,17 +1,15 @@
 # Awesome Microsoft Copilot Prompts 🍳
 
-[![Prompts](https://img.shields.io/badge/prompts-365-blue)](https://nerdychefs.ai)
-[![Categories](https://img.shields.io/badge/categories-17-green)](https://nerdychefs.ai)
-[![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue)](/LICENSE)
+[![Prompts](https://img.shields.io/badge/prompts-400-blue)](https://nerdychefs.ai)
+[![Categories](https://img.shields.io/badge/categories-18-green)](https://nerdychefs.ai)
+[![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue)](LICENSE)
 [![Enterprise](https://img.shields.io/badge/enterprise-tested-purple)](https://kesslernity.com)
 
-A curated collection of **365+ production-tested Microsoft Copilot prompts** for enterprise professionals. From inbox intelligence to role-specific workflows, these prompts help you get the most out of Microsoft 365 Copilot.
-
-> Stop staring at the blank Copilot box. 365+ enterprise-tested prompts that actually work—organized by role, not random categories.
+A curated collection of **400 production-tested Microsoft Copilot prompts** for enterprise professionals. From inbox intelligence to role-specific workflows, these prompts help you get the most out of Microsoft 365 Copilot.
 
 ## 📬 AI at Work Newsletter
 
-Biweekly briefing: what shipped in GenAI, tested M365 Copilot prompts for one role, and one insight you won't find in a changelog. 4-minute read. Verified facts only.
+Tested prompts for Microsoft 365 Copilot. One role at a time. Plus verified GenAI news and one insight you won't find in a changelog. Biweekly, 4-minute read.
 
 **What you get every two weeks:**
 - **What Happened** — 3-4 verified GenAI news items that affect how you work (source-linked, fact-checked)
@@ -19,30 +17,14 @@ Biweekly briefing: what shipped in GenAI, tested M365 Copilot prompts for one ro
 - **The Takeaway** — One insight on human+AI collaboration that changes how you think about your workflow
 
 👉 **[Subscribe free](https://newsletter.kesslernity.com)** — no spam, no fluff, unsubscribe anytime.
-Subscribers from Microsoft, CBRE, Johnson & Johnson, the Federal Reserve, and 20+ organizations worldwide.
 
 ## 🎓 Free AI Course
 
 Want to go beyond prompts? **AI Quick Start Essentials** is a free 35-minute course covering responsible AI use and practical human+AI collaboration workflows.
 
-👉 **[Start the free course](https://trainings.kesslernity.com)** .
+👉 **[Start the free course](https://trainings.kesslernity.com)** — no signup wall, no credit card.
+
 ---
-
-## 🧭 Contents
-
-- 📊 [Quick Stats](#-quick-stats)
-- 🚀 [Quick Start](#-quick-start)
-- 🔄 [Copilot vs ChatGPT: Key Differences](#-copilot-vs-chatgpt-key-differences)
-- 📚 [Complete Prompt Collection](#-complete-collection-365-prompts)
-- 👔 [Role-Specific Prompt Packs](#-role-specific-collections-203-prompts)
-- 💡 [How to Use These Prompts](#-how-to-use-these-prompts)
-- 🔥 [Most Popular Prompts](#-most-popular-prompts)
-- 🔐 [Governance & Guardrails](#-governance--guardrails)
-- 🏢 [Enterprise Deployment](#-enterprise-deployment)
-- 🤝 [Contributing](#-contributing)
-- 📖 [Prompt Engineering Tips](#-prompt-engineering-tips)
-- 📄 [License](#-license)
-
 
 ## 📊 Quick Stats
 
@@ -238,6 +220,25 @@ Even when using the same underlying model (GPT-4/GPT-5), **Copilot behaves diffe
   + **⛔ CRITICAL HSE GUARDRAILS - Safety authorization boundaries**
   + **Includes ⚠️ Legal & IT Copilot Guardrails**
 
+#### Security Operations
+
+- [**Microsoft Copilot for Security**](prompts/security-copilot/README.md) (35 prompts) — **NEW**
+  + How Copilot for Security works + SCU billing mechanics explained
+  + SCU-optimized prompting guide: what costs less vs. what burns compute
+  + [SOC Operations](prompts/security-copilot/soc-operations.md): incident triage, threat hunting, identity investigation, vulnerability management, DLP
+  + [Security Reporting](prompts/security-copilot/security-reporting.md): board reports, CISO briefings, compliance posture, audit responses, patch compliance
+  + **⚠️ Requires Copilot for Security license — NOT included in M365 Copilot (except E5/E7 SCU allocation)**
+
+#### Automation & Scheduled Workflows
+
+- [**Scheduled Prompts**](prompts/scheduled-prompts/README.md) (15 prompts) — **NEW**
+  + 5-step setup guide for scheduling prompts in M365 Copilot Chat
+  + Daily productivity: morning briefing, calendar prep, end-of-day commitment tracker
+  + Sales & BD: weekly pipeline pulse, prospect follow-up, competitive intelligence digest
+  + Project management: weekly status brief, Monday blocker check, Friday team summary
+  + Finance, HR, and Executive briefing prompts
+  + **⚠️ Requires M365 Copilot paid add-on ($30/user/month) · Up to 10 scheduled prompts per user · GA since January 2026**
+
 #### Specialized Functions
 
 - [**Research & Development**](prompts/role-specific/research-development.md) (16 prompts)
@@ -249,41 +250,6 @@ Even when using the same underlying model (GPT-4/GPT-5), **Copilot behaves diffe
   + Supplier management, shipment tracking, inventory optimization
   + Disruption management, customs support, S&OP planning
   + **Includes ⚠️ Supply Chain & Logistics Copilot Guardrails**
-
-## 🗂 Repository Structure
-
-The repository is organized by **Copilot application and user role**, making it easy to browse, reuse, and extend.
-
-```text
-prompts/
-├── power-users/
-│   └── README.md                # Advanced Copilot techniques & mastery prompts
-│
-├── outlook/
-│   ├── advanced-automation.md   # Inbox intelligence & automation
-│   ├── advanced-prompts.md      # Advanced Outlook prompt pack
-│   └── README.md
-│
-├── quick-start/
-│   └── essentials.md            # Beginner-friendly Copilot essentials
-│
-├── enterprise/
-│   └── standalone-prompts.md    # App-agnostic enterprise prompts
-│
-└── role-specific/
-    ├── admin-executive-assistants.md
-    ├── commercial-operations.md
-    ├── project-leadership.md
-    ├── sales-business-development.md
-    ├── marketing-communications.md
-    ├── customer-success-support.md
-    ├── consulting-professional-services.md
-    ├── engineering-construction.md
-    ├── finance-hr.md
-    ├── hse-legal-compliance.md
-    ├── research-development.md
-    └── supply-chain-logistics.md
-```
 
 ## 💡 How to Use These Prompts
 
@@ -338,6 +304,8 @@ Copilot learns from context. If the first result isn't perfect, provide feedback
 Using Copilot across your organization? These prompts work even better when deployed enterprise-wide.
 
 **Need help with:**
+- Microsoft 365 Copilot rollout strategy
+- Custom Copilot Studio agents
 - Enterprise prompt governance
 - Team training and adoption
 - Role-based prompt libraries
@@ -354,7 +322,7 @@ This repo contains **365 prompts** optimized for Microsoft Copilot. For the comp
 - Additional ChatGPT, Claude, and Gemini prompts
 - **No signup required**
 
-👉 **Visit [NerdyChefs.ai](https://nerdychefs.ai)** - 1300+ free AI prompts & tools
+👉 **Visit [NerdyChefs.ai](https://nerdychefs.ai)** - 1,565+ free AI prompts & tools
 
 ## 🤝 Contributing
 
@@ -455,13 +423,18 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 Built by [Mathieu Kessler](https://linkedin.com/in/mathieukessler) and the team at NerdyChefs.ai.
 
-**Made by people for people who want to work smarter, not harder.**
+**Special thanks to:**
+- The thousands of enterprise users who tested these prompts in production
+- Microsoft 365 admins who provided governance feedback
+- Role-specific subject matter experts who validated use cases
+
+**Made with care for people who want to work smarter, not harder.**
 
 ---
 
 ## 🔗 Quick Links
 
-- **[Full Prompt Library](https://nerdychefs.ai)** - 1300+ free AI prompts & tools (no signup)
+- **[Full Prompt Library](https://nerdychefs.ai)** - 1,565+ free AI prompts & tools (no signup)
 - **[Kesslernity](https://kesslernity.com)** - Enterprise AI deployment platform
 - **[LinkedIn](https://linkedin.com/in/mathieukessler)** - Connect with Mathieu
 - **[X/Twitter](https://x.com/nerdychefsai)** - Daily AI productivity tips
@@ -470,4 +443,4 @@ Built by [Mathieu Kessler](https://linkedin.com/in/mathieukessler) and the team 
 
 ---
 
-**⚡ Pro Tip:** Star this repo and check back monthly for new prompt additions. We're continuously adding prompts based on enterprise feedback and real-world use cases.
+**⚡ Pro Tip:** Bookmark this repo and check back monthly for new prompt additions. We're continuously adding prompts based on enterprise feedback and real-world use cases.

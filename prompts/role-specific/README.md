@@ -63,4 +63,4 @@ Every collection includes **guardrails** explaining:
 
 **Made with care by [NerdyChefs.ai](https://nerdychefs.ai)**
 
-For the complete library of 1300+ AI prompts, visit [nerdychefs.ai](https://nerdychefs.ai)
+For the complete library of 1,565+ AI prompts, visit [nerdychefs.ai](https://nerdychefs.ai)

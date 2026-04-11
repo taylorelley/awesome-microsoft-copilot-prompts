@@ -514,4 +514,4 @@ This is context for team review. Actual metrics from support platform.
 
 [← Back to Main Collection](../../README.md) | [Browse All Prompts](../README.md) | [Role-Specific Prompts](./README.md)
 
-For the complete library of 1300+ AI prompts, visit [nerdychefs.ai](https://nerdychefs.ai)
+For the complete library of 1,565+ AI prompts, visit [nerdychefs.ai](https://nerdychefs.ai)
