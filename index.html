@@ -66,6 +66,13 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.header-start {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -709,6 +716,18 @@ body {
   border: 1px solid var(--border);
 }
 
+.prompt-context {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-2);
+  background: var(--primary-50);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid var(--primary-100);
+}
+
 .modal-footer {
   padding: 14px 20px;
   border-top: 1px solid var(--border);
@@ -844,21 +863,23 @@ body {
 
 <!-- Header -->
 <header class="header">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  </button>
-
-  <a class="logo" href="#" onclick="return false">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2L14.4 8.4L21 8.4L15.9 12.6L17.9 19L12 15.4L6.1 19L8.1 12.6L3 8.4L9.6 8.4Z"/>
-        <circle cx="19.5" cy="4.5" r="2.5" opacity=".5"/>
+  <div class="header-start">
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
-    </div>
-    <span class="logo-text">Copilot <span>Prompts</span></span>
-  </a>
+    </button>
+
+    <a class="logo" href="#" onclick="return false">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L14.4 8.4L21 8.4L15.9 12.6L17.9 19L12 15.4L6.1 19L8.1 12.6L3 8.4L9.6 8.4Z"/>
+          <circle cx="19.5" cy="4.5" r="2.5" opacity=".5"/>
+        </svg>
+      </div>
+      <span class="logo-text">Copilot <span>Prompts</span></span>
+    </a>
+  </div>
 
   <div class="header-search">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -1181,12 +1202,24 @@ function openModal(id) {
       <div class="meta-tags">${p.tags.map(t => `<span class="meta-tag">${esc(t)}</span>`).join('')}</div>
     </div>`;
 
-  body.innerHTML = `
-    <div class="meta-row">${metaRows}</div>
+  let promptSections = '';
+  if (p.context) {
+    promptSections += `
+    <div class="prompt-block">
+      <div class="prompt-label">Context</div>
+      <div class="prompt-context">${esc(p.context)}</div>
+    </div>`;
+  }
+
+  promptSections += `
     <div class="prompt-block">
       <div class="prompt-label">Prompt</div>
       <pre class="prompt-code">${esc(p.prompt)}</pre>
     </div>`;
+
+  body.innerHTML = `
+    <div class="meta-row">${metaRows}</div>
+    ${promptSections}`;
 
   document.getElementById('modal-copy-btn').textContent = '';
   document.getElementById('modal-copy-btn').innerHTML = `${COPY_ICON} Copy Prompt`;

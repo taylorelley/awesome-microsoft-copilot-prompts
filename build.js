@@ -97,6 +97,28 @@ function parseFrontmatter(content) {
   return { frontmatter, body: body.trim() };
 }
 
+/**
+ * Split prompt body into context and prompt sections.
+ * Expected format:
+ *   ## Context
+ *   <context text>
+ *
+ *   ## Prompt
+ *   ```
+ *   <prompt text>
+ *   ```
+ */
+function parseContextAndPrompt(body) {
+  // Try to match ## Context ... ## Prompt pattern
+  const match = body.match(/##\s*Context\s*\n([\s\S]*?)\n##\s*Prompt\s*\n```?\s*\n?([\s\S]*?)\s*```?\s*$/);
+  if (match) {
+    return { context: match[1].trim(), prompt: match[2].trim() };
+  }
+
+  // Fallback: if no ## Context/## Prompt structure, treat entire body as prompt
+  return { context: '', prompt: body };
+}
+
 function slugFromFilename(filename) {
   return path.basename(filename, '.md');
 }
@@ -147,11 +169,13 @@ function main() {
     const content = fs.readFileSync(filePath, 'utf-8');
     const { frontmatter, body } = parseFrontmatter(content);
     const slug = slugFromFilename(file);
+    const { context, prompt } = parseContextAndPrompt(body);
 
     const promptObj = {
       slug,
       ...frontmatter,
-      prompt: body,
+      context,
+      prompt,
     };
     rawPrompts.push(promptObj);
   }
@@ -197,6 +221,7 @@ function main() {
       id: p.slug,
       title: p.title || '',
       useCase: p.use_case || p.useCase || '',
+      context: p.context || '',
       prompt: p.prompt || '',
       group: appMeta.display,
       category: roleMeta.display,
