@@ -1,5 +1,5 @@
 const CACHE = 'copilot-prompts-v1';
-const ASSETS = ['/', '/index.html', '/data.js', '/manifest.json', '/icon.svg'];
+const ASSETS = ['./', './index.html', './data.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -22,7 +22,13 @@ self.addEventListener('fetch', e => {
       const fresh = fetch(e.request).then(res => {
         if (res.ok) caches.open(CACHE).then(c => c.put(e.request, res.clone()));
         return res;
-      }).catch(() => null);
+      }).catch(() => {
+        if (cached) return cached;
+        return new Response('Offline — check your connection.', {
+          status: 503,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
+      });
       return cached || fresh;
     })
   );
