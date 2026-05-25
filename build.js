@@ -25,6 +25,7 @@ const FILES = [
   { file: 'role-specific/research-development.md',            category: 'Research & Development',          group: 'Role-Specific',   color: '#EC4899' },
   { file: 'role-specific/sales-business-development.md',      category: 'Sales & Business Dev.',           group: 'Role-Specific',   color: '#EC4899' },
   { file: 'role-specific/supply-chain-logistics.md',          category: 'Supply Chain & Logistics',        group: 'Role-Specific',   color: '#EC4899' },
+  { file: 'role-specific/managers-personal-assistant.md',     category: 'Managers — Personal Assistant',   group: 'Role-Specific',   color: '#EC4899' },
   { file: 'security-copilot/soc-operations.md',               category: 'SOC Operations',                  group: 'Security Copilot',color: '#EF4444' },
   { file: 'security-copilot/security-reporting.md',           category: 'Security Reporting',              group: 'Security Copilot',color: '#EF4444' },
   { file: 'cowork/action-workflows.md',                       category: 'Cowork — Actions',                group: 'Cowork',          color: '#06B6D4' },
