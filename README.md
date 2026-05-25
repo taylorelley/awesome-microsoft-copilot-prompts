@@ -1,11 +1,14 @@
 # Awesome Microsoft Copilot Prompts 🍳
 
-[![Prompts](https://img.shields.io/badge/prompts-400-blue)](https://nerdychefs.ai)
-[![Categories](https://img.shields.io/badge/categories-18-green)](https://nerdychefs.ai)
+[![Prompts](https://img.shields.io/badge/prompts-454-blue)](https://nerdychefs.ai)
+[![Apps](https://img.shields.io/badge/apps-7-green)](https://nerdychefs.ai)
+[![Roles](https://img.shields.io/badge/roles-16-green)](https://nerdychefs.ai)
 [![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue)](LICENSE)
 [![Enterprise](https://img.shields.io/badge/enterprise-tested-purple)](https://kesslernity.com)
 
-A curated collection of **400 production-tested Microsoft Copilot prompts** for enterprise professionals. From inbox intelligence to role-specific workflows, these prompts help you get the most out of Microsoft 365 Copilot.
+A curated collection of **454 production-tested Microsoft Copilot prompts** for enterprise professionals. From inbox intelligence to role-specific workflows, these prompts help you get the most out of Microsoft 365 Copilot.
+
+The repo is organized with a **dual-taxonomy structure**: browse by **Microsoft 365 app** or by **professional role**. A single source of truth in [`prompts/_canonical/`](prompts/_canonical/) feeds auto-generated indexes in [`prompts/by-app/`](prompts/by-app/) and [`prompts/by-role/`](prompts/by-role/).
 
 ## 📬 AI at Work Newsletter
 
@@ -34,273 +37,80 @@ Want to go beyond prompts? **AI Quick Start Essentials** is a free 35-minute cou
 
 ## 📊 Quick Stats
 
-- **383 Total Prompts** across 18 specialized collections
-- **26 Power User Prompts** for advanced Copilot mastery
-- **70 Outlook Prompts** for email intelligence and automation
-- **66 Standalone Prompts** for any Copilot version
-- **221 Role-Specific Prompts** covering 13 business functions
+- **454 Total Prompts** — single source of truth in `prompts/_canonical/`
+- **7 Microsoft 365 Apps** — browse by application
+- **16 Professional Roles** — browse by job function
 - **Tested in Production** by thousands of enterprise users
+- **Dual-Taxonomy Structure** — find prompts by app *or* by role
+- **Auto-Generated Indexes** — run `node build.js` to rebuild after edits
 
-## 🚀 Quick Start
+---
 
-### Example: Turn Your Inbox into a Strategic Intelligence System
+## 🗂️ Browse by App
 
-**Prompt:** "Inbox Intelligence Officer"
+Each prompt is tagged with its primary Microsoft 365 app. Click through to see prompts for that app.
 
-```
-Analyze all emails I received in the last 30 days. Create a full intelligence briefing including:
-1) Key actors and recurring senders
-2) Communication tone by sender (supportive, neutral, demanding)
-3) Topic clusters and themes
-4) Unresolved threads requiring action
-5) Projects that appear across multiple emails
-6) Status score for each project (on track, at risk, blocked)
-7) People I need to engage with more frequently
+| App | Prompts | Description |
+| --- | ------- | ----------- |
+| [Outlook](prompts/by-app/outlook/README.md) | 106 | Email intelligence, inbox management, triage, and automation |
+| [Cross-App](prompts/by-app/cross-app/README.md) | 286 | Prompts that span multiple Microsoft 365 apps |
+| [Word](prompts/by-app/word/README.md) | 13 | Document drafting, editing, and analysis |
+| [Microsoft Teams](prompts/by-app/teams/README.md) | 5 | Meeting intelligence, collaboration, and channel management |
+| [PowerPoint](prompts/by-app/powerpoint/README.md) | 5 | Presentation design, outline creation, and slide refinement |
+| [Excel](prompts/by-app/excel/README.md) | 4 | Data analysis, visualization, and spreadsheet intelligence |
+| [Security Copilot](prompts/by-app/security-copilot/README.md) | 35 | Threat hunting, incident response, and security operations |
 
-Format as an executive briefing.
-```
+**[Browse all prompts by app →](prompts/by-app/README.md)**
 
-**Use Case:** Strategic email management
-**Works In:** Outlook Copilot
-**Target Users:** Executives, Managers, Project Managers
+## 🧑‍💼 Browse by Role
 
-[See 70 more Outlook prompts →](prompts/outlook/)
+Every prompt is also tagged with a target professional role. Click through to find prompts tailored to your function.
 
-### Example: Excel Data Analysis Without Being a Data Scientist
+| Role | Prompts | Description |
+| ---- | ------- | ----------- |
+| [General](prompts/by-role/general/README.md) | 158 | Universal prompts for any Copilot user |
+| [Manager](prompts/by-role/manager/README.md) | 53 | People management, 1:1 prep, team coordination |
+| [Security](prompts/by-role/security/README.md) | 35 | SOC operations, threat hunting, compliance reporting |
+| [Legal & Compliance](prompts/by-role/legal-compliance/README.md) | 18 | Contract review, compliance research, policy drafting |
+| [Commercial Ops](prompts/by-role/commercial-ops/README.md) | 18 | Bid management, contract tracking, document control |
+| [Finance & HR](prompts/by-role/finance-hr/README.md) | 17 | Budgeting, audit support, onboarding, HR policy |
+| [Admin](prompts/by-role/admin/README.md) | 17 | Calendar management, travel coordination, meeting support |
+| [Project Leadership](prompts/by-role/project-leadership/README.md) | 17 | Budget tracking, stakeholder comms, change management |
+| [Sales](prompts/by-role/sales/README.md) | 16 | Pipeline management, outreach, competitive intelligence |
+| [Marketing](prompts/by-role/marketing/README.md) | 16 | Campaign management, content creation, social media |
+| [Research & Dev](prompts/by-role/research-dev/README.md) | 16 | Literature review, experiment tracking, prior art research |
+| [Consulting](prompts/by-role/consulting/README.md) | 16 | Client management, deliverable drafting, workshop prep |
+| [Customer Success](prompts/by-role/customer-success/README.md) | 16 | Account health, QBR prep, renewal management |
+| [Supply Chain](prompts/by-role/supply-chain/README.md) | 15 | Inventory optimization, shipment tracking, supplier management |
+| [Engineering & Construction](prompts/by-role/engineering-construction/README.md) | 14 | Field documentation, quality management, site coordination |
+| [Executive](prompts/by-role/executive/README.md) | 12 | Briefing generation, strategic communication, board prep |
 
-**Prompt:** "Data Storyteller"
+**[Browse all prompts by role →](prompts/by-role/README.md)**
 
-```
-Analyze this dataset and tell the data story:
-1) Key trends over time
-2) Notable outliers or anomalies with potential explanations
-3) Correlations or relationships between variables
-4) Segments or clusters in the data
-5) Unexpected findings
-6) Business implications of each insight
-7) Recommended actions based on analysis
+---
 
-Create visualizations for top 3 insights and provide narrative explanations suitable for presentation.
-```
-
-**Use Case:** Business intelligence and reporting
-**Works In:** Excel Copilot
-**Target Users:** Business Analysts, Managers, Data Analysts
-
-[See more Excel prompts →](prompts/power-users/README.md)
-
-## 🔄 Copilot vs ChatGPT: Key Differences
-
-Even when using the same underlying model (GPT-4/GPT-5), **Copilot behaves differently**:
-
-| Aspect | Microsoft Copilot | ChatGPT |
-|--------|-------------------|---------|
-| **Safety filters** | Enterprise-grade, strict | Consumer-level, more permissive |
-| **Data access** | Your M365 organizational data | No access to your files/emails |
-| **Vision capabilities** | Restricted/simplified pipelines | Full multimodal reasoning |
-| **Reasoning depth** | Optimized for fast, safe answers | Allows exploratory reasoning |
-| **Uncertain results** | Prefers "no result" over guessing | May provide probabilistic answers |
-| **Best for** | Business documents & structured data | Creative writing & coding |
-
-### What Copilot Does Well ✅
-- Compare structured documents
-- Summarize long technical PDFs
-- Cross-reference requirements across files
-- Answer questions when tags/metadata are explicit
-- Reason over text-heavy documents
-
-### What Copilot Struggles With ⚠️
-- Dense visual tagging in schematics
-- Implicit symbol recognition
-- Ambiguous labels in images
-- Vision-first analysis without supporting text
-- Engineering drawings, P&IDs, EPC schematics
-
-## 📚 Complete Collection (365 Prompts)
-
-### 🎓 Power Users & Advanced Techniques
-
-- [**AI for Microsoft Copilot Power Users**](prompts/power-users/README.md) (26 prompts)
-  + Advanced email intelligence
-  + Excel data intelligence
-  + Outlook email mastery
-  + PowerPoint presentation power
-  + Teams meeting intelligence
-  + Word document excellence
-
-### 📧 Email & Communication Mastery (82 prompts)
-
-- [**Copilot Inbox Management — Action Mode**](prompts/outlook/inbox-management-action-mode.md) (12 prompts) 🆕
-  + Triage & prioritization
-  + Non-responder detection & follow-up
-  + Inbox rules & automation
-  + Post-vacation & absence recovery
-  + Context-aware draft assembly
-  > Requires Frontier program. Copilot acts on your inbox — drafts, rules, triage — not just chat.
-
-- [**Advanced Outlook Automation**](prompts/outlook/advanced-automation.md) (20 prompts)
-  + Cognitive load & workload management
-  + Compliance & knowledge extraction
-  + Email battle planning & prioritization
-  + Inbox intelligence & strategic analysis
-  + Relationship & stakeholder intelligence
-  + Risk detection & early warning systems
-
-- [**Advanced Outlook Prompt Pack**](prompts/outlook/advanced-prompts.md) (50 prompts)
-  + Collaboration & communication
-  + Customer relations
-  + Decision support
-  + Documentation & reporting
-  + Meeting preparation & follow-up
-  + Problem solving
-  + Risk & compliance
-
-### 🏢 Enterprise & Quick Start (66 prompts)
-
-- [**Copilot Enterprise Prompts (Standalone)**](prompts/enterprise/standalone-prompts.md) (16 prompts)
-  + Analysis & reasoning frameworks
-  + Business writing templates
-  + Data processing & extraction
-  + Document analysis & comparison
-  + Image analysis (with limitations noted)
-  + Technical documentation
-
-- [**Copilot Quick Start Essentials**](prompts/quick-start/essentials.md) (50 prompts)
-  + Analysis & problem-solving
-  + Content creation
-  + Learning & research
-  + Planning & organization
-  + Writing & communication
-
-### 👔 Role-Specific Collections (221 prompts)
-
-#### Management & Leadership
-
-- [**Managers – Personal Assistant**](prompts/role-specific/managers-personal-assistant.md) (18 prompts) 🆕
-  + PA & time automation: daily command centre, meeting audit, focus time protector, email triage
-  + People management: 1:1 prep, team pulse, performance evidence, feedback drafting
-  + Decisions & escalation: decision triage, escalation support, weekly decision log
-  + Strategic alignment: OKR check, skip-level prep, cross-functional alignment, weekly digest
-  + Communication: stakeholder updates, change comms, onboarding, end-of-week reset
-  + **Includes ⚠️ Manager Copilot Guardrails**
-
-#### Business Operations & Support
-
-- [**Administrative & Executive Assistants**](prompts/role-specific/admin-executive-assistants.md) (17 prompts)
-  + Board support, calendar management, correspondence
-  + Document management, event & travel coordination
-  + Meeting support, process documentation
-  + **Includes ⚠️ Administrative Copilot Guardrails**
-
-- [**Commercial Operations**](prompts/role-specific/commercial-operations.md) (18 prompts)
-  + Baseline management, bid management, contract tracking
-  + Document control, delay analysis, distribution control
-  + **Includes ⚠️ Commercial Operations Copilot Guardrails**
-
-- [**Project Leadership**](prompts/role-specific/project-leadership.md) (18 prompts)
-  + Budget management, change tracking, client communication
-  + Cost reporting, decision support, stakeholder management
-  + **Includes ⚠️ Leadership Copilot Guardrails**
-
-#### Revenue & Growth
-
-- [**Sales & Business Development**](prompts/role-specific/sales-business-development.md) (16 prompts)
-  + Account management, competitive analysis, lead qualification
-  + Outreach sequences, pipeline management, proposal follow-up
-  + **Includes ⚠️ Sales Copilot Guardrails**
-
-- [**Marketing & Communications**](prompts/role-specific/marketing-communications.md) (16 prompts)
-  + Campaign management, content creation, event marketing
-  + Social media, PR, internal communications
-  + **Includes ⚠️ Marketing & Communications Copilot Guardrails**
-
-- [**Customer Success & Support**](prompts/role-specific/customer-success-support.md) (16 prompts)
-  + Account health monitoring, QBR preparation, renewal management
-  + Escalation handling, onboarding support, expansion opportunities
-  + **Includes ⚠️ Customer Success & Support Copilot Guardrails**
-
-#### Professional Services
-
-- [**Consulting & Professional Services**](prompts/role-specific/consulting-professional-services.md) (16 prompts)
-  + Advisory services, client management, deliverable development
-  + Engagement management, workshop facilitation
-  + **Includes ⚠️ Consulting Copilot Guardrails + Client Confidentiality Warnings**
-
-- [**Engineering & Construction**](prompts/role-specific/engineering-construction.md) (16 prompts)
-  + Field documentation, meeting prep, problem resolution
-  + Project communication, quality management, site coordination
-  + **Includes ⚠️ Engineering Copilot Guardrails + ⚠️ Construction Safety Guardrails**
-
-#### Corporate Functions
-
-- [**Finance & HR**](prompts/role-specific/finance-hr.md) (18 prompts)
-  + Audit support, budgeting, financial review
-  + HR policy, internal comms, onboarding, employee engagement
-  + **Includes ⚠️ Finance & HR Copilot Guardrails**
-
-- [**HSE, Legal & Compliance**](prompts/role-specific/hse-legal-compliance.md) (20 prompts)
-  + Safety procedures, incident research, environmental compliance
-  + Contract negotiation, claims management, legal research
-  + **⛔ CRITICAL HSE GUARDRAILS - Safety authorization boundaries**
-  + **Includes ⚠️ Legal & IT Copilot Guardrails**
-
-#### Security Operations
-
-- [**Microsoft Copilot for Security**](prompts/security-copilot/README.md) (35 prompts) — **NEW**
-  + How Copilot for Security works + SCU billing mechanics explained
-  + SCU-optimized prompting guide: what costs less vs. what burns compute
-  + [SOC Operations](prompts/security-copilot/soc-operations.md): incident triage, threat hunting, identity investigation, vulnerability management, DLP
-  + [Security Reporting](prompts/security-copilot/security-reporting.md): board reports, CISO briefings, compliance posture, audit responses, patch compliance
-  + **⚠️ Requires Copilot for Security license — NOT included in M365 Copilot (except E5/E7 SCU allocation)**
-
-#### Automation & Scheduled Workflows
-
-- [**Copilot Cowork — Agentic Workflows**](prompts/cowork/README.md) (18 prompts) — **NEW**
-  + Outcome-focused prompts for M365 Copilot's agentic execution layer (Frontier program)
-  + Cowork plans, executes multi-step tasks, and asks for approval before taking action — unlike Chat
-  + Scheduled: Monday briefing, Friday digest, daily inbox scan, commitment tracker, calendar triage
-  + One-time: stakeholder update, pre-meeting research, post-meeting capture, executive pre-read
-  + Project & portfolio: risk sweep, cross-project digest, competitive signal sweep
-  + Document generation: MOM from notes, presentation from brief
-  + Delegation Brief format + "show sources before drafting" pattern explained
-  + **⚠️ Requires M365 Copilot + Frontier enrolment + Anthropic enabled as sub-processor · Max 5 scheduled prompts · EU tenants: Anthropic off by default**
-
-- [**Scheduled Prompts**](prompts/scheduled-prompts/README.md) (15 prompts) — **NEW**
-  + 5-step setup guide for scheduling prompts in M365 Copilot Chat
-  + Daily productivity: morning briefing, calendar prep, end-of-day commitment tracker
-  + Sales & BD: weekly pipeline pulse, prospect follow-up, competitive intelligence digest
-  + Project management: weekly status brief, Monday blocker check, Friday team summary
-  + Finance, HR, and Executive briefing prompts
-  + **⚠️ Requires M365 Copilot paid add-on ($30/user/month) · Up to 10 scheduled prompts per user · GA since January 2026**
-
-#### Specialized Functions
-
-- [**Research & Development**](prompts/role-specific/research-development.md) (16 prompts)
-  + Prior art research, experiment tracking, literature review
-  + Publication planning, competitive research, lab management
-  + **Includes ⚠️ R&D Copilot Guardrails + IP & Confidentiality Warnings**
-
-- [**Supply Chain & Logistics**](prompts/role-specific/supply-chain-logistics.md) (16 prompts)
-  + Supplier management, shipment tracking, inventory optimization
-  + Disruption management, customs support, S&OP planning
-  + **Includes ⚠️ Supply Chain & Logistics Copilot Guardrails**
-
-## 💡 How to Use These Prompts
+## 💡 How to Use
 
 ### 1. Find Your Use Case
 
-Browse by role or search for your specific need (e.g., "email prioritization", "data analysis", "meeting prep").
+- **[Browse by App](prompts/by-app/README.md)** — pick the Microsoft 365 app you're working in (Outlook, Excel, Teams, etc.)
+- **[Browse by Role](prompts/by-role/README.md)** — find prompts tailored to your job function (Manager, Sales, Marketing, etc.)
 
-### 2. Copy & Customize
+### 2. Click Through to the Canonical Prompt
 
-Each prompt is designed to work immediately but customize the placeholders:
+Each entry in the generated indexes links directly to the canonical file in `prompts/_canonical/`. That single file is the authoritative source for the prompt body, use case, difficulty level, and app/role metadata.
+
+### 3. Copy & Customize
+
+Every prompt works out of the box, but you'll get the best results by replacing placeholders:
 
 - `[TOPIC]` → your specific subject
-- `[TIMEFRAME]` → your desired period
+- `[TIMEFRAME]` → your desired period (e.g., "last 7 days", "this quarter")
 - `[METRIC]` → your KPI or measurement
 - `[ACCOUNT NAME]` → specific client or project
+- `[AUDIENCE]` → who the output is for (VP, technical team, board)
 
-### 3. Run in Copilot
+### 4. Run in Copilot
 
 Paste the prompt into the appropriate Microsoft 365 app:
 
@@ -310,28 +120,15 @@ Paste the prompt into the appropriate Microsoft 365 app:
 - **PowerPoint:** Use in PowerPoint Copilot designer
 - **Teams:** Use in Teams Copilot chat for meeting intelligence
 
-### 4. Iterate & Improve
+### 5. Iterate
 
-Copilot learns from context. If the first result isn't perfect, provide feedback:
-- "Make it more concise"
-- "Focus on Q4 data only"
-- "Add risk assessment"
-- "Format as a table"
+If the first result isn't perfect, refine with follow-ups:
+- *"Make it more concise"*
+- *"Focus on Q4 data only"*
+- *"Add a risk assessment section"*
+- *"Format as a table"*
 
-## 🔥 Most Popular Prompts
-
-1. **360° Relationship Mapper** - Map stakeholder relationships from email patterns
-2. **Early Warning System** - Predict which topics will become future problems
-3. **Dashboard Insight Generator** - Turn Excel data into executive dashboards
-4. **Email Battle Plan Generator** - Strategic inbox prioritization
-5. **Context Fusion Engine** - Synthesize project status across all communications
-6. **Escalation Radar Detector** - Early crisis detection from email sentiment
-7. **Meeting Prep Intelligence Pack** - Comprehensive meeting preparation
-8. **QBR Preparation** - Quarterly business review content from communications
-9. **Deal Progress Summary** - Complete deal tracking from scattered emails
-10. **Shipment Issue Summary** - Logistics intelligence from multiple sources
-
-[See all power user prompts →](prompts/power-users/README.md)
+---
 
 ## 🏢 Enterprise Deployment
 
@@ -344,11 +141,11 @@ Using Copilot across your organization? These prompts work even better when depl
 - Team training and adoption
 - Role-based prompt libraries
 
-👉 **[Check out Kesslernity](https://kesslernity.com)** - Enterprise AI deployment platform
+👉 **[Check out Kesslernity](https://kesslernity.com)** — Enterprise AI deployment platform
 
 ## 🌐 Full Searchable Library
 
-This repo contains **365 prompts** optimized for Microsoft Copilot. For the complete searchable library with:
+This repo contains **454 prompts** optimized for Microsoft Copilot. For the complete searchable library with:
 
 - Advanced filtering by role, use case, and app
 - Copy-to-clipboard functionality
@@ -356,7 +153,7 @@ This repo contains **365 prompts** optimized for Microsoft Copilot. For the comp
 - Additional ChatGPT, Claude, and Gemini prompts
 - **No signup required**
 
-👉 **Visit [NerdyChefs.ai](https://nerdychefs.ai)** - 1,565+ free AI prompts & tools
+👉 **Visit [NerdyChefs.ai](https://nerdychefs.ai)** — 1,565+ free AI prompts & tools
 
 ## 🤝 Contributing
 
@@ -364,7 +161,7 @@ Have a killer Copilot prompt that's made your work life easier? We'd love to add
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
 
-- Prompt format requirements
+- Prompt format requirements (YAML frontmatter in `prompts/_canonical/`)
 - Testing standards (must be production-tested)
 - Documentation expectations
 - Review process
@@ -376,38 +173,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
 3. Include clear use cases and target personas
 4. Work specifically with Microsoft Copilot (not generic AI prompts)
 
-## 📖 Prompt Engineering Tips
+> **Note for contributors:** After adding or updating a canonical file in `prompts/_canonical/`, run `node build.js` to regenerate the app and role indexes.
 
-New to Copilot? Here's how to get better results:
-
-### The 4-Question Formula
-
-Transform vague requests into specific prompts:
-
-1. **WHAT** - What exactly do you want? (Be specific)
-2. **WHO** - Who is this for? (Audience matters)
-3. **WHY** - What's the business context? (Purpose drives output)
-4. **HOW LONG** - How detailed? (Scope the response)
-
-**Example:**
-❌ "Summarize my emails"
-✅ "Summarize emails from the last 7 days related to the Q1 budget review. I need bullet points for my VP—keep it under 5 key points highlighting any blockers."
-
-### Give Copilot Context
-
-- Reference specific data: "Based on the spreadsheet I just opened..."
-- Mention timeframes: "In emails from this month..."
-- Specify format: "Create as a table" or "Write as a memo"
-- Include audience: "For technical team" vs "For executive review"
-
-### Iterate Don't Restart
-
-If the output isn't right:
-
-- Add constraints: "Make it shorter" or "Focus only on risks"
-- Provide examples: "Like the format we used last quarter"
-- Correct mistakes: "The deadline is March 15, not May 15"
-- Request specific changes: "Add a risk assessment section"
+---
 
 ## 🔐 Governance & Guardrails
 
@@ -425,7 +193,9 @@ Every role-specific collection includes **critical guardrails** explaining:
 - **Sales:** NEVER for pricing decisions or contract terms
 - **Engineering:** NEVER for engineering calculations or design approval
 
-[See example guardrails →](prompts/role-specific/hse-legal-compliance.md#-hse-critical-guardrails---read-first)
+[See example guardrails →](prompts/by-role/legal-compliance/README.md)
+
+---
 
 ## 📱 Stay Updated
 
@@ -468,12 +238,14 @@ Built by [Mathieu Kessler](https://linkedin.com/in/mathieukessler) and the team 
 
 ## 🔗 Quick Links
 
-- **[Full Prompt Library](https://nerdychefs.ai)** - 1,565+ free AI prompts & tools (no signup)
-- **[Kesslernity](https://kesslernity.com)** - Enterprise AI deployment platform
-- **[LinkedIn](https://linkedin.com/in/mathieukessler)** - Connect with Mathieu
-- **[X/Twitter](https://x.com/nerdychefsai)** - Daily AI productivity tips
-- **[Contributing Guide](CONTRIBUTING.md)** - Submit your own prompts
-- **[License](LICENSE)** - CC BY-SA 4.0
+- **[Full Prompt Library](https://nerdychefs.ai)** — 1,565+ free AI prompts & tools (no signup)
+- **[Browse by App](prompts/by-app/README.md)** — 454 prompts organized by Microsoft 365 app
+- **[Browse by Role](prompts/by-role/README.md)** — 454 prompts organized by professional role
+- **[Kesslernity](https://kesslernity.com)** — Enterprise AI deployment platform
+- **[LinkedIn](https://linkedin.com/in/mathieukessler)** — Connect with Mathieu
+- **[X/Twitter](https://x.com/nerdychefsai)** — Daily AI productivity tips
+- **[Contributing Guide](CONTRIBUTING.md)** — Submit your own prompts
+- **[License](LICENSE)** — CC BY-SA 4.0
 
 ---
 

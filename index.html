@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="429 production-tested Microsoft Copilot prompts — searchable, filterable, copy-ready.">
+<meta name="description" content="454 production-tested Microsoft Copilot prompts — searchable, filterable, copy-ready.">
 <title>Copilot Prompt Library</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -245,6 +245,7 @@ body {
   background: var(--primary);
 }
 
+.sidebar-section { margin-bottom: 8px; }
 .sidebar-group { margin-bottom: 4px; }
 
 .group-label {
@@ -863,7 +864,7 @@ body {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
     </svg>
-    <input class="search-input" id="search" type="search" placeholder="Search 429 prompts…" autocomplete="off" spellcheck="false">
+    <input class="search-input" id="search" type="search" placeholder="Search 454 prompts…" autocomplete="off" spellcheck="false">
     <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
   </div>
 
@@ -886,11 +887,20 @@ body {
 
   <!-- Sidebar -->
   <nav class="sidebar" id="sidebar" aria-label="Categories">
-    <div class="sidebar-all active" id="nav-all" onclick="setFilter(null, null)">
+    <div class="sidebar-all active" id="nav-all" onclick="clearFilter()">
       <span>All Prompts</span>
-      <span class="nav-count" id="nav-all-count">429</span>
+      <span class="nav-count" id="nav-all-count">454</span>
     </div>
-    <div id="nav-groups"></div>
+    
+    <div class="sidebar-section">
+      <span class="group-label">Browse by App</span>
+      <div id="nav-apps"></div>
+    </div>
+    
+    <div class="sidebar-section">
+      <span class="group-label">Browse by Role</span>
+      <div id="nav-roles"></div>
+    </div>
   </nav>
 
   <!-- Main -->
@@ -930,8 +940,8 @@ body {
 // ─── State ─────────────────────────────────────────────────────────
 const state = {
   search: '',
-  group: null,
-  category: null,
+  filterType: null,   // 'app' or 'role'
+  filterValue: null,   // app key or role key
   filtered: PROMPTS_DATA,
   activePrompt: null,
 };
@@ -970,38 +980,56 @@ async function copyText(text, btnEl) {
 
 // ─── Sidebar ───────────────────────────────────────────────────────
 function buildSidebar() {
-  const container = document.getElementById('nav-groups');
-  let html = '';
-
-  for (const [group, categories] of Object.entries(GROUPS_META)) {
-    html += `<div class="sidebar-group">`;
-    html += `<span class="group-label">${esc(group)}</span>`;
-    for (const [cat, meta] of Object.entries(categories)) {
-      html += `
-        <div class="nav-item" data-group="${esc(group)}" data-cat="${esc(cat)}"
-             onclick="setFilter('${esc(group)}', '${esc(cat)}')">
-          <span class="nav-dot" style="background:${meta.color}"></span>
-          <span class="nav-label">${esc(cat)}</span>
-          <span class="nav-count">${meta.count}</span>
-        </div>`;
-    }
-    html += `</div>`;
+  // Build "Browse by App" section from APPS_META
+  const appsContainer = document.getElementById('nav-apps');
+  let appsHtml = '';
+  for (const [key, meta] of Object.entries(APPS_META)) {
+    appsHtml += `
+      <div class="nav-item" data-type="app" data-value="${esc(key)}"
+           onclick="setFilter('app', '${esc(key)}')">
+        <span class="nav-dot" style="background:${meta.color}"></span>
+        <span class="nav-label">${esc(meta.display)}</span>
+        <span class="nav-count">${meta.count}</span>
+      </div>`;
   }
-  container.innerHTML = html;
+  appsContainer.innerHTML = appsHtml;
+
+  // Build "Browse by Role" section from ROLES_META
+  const rolesContainer = document.getElementById('nav-roles');
+  let rolesHtml = '';
+  for (const [key, meta] of Object.entries(ROLES_META)) {
+    rolesHtml += `
+      <div class="nav-item" data-type="role" data-value="${esc(key)}"
+           onclick="setFilter('role', '${esc(key)}')">
+        <span class="nav-label">${esc(meta.display)}</span>
+        <span class="nav-count">${meta.count}</span>
+      </div>`;
+  }
+  rolesContainer.innerHTML = rolesHtml;
 }
 
 function updateSidebarActive() {
-  document.getElementById('nav-all').classList.toggle('active', !state.group && !state.category);
+  document.getElementById('nav-all').classList.toggle('active', !state.filterType && !state.filterValue);
   document.querySelectorAll('.nav-item').forEach(el => {
-    const active = el.dataset.group === state.group && el.dataset.cat === state.category;
+    const active = el.dataset.type === state.filterType && el.dataset.value === state.filterValue;
     el.classList.toggle('active', active);
   });
 }
 
+function clearFilter() {
+  state.filterType = null;
+  state.filterValue = null;
+  applyFilter();
+  updateSidebarActive();
+  updateActiveFilters();
+  closeSidebarMobile();
+  document.getElementById('main').scrollTop = 0;
+}
+
 // ─── Filtering ─────────────────────────────────────────────────────
-function setFilter(group, category) {
-  state.group = group;
-  state.category = category;
+function setFilter(type, value) {
+  state.filterType = type;
+  state.filterValue = value;
   applyFilter();
   updateSidebarActive();
   updateActiveFilters();
@@ -1025,10 +1053,10 @@ function applyFilter() {
     );
   }
 
-  if (state.category) {
-    results = results.filter(p => p.category === state.category);
-  } else if (state.group) {
-    results = results.filter(p => p.group === state.group);
+  if (state.filterType === 'app' && state.filterValue) {
+    results = results.filter(p => p.app === state.filterValue);
+  } else if (state.filterType === 'role' && state.filterValue) {
+    results = results.filter(p => p.role === state.filterValue);
   }
 
   state.filtered = results;
@@ -1123,10 +1151,13 @@ function openModal(id) {
 
   document.getElementById('modal-title').textContent = p.title;
 
-  // Breadcrumb
+  // Breadcrumb: App › Role › Difficulty
   const bc = document.getElementById('modal-breadcrumb');
-  bc.innerHTML = `<b>${esc(p.group)}</b><span>›</span><b>${esc(p.category)}</b>` +
-    (p.subcategory ? `<span>›</span><span>${esc(p.subcategory)}</span>` : '');
+  const appDisplay = APPS_META[p.app] ? APPS_META[p.app].display : p.group;
+  const roleDisplay = ROLES_META[p.role] ? ROLES_META[p.role].display : p.category;
+  const diffDisplay = p.difficulty ? p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1) : p.subcategory;
+  bc.innerHTML = `<b>${esc(appDisplay)}</b><span>›</span><b>${esc(roleDisplay)}</b>` +
+    (diffDisplay ? `<span>›</span><span>${esc(diffDisplay)}</span>` : '');
 
   // Body
   const body = document.getElementById('modal-body');

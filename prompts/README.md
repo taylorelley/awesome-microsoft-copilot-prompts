@@ -1,46 +1,25 @@
 # Prompt Collections
 
-> Browse all 365 Microsoft Copilot prompts organized by category.
+> This repository uses a **dual-taxonomy structure**. All prompts live in `_canonical/` as the single source of truth, and are auto-organized into browsable indexes.
 
-[← Back to Main Collection](../README.md)
+## Browse by App
 
----
+See [prompts/by-app/README.md](by-app/README.md) for prompts organized by Microsoft 365 application.
 
-## Categories
+## Browse by Role
 
-### Power Users & Advanced Techniques
+See [prompts/by-role/README.md](by-role/README.md) for prompts organized by professional role.
 
-- [**AI for Microsoft Copilot Power Users**](power-users/README.md) — 26 prompts for advanced cross-app productivity
+## Canonical Source
 
-### Email & Communication Mastery
+All prompt files are in [`_canonical/`](_canonical/). Each file includes YAML frontmatter with metadata (app, role, difficulty, use_case) and the full prompt text.
 
-- [**Advanced Outlook Automation**](outlook/advanced-automation.md) — 20 prompts for inbox intelligence and strategic analysis
-- [**Advanced Outlook Prompt Pack**](outlook/advanced-prompts.md) — 50 universal Outlook prompts
+To regenerate the indexes after editing canonical files, run:
 
-### Enterprise & Quick Start
-
-- [**Copilot Enterprise Prompts (Standalone)**](enterprise/standalone-prompts.md) — 16 prompts that work without M365 integration
-- [**Copilot Quick Start Essentials**](quick-start/essentials.md) — 50 prompts for any Copilot version
-
-### Role-Specific Collections
-
-- [**Administrative & Executive Assistants**](role-specific/admin-executive-assistants.md) — 17 prompts
-- [**Commercial Operations**](role-specific/commercial-operations.md) — 18 prompts
-- [**Consulting & Professional Services**](role-specific/consulting-professional-services.md) — 16 prompts
-- [**Customer Success & Support**](role-specific/customer-success-support.md) — 16 prompts
-- [**Engineering & Construction**](role-specific/engineering-construction.md) — 16 prompts
-- [**Finance & HR**](role-specific/finance-hr.md) — 18 prompts
-- [**HSE, Legal & Compliance**](role-specific/hse-legal-compliance.md) — 20 prompts
-- [**Marketing & Communications**](role-specific/marketing-communications.md) — 16 prompts
-- [**Project Leadership**](role-specific/project-leadership.md) — 18 prompts
-- [**Research & Development**](role-specific/research-development.md) — 16 prompts
-- [**Sales & Business Development**](role-specific/sales-business-development.md) — 16 prompts
-- [**Supply Chain & Logistics**](role-specific/supply-chain-logistics.md) — 16 prompts
-
-[Browse Role-Specific Prompts →](role-specific/README.md)
+```bash
+node build.js
+```
 
 ---
 
 **Made with care by [NerdyChefs.ai](https://nerdychefs.ai)**
-
-For the complete library of 1,565+ AI prompts, visit [nerdychefs.ai](https://nerdychefs.ai)

@@ -5,10 +5,12 @@ Thank you for your interest in contributing to our collection of Microsoft Copil
 ## 📋 Table of Contents
 
 - [Quality Standards](#-quality-standards)
-- [Prompt Format Requirements](#-prompt-format-requirements)
-- [How to Submit](#-how-to-submit)
+- [Repository Structure](#-repository-structure)
+- [How to Add a New Prompt](#-how-to-add-a-new-prompt)
+- [How to Update an Existing Prompt](#-how-to-update-an-existing-prompt)
+- [Frontmatter Reference](#-frontmatter-reference)
+- [Testing Standards](#-testing-standards)
 - [Review Process](#-review-process)
-- [Categories and Tags](#-categories-and-tags)
 - [Code of Conduct](#-code-of-conduct)
 - [Questions?](#-questions)
 
@@ -18,11 +20,11 @@ We only accept prompts that meet the following criteria:
 
 ### Must Have
 
-1. **Production-Tested** - The prompt must have been used in real work scenarios, not just theoretically designed
-2. **Copilot-Specific** - Must work specifically with Microsoft Copilot (not generic AI prompts)
-3. **Business Value** - Solves a real business problem or significantly improves productivity
-4. **Clear Use Case** - Includes specific scenarios where the prompt is useful
-5. **Target Audience** - Defines who would benefit from this prompt
+1. **Production-Tested** — The prompt must have been used in real work scenarios, not just theoretically designed
+2. **Copilot-Specific** — Must work specifically with Microsoft Copilot (not generic AI prompts)
+3. **Business Value** — Solves a real business problem or significantly improves productivity
+4. **Clear Use Case** — Includes specific scenarios where the prompt is useful
+5. **Target Audience** — Defines who would benefit from this prompt
 
 ### Nice to Have
 
@@ -34,94 +36,219 @@ We only accept prompts that meet the following criteria:
 ### Not Accepted
 
 - Generic prompts that work the same on any AI (ChatGPT, Claude, etc.)
-- Prompts for personal/non-work use
+- Prompts for personal / non-work use
 - Prompts that could violate enterprise policies
 - Prompts that attempt to bypass safety features
 - Prompts with placeholder-only content (no actual substance)
 
-## 📝 Prompt Format Requirements
+## 🏗️ Repository Structure
 
-All prompts must follow this exact structure:
+```
+prompts/
+├── _canonical/              # 📝 Single source of truth — edit here only
+│   ├── daily-calendar-prep.md
+│   ├── meeting-agenda.md
+│   └── ...
+├── by-app/                  # ⚠️ Auto-generated — do not edit
+│   ├── README.md
+│   ├── outlook/README.md
+│   ├── teams/README.md
+│   └── ...
+└── by-role/                 # ⚠️ Auto-generated — do not edit
+    ├── README.md
+    ├── executive/README.md
+    ├── manager/README.md
+    └── ...
+build.js                     # Generates by-app/ and by-role/ indexes
+data.js                      # Auto-generated — do not edit
+```
 
-```markdown
-### [Prompt Number]. [Prompt Name]
+- **All prompts live in `prompts/_canonical/`** as individual `.md` files with YAML frontmatter.
+- `build.js` reads the canonical files and generates the `by-app/` and `by-role/` index READMEs, plus `data.js` for the web UI.
+- **Never edit files inside `by-app/` or `by-role/` manually** — they are overwritten every time `build.js` runs.
 
-**Use Case:** [Specific scenario where this prompt is useful]
+## ➕ How to Add a New Prompt
 
-**Target Personas:** [Job roles that would benefit, comma-separated]
+### 1. Create the file
 
-**Tags:** `tag1`, `tag2`, `tag3`
+Create a new Markdown file in `prompts/_canonical/` using kebab-case for the filename:
 
-**Prompt:**
+```
+prompts/_canonical/your-prompt-title.md
+```
 
-\```
-[The actual prompt text goes here]
-\```
+### 2. Add YAML frontmatter
 
+Every file **must** begin with YAML frontmatter containing these four required fields:
+
+```yaml
+---
+title: "Your Prompt Title"
+app: outlook
+role: manager
+difficulty: beginner
+use_case: "One-sentence description of what this prompt does"
 ---
 ```
 
-### Example
+**Example:**
 
-```markdown
-### 1. Weekly Status Synthesis
-
-**Use Case:** Synthesize a week of scattered communications into a coherent status report
-
-**Target Personas:** Project Manager, Program Manager, Delivery Manager
-
-**Tags:** `Microsoft Copilot`, `Microsoft 365`, `Status Report`, `Project Management`
-
-**Prompt:**
-
-\```
-Review all my emails, Teams messages, and meeting notes from the past week related to [Project Name]. Provide:
-
-1. Progress highlights — what got done
-2. Key issues raised — with who raised them
-3. Decisions made or pending
-4. Risks or concerns mentioned
-5. Client/stakeholder feedback
-6. Actions assigned and their status
-
-Format as a draft status report. Flag areas where information seems incomplete or conflicting.
-\```
-
+```yaml
+---
+title: "Daily Calendar Prep"
+app: cross-app
+role: general
+difficulty: intermediate
+use_case: "Know what today requires before the first meeting starts"
 ---
 ```
 
-## 🚀 How to Submit
+### 3. Write the body
 
-### Option 1: Pull Request (Preferred)
+After the frontmatter, use this two-section structure:
 
-1. **Fork** this repository
-2. **Create a branch** for your contribution: `git checkout -b add-prompt-name`
-3. **Add your prompt** to the appropriate category file in `/prompts/`
-4. **Follow the format** exactly as specified above
-5. **Test your prompt** in Microsoft 365 Copilot before submitting
-6. **Submit a Pull Request** with:
-   - Clear title: "Add: [Prompt Name] to [Category]"
-   - Description of what the prompt does
-   - Confirmation that you've tested it in production
+```markdown
+## Context
+Brief description of the scenario and when to use this prompt.
 
-### Option 2: Issue Submission
+## Prompt
+\```
+The exact prompt text that users will copy into Microsoft Copilot.
+\```
+```
 
-If you're not comfortable with pull requests:
+**Complete example:**
 
-1. Open a new **Issue**
-2. Use the title format: "[Prompt Submission] Your Prompt Name"
-3. Include all required fields from the format above
-4. Describe your testing and use case
+```markdown
+---
+title: "Daily Calendar Prep"
+app: cross-app
+role: general
+difficulty: intermediate
+use_case: "Know what today requires before the first meeting starts"
+---
+
+## Context
+Know what today requires before the first meeting starts.
+
+## Prompt
+\```
+List my meetings for today. For each meeting show:
+- Time and duration
+- Attendees (names only, not email addresses)
+- One sentence on what the meeting is likely about based on the invite subject and any related emails from the last 3 days
+- Any open action items from previous meetings with the same people
+
+Flag any back-to-back blocks with no break.
+\```
+```
+
+### 4. Run the build
+
+From the repository root, run:
+
+```bash
+node build.js
+```
+
+This regenerates:
+- `data.js` (prompt data for the web UI)
+- `prompts/by-app/` index READMEs grouped by application
+- `prompts/by-role/` index READMEs grouped by role
+
+### 5. Commit and submit
+
+Include **both** your new canonical file **and** the regenerated build output:
+
+```bash
+git add prompts/_canonical/your-prompt-title.md
+git add data.js prompts/by-app/ prompts/by-role/
+git commit -m "Add: Your Prompt Title"
+git push
+```
+
+Then open a Pull Request with:
+- **Title:** `"Add: Your Prompt Title to [app]"`  
+- **Description:** What the prompt does and confirmation that you tested it in production
+
+## ✏️ How to Update an Existing Prompt
+
+1. **Edit the canonical file** — make your changes in `prompts/_canonical/{slug}.md`
+2. **Run the build** — from the repository root: `node build.js`
+3. **Commit both** — include the canonical file and all regenerated outputs:
+   ```bash
+   git add prompts/_canonical/{slug}.md data.js prompts/by-app/ prompts/by-role/
+   git commit -m "Update: {Prompt Title}"
+   ```
+
+> ⚠️ **Never edit the generated files (`data.js`, `prompts/by-app/`, `prompts/by-role/`) directly.**  
+> Any manual changes will be overwritten the next time `build.js` runs.
+
+## 📐 Frontmatter Reference
+
+### `app` — Microsoft 365 Application
+
+| Value | Description |
+|-------|-------------|
+| `outlook` | Microsoft Outlook — email & calendar |
+| `excel` | Microsoft Excel — spreadsheets & data analysis |
+| `teams` | Microsoft Teams — chat, meetings & collaboration |
+| `word` | Microsoft Word — documents & reports |
+| `powerpoint` | Microsoft PowerPoint — presentations & decks |
+| `security-copilot` | Microsoft Security Copilot — security operations |
+| `cross-app` | Works across multiple Copilot-enabled apps |
+
+### `role` — Target Professional Role
+
+| Value | Display Name |
+|-------|-------------|
+| `executive` | Executive |
+| `manager` | Manager |
+| `sales` | Sales |
+| `marketing` | Marketing |
+| `operations` | Operations |
+| `finance-hr` | Finance & HR |
+| `legal-compliance` | Legal & Compliance |
+| `security` | Security |
+| `assistant` | Assistant |
+| `research-dev` | Research & Dev |
+| `consulting` | Consulting |
+| `project-leadership` | Project Leadership |
+| `customer-success` | Customer Success |
+| `commercial-ops` | Commercial Ops |
+| `supply-chain` | Supply Chain |
+| `engineering-construction` | Engineering & Construction |
+| `admin` | Admin |
+| `general` | General (applicable to any role) |
+
+### `difficulty` — Skill Level
+
+| Value | Description |
+|-------|-------------|
+| `beginner` | Simple copy-paste prompts, no customization needed |
+| `intermediate` | Requires some user input / customization in `[brackets]` |
+| `advanced` | Multi-step prompts, complex logic, or Copilot Studio required |
+
+## 🧪 Testing Standards
+
+Before submitting, verify that your prompt:
+
+1. **Works in Microsoft Copilot** — test it in the actual Microsoft 365 Copilot interface (or Security Copilot where applicable)
+2. **Produces meaningful output** — the response should be useful without excessive post-editing
+3. **Handles edge cases** — consider what happens when data is missing or the user has fewer meetings / emails than expected
+4. **Is clearly scoped** — the prompt should not try to do too many things at once; split complex workflows into multiple prompts if needed
+
+If the prompt requires Copilot Studio, custom agents, or specific licensing, note that in the `## Context` section.
 
 ## 🔍 Review Process
 
 All submissions go through the following review:
 
-1. **Format Check** - Does it follow the required structure?
-2. **Quality Review** - Does it meet our quality standards?
-3. **Technical Review** - Does it work correctly with Microsoft Copilot?
-4. **Category Fit** - Is it in the right collection?
-5. **Duplicate Check** - Is there already a similar prompt?
+1. **Format Check** — Does the YAML frontmatter contain all required fields? Is the body structure correct?
+2. **Quality Review** — Does the prompt meet our quality standards (production-tested, business value, Copilot-specific)?
+3. **Technical Review** — Does the prompt work correctly with Microsoft Copilot?
+4. **Category Fit** — Are `app` and `role` values appropriate for this prompt?
+5. **Duplicate Check** — Does a similar prompt already exist?
 
 ### Timeline
 
@@ -132,41 +259,12 @@ All submissions go through the following review:
 ### Review Feedback
 
 We may ask you to:
+
 - Clarify the use case
-- Add more specific target personas
+- Add more specific context or instructions
 - Adjust the prompt for better Copilot compatibility
-- Move to a different category
+- Change the `app` or `role` classification
 - Combine with an existing similar prompt
-
-## 🏷️ Categories and Tags
-
-### Available Categories
-
-| Category | Description | Location |
-|----------|-------------|----------|
-| Power Users | Advanced cross-app prompts | `/prompts/power-users/` |
-| Outlook Automation | Email-specific prompts | `/prompts/outlook/` |
-| Enterprise Standalone | Works without M365 integration | `/prompts/enterprise/` |
-| Quick Start | Universal beginner prompts | `/prompts/quick-start/` |
-| Role-Specific | Job function prompts | `/prompts/role-specific/` |
-
-### Required Tags
-
-Every prompt must include these tag types:
-
-- **Platform tag:** `Microsoft Copilot`, `Microsoft 365`
-- **App tag (if applicable):** `Outlook`, `Excel`, `Word`, `PowerPoint`, `Teams`
-- **Category tag:** `Productivity`, `Analysis`, `Communication`, etc.
-- **Audience tag:** `Executive`, `Manager`, `Individual Contributor`, etc.
-
-### Common Tags
-
-```
-Microsoft Copilot, Microsoft 365, Productivity, Office, Work Users,
-Outlook, Email Management, Meeting Prep, Status Report, Analysis,
-Executive, Manager, Project Manager, Team Lead, Individual Contributor,
-Enterprise, Governance, Guardrails, Safety
-```
 
 ## 📜 Code of Conduct
 
@@ -200,11 +298,11 @@ Enterprise, Governance, Guardrails, Safety
 
 - **Is my prompt Copilot-specific?** If it works the same on ChatGPT without modification, it's probably too generic.
 - **Have I tested it?** We require real-world testing, not theoretical prompts.
-- **Does it add value?** Compare to existing prompts in the same category.
+- **Does it add value?** Compare to existing prompts in the same `app` and `role` combination.
 
 ### Getting Help
 
-- Open an **Issue** with the label "question"
+- Open an **Issue** with the label `question`
 - Tag maintainers in your PR if stuck
 - Check existing issues for similar questions
 

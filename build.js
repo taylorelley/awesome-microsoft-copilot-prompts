@@ -1,205 +1,437 @@
 #!/usr/bin/env node
-// Parses all markdown prompt files → generates data.js for the PWA
+/**
+ * build.js — Generates data.js and prompts/by-app/, prompts/by-role/ README files
+ * from YAML-frontmatter markdown files in prompts/_canonical/.
+ *
+ * Usage: node build.js
+ *
+ * Expected YAML frontmatter format in prompts/_canonical/*.md:
+ *   ---
+ *   title: Prompt Title
+ *   app: outlook           # one of the supported app keys
+ *   role: executive        # one of the supported role keys
+ *   difficulty: beginner   # beginner / intermediate / advanced
+ *   use_case: Short description of what this prompt does
+ *   ---
+ *   Prompt body text...
+ */
 
 const fs = require('fs');
 const path = require('path');
 
-const PROMPTS_DIR = path.join(__dirname, 'prompts');
-const OUTPUT = path.join(__dirname, 'data.js');
+// ─── Configuration ───────────────────────────────────────────────────
 
-const FILES = [
-  { file: 'quick-start/essentials.md',                        category: 'Quick Start',                     group: 'Essentials',      color: '#10B981' },
-  { file: 'power-users/README.md',                            category: 'Power Users',                     group: 'Advanced',        color: '#8B5CF6' },
-  { file: 'outlook/advanced-prompts.md',                      category: 'Outlook — Advanced',              group: 'Outlook',         color: '#3B82F6' },
-  { file: 'outlook/advanced-automation.md',                   category: 'Outlook — Automation',            group: 'Outlook',         color: '#3B82F6' },
-  { file: 'enterprise/standalone-prompts.md',                 category: 'Enterprise',                      group: 'Enterprise',      color: '#F59E0B' },
-  { file: 'role-specific/admin-executive-assistants.md',      category: 'Admin & Executive Assistants',    group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/commercial-operations.md',           category: 'Commercial Operations',           group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/consulting-professional-services.md',category: 'Consulting & Professional Svcs',  group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/customer-success-support.md',        category: 'Customer Success & Support',      group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/engineering-construction.md',        category: 'Engineering & Construction',      group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/finance-hr.md',                      category: 'Finance & HR',                    group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/hse-legal-compliance.md',            category: 'HSE, Legal & Compliance',         group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/marketing-communications.md',        category: 'Marketing & Communications',      group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/project-leadership.md',              category: 'Project Leadership',              group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/research-development.md',            category: 'Research & Development',          group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/sales-business-development.md',      category: 'Sales & Business Dev.',           group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/supply-chain-logistics.md',          category: 'Supply Chain & Logistics',        group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'role-specific/managers-personal-assistant.md',     category: 'Managers — Personal Assistant',   group: 'Role-Specific',   color: '#EC4899' },
-  { file: 'security-copilot/soc-operations.md',               category: 'SOC Operations',                  group: 'Security Copilot',color: '#EF4444' },
-  { file: 'security-copilot/security-reporting.md',           category: 'Security Reporting',              group: 'Security Copilot',color: '#EF4444' },
-  { file: 'cowork/action-workflows.md',                       category: 'Cowork — Actions',                group: 'Cowork',          color: '#06B6D4' },
-  { file: 'cowork/research-workflows.md',                     category: 'Cowork — Research',               group: 'Cowork',          color: '#06B6D4' },
-  { file: 'cowork/scheduled-briefings.md',                    category: 'Cowork — Scheduled',              group: 'Cowork',          color: '#06B6D4' },
-  { file: 'scheduled-prompts/README.md',                      category: 'Scheduled Prompts',               group: 'Scheduled',       color: '#14B8A6' },
-];
+const CANONICAL_DIR = path.join(__dirname, 'prompts', '_canonical');
+const BY_APP_DIR = path.join(__dirname, 'prompts', 'by-app');
+const BY_ROLE_DIR = path.join(__dirname, 'prompts', 'by-role');
+const DATA_JS_PATH = path.join(__dirname, 'data.js');
 
-// Emoji ranges to strip from headings
-const EMOJI_RE = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu;
+const APPS = {
+  'outlook':          { display: 'Outlook',          color: '#3B82F6' },
+  'excel':            { display: 'Excel',            color: '#10B981' },
+  'teams':            { display: 'Microsoft Teams',  color: '#8B5CF6' },
+  'word':             { display: 'Word',             color: '#2563EB' },
+  'powerpoint':       { display: 'PowerPoint',       color: '#F59E0B' },
+  'security-copilot': { display: 'Security Copilot', color: '#EF4444' },
+  'cross-app':        { display: 'Cross-App',        color: '#06B6D4' },
+};
 
-function slugify(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
+const ROLES = {
+  'executive':               { display: 'Executive' },
+  'manager':                 { display: 'Manager' },
+  'sales':                   { display: 'Sales' },
+  'marketing':               { display: 'Marketing' },
+  'operations':              { display: 'Operations' },
+  'finance-hr':              { display: 'Finance & HR' },
+  'legal-compliance':        { display: 'Legal & Compliance' },
+  'security':                { display: 'Security' },
+  'assistant':               { display: 'Assistant' },
+  'research-dev':            { display: 'Research & Dev' },
+  'consulting':              { display: 'Consulting' },
+  'project-leadership':      { display: 'Project Leadership' },
+  'customer-success':        { display: 'Customer Success' },
+  'commercial-ops':          { display: 'Commercial Ops' },
+  'supply-chain':            { display: 'Supply Chain' },
+  'engineering-construction': { display: 'Engineering & Construction' },
+  'admin':                   { display: 'Admin' },
+  'general':                 { display: 'General' },
+};
 
-// Skip headings that aren't real subcategories
-const SKIP_HEADINGS = new Set([
-  'overview', 'requirements', 'why this is different', 'action-taking prompts',
-  'scu note — read before using', 'scu note', 'important notice',
-  'sales copilot guardrails', 'guardrails', 'what\'s included',
-]);
+const APP_KEYS = Object.keys(APPS);
+const ROLE_KEYS = Object.keys(ROLES);
 
-function parsePrompts(content, fileMeta) {
-  const prompts = [];
-  const lines = content.split('\n');
-  let currentSubcategory = '';
-  let i = 0;
+const HEADER_MD     = '<!-- Auto-generated by build.js — do not edit manually -->\n<!-- Run: node build.js -->\n';
+const HEADER_JS     = '// Auto-generated by build.js — do not edit manually\n// Run: node build.js\n';
 
-  while (i < lines.length) {
-    const line = lines[i];
+// ─── Helpers ─────────────────────────────────────────────────────────
 
-    // Track ## subcategory headings
-    if (/^## /.test(line)) {
-      const heading = line.replace(/^## /, '').replace(EMOJI_RE, '').trim();
-      if (!SKIP_HEADINGS.has(heading.toLowerCase())) {
-        currentSubcategory = heading;
+/**
+ * Parse YAML frontmatter from markdown content using a simple regex.
+ * Returns { frontmatter: { key: value, ... }, body: string }.
+ */
+function parseFrontmatter(content) {
+  const match = content.match(/^---\n([\s\S]*?)\n---\n?/);
+  if (!match) {
+    return { frontmatter: {}, body: content };
+  }
+
+  const yamlBlock = match[1];
+  const body = content.slice(match[0].length);
+  const frontmatter = {};
+
+  for (const line of yamlBlock.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const kvMatch = trimmed.match(/^([a-zA-Z_][a-zA-Z0-9_-]*)\s*:\s*(.*)$/);
+    if (kvMatch) {
+      let value = kvMatch[2].trim();
+      // Strip surrounding quotes
+      if ((value.startsWith('"') && value.endsWith('"')) ||
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
       }
-      i++;
-      continue;
+      frontmatter[kvMatch[1]] = value;
     }
+  }
 
-    // Match ### N. Title  or  ### Title
-    const h3Match = line.match(/^### (\d+\.\s+)?(.+)$/);
-    if (h3Match) {
-      const rawTitle = h3Match[2].trim().replace(EMOJI_RE, '').trim();
+  return { frontmatter, body: body.trim() };
+}
 
-      // Collect everything until the next ## or ### heading or end
-      const sectionLines = [];
-      i++;
-      while (i < lines.length && !/^#{2,3} /.test(lines[i])) {
-        sectionLines.push(lines[i]);
-        i++;
-      }
+function slugFromFilename(filename) {
+  return path.basename(filename, '.md');
+}
 
-      const section = sectionLines.join('\n');
+function ensureDir(dir) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
 
-      // --- Extract Use Case ---
-      let useCase = '';
-      const ucMatch = section.match(/\*\*Use Cases?:\*\*\s*(.+)/);
-      if (ucMatch) {
-        useCase = ucMatch[1].trim();
-      } else {
-        // Use first non-empty plain-text line (not bold, not blockquote, not list, not code)
-        for (const sl of sectionLines) {
-          const t = sl.trim();
-          if (t && !t.startsWith('**') && !t.startsWith('>') && !t.startsWith('#') &&
-              !t.startsWith('---') && !t.startsWith('-') && !t.startsWith('*') &&
-              !t.startsWith('`') && !t.startsWith('[')) {
-            useCase = t;
-            break;
-          }
-        }
-      }
+function safeDisplay(key, map) {
+  return (map[key] && map[key].display) ? map[key].display : key;
+}
 
-      // --- Extract Personas ---
-      let personas = [];
-      const personasMatch = section.match(/\*\*Target Personas?:\*\*\s*(.+)/);
-      if (personasMatch) {
-        personas = personasMatch[1].split(',').map(p => p.trim()).filter(Boolean);
-      }
+// ─── Main ────────────────────────────────────────────────────────────
 
-      // --- Extract Tags ---
-      let tags = [];
-      const tagsMatch = section.match(/\*\*Tags?:\*\*\s*(.+)/);
-      if (tagsMatch) {
-        const backtickTags = tagsMatch[1].match(/`([^`]+)`/g);
-        if (backtickTags) {
-          tags = backtickTags.map(t => t.replace(/`/g, '').trim());
-        } else {
-          tags = tagsMatch[1].split(',').map(t => t.trim()).filter(Boolean);
-        }
-      }
+function main() {
+  // 1. Read all .md files from _canonical/
+  if (!fs.existsSync(CANONICAL_DIR)) {
+    console.warn('[WARN] prompts/_canonical/ does not exist yet.');
+    console.warn('[WARN] Creating output directories with empty/placeholder files.\n');
+    ensureDir(BY_APP_DIR);
+    ensureDir(BY_ROLE_DIR);
+    writeDataJs([], {});
+    writeEmptyAppLanding();
+    writeEmptyRoleLanding();
+    console.log('\nDone — no prompts found. Add .md files to prompts/_canonical/ and re-run.');
+    return;
+  }
 
-      // --- Extract Prompt text (from code block after **Prompt:**) ---
-      let promptText = '';
-      const promptBlockMatch = section.match(/\*\*Prompt:\*\*[\s\S]*?```(?:\w*)\n([\s\S]*?)```/);
-      if (promptBlockMatch) {
-        promptText = promptBlockMatch[1].trim();
-      } else {
-        // Fallback: any standalone code block in the section
-        const anyBlock = section.match(/```(?:\w*)\n([\s\S]*?)```/);
-        if (anyBlock) promptText = anyBlock[1].trim();
-      }
+  const files = fs.readdirSync(CANONICAL_DIR).filter(f => f.endsWith('.md'));
 
-      if (promptText && rawTitle && !rawTitle.toLowerCase().startsWith('guardrail')) {
-        const id = slugify(`${fileMeta.category}-${rawTitle}`);
-        prompts.push({
-          id,
-          title: rawTitle,
-          useCase,
-          personas,
-          tags,
-          prompt: promptText,
-          category: fileMeta.category,
-          group: fileMeta.group,
-          color: fileMeta.color,
-          subcategory: currentSubcategory,
-        });
-      }
+  if (files.length === 0) {
+    console.warn('[WARN] No .md files found in prompts/_canonical/.');
+    ensureDir(BY_APP_DIR);
+    ensureDir(BY_ROLE_DIR);
+    writeDataJs([], {});
+    writeEmptyAppLanding();
+    writeEmptyRoleLanding();
+    console.log('\nDone — no prompts found. Add .md files to prompts/_canonical/ and re-run.');
+    return;
+  }
 
-      continue;
+  const rawPrompts = [];
+
+  for (const file of files) {
+    const filePath = path.join(CANONICAL_DIR, file);
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const { frontmatter, body } = parseFrontmatter(content);
+    const slug = slugFromFilename(file);
+
+    const promptObj = {
+      slug,
+      ...frontmatter,
+      prompt: body,
+    };
+    rawPrompts.push(promptObj);
+  }
+
+  // Validate apps and roles against supported lists
+  for (const p of rawPrompts) {
+    if (p.app && !APPS[p.app]) {
+      console.warn(`  [WARN] Unknown app "${p.app}" in ${p.slug}.md. Using as-is.`);
     }
-
-    i++;
+    if (p.role && !ROLES[p.role]) {
+      console.warn(`  [WARN] Unknown role "${p.role}" in ${p.slug}.md. Using as-is.`);
+    }
   }
 
-  return prompts;
-}
+  // 2. Build GROUPS_META (group → category → { count, color })
+  //    Groups = apps, categories = roles
+  const groupsMeta = {};
 
-// --- Main ---
-const allPrompts = [];
+  for (const p of rawPrompts) {
+    const appKey = p.app && APPS[p.app] ? p.app : 'cross-app';
+    const roleKey = p.role && ROLES[p.role] ? p.role : 'general';
+    const appDisplay = APPS[appKey].display;
+    const roleDisplay = ROLES[roleKey].display;
+    const color = APPS[appKey].color;
 
-for (const fileMeta of FILES) {
-  const filePath = path.join(PROMPTS_DIR, fileMeta.file);
-  if (!fs.existsSync(filePath)) {
-    console.warn(`  [SKIP] Not found: ${fileMeta.file}`);
-    continue;
+    if (!groupsMeta[appDisplay]) {
+      groupsMeta[appDisplay] = {};
+    }
+    if (!groupsMeta[appDisplay][roleDisplay]) {
+      groupsMeta[appDisplay][roleDisplay] = { count: 0, color };
+    }
+    groupsMeta[appDisplay][roleDisplay].count++;
   }
-  const content = fs.readFileSync(filePath, 'utf-8');
-  const prompts = parsePrompts(content, fileMeta);
-  console.log(`  ${fileMeta.category}: ${prompts.length} prompts`);
-  allPrompts.push(...prompts);
-}
 
-// Deduplicate by id (keep first occurrence)
-const seen = new Set();
-const deduped = allPrompts.filter(p => {
-  if (seen.has(p.id)) return false;
-  seen.add(p.id);
-  return true;
-});
+  // 3. Build PROMPTS_DATA for the web UI (backward-compatible with index.html)
+  const promptsData = rawPrompts.map(p => {
+    const appKey = p.app && APPS[p.app] ? p.app : 'cross-app';
+    const roleKey = p.role && ROLES[p.role] ? p.role : 'general';
+    const appMeta = APPS[appKey];
+    const roleMeta = ROLES[roleKey];
 
-// Build group metadata for sidebar
-const groupsMap = {};
-for (const p of deduped) {
-  if (!groupsMap[p.group]) groupsMap[p.group] = {};
-  if (!groupsMap[p.group][p.category]) {
-    groupsMap[p.group][p.category] = { count: 0, color: p.color };
+    return {
+      id: p.slug,
+      title: p.title || '',
+      useCase: p.use_case || p.useCase || '',
+      prompt: p.prompt || '',
+      group: appMeta.display,
+      category: roleMeta.display,
+      color: appMeta.color,
+      personas: [roleMeta.display],
+      tags: [appMeta.display, roleMeta.display].filter(Boolean),
+      subcategory: p.difficulty || '',
+      // Raw frontmatter fields included for downstream use
+      slug: p.slug,
+      app: appKey,
+      role: roleKey,
+      difficulty: p.difficulty || '',
+      use_case: p.use_case || '',
+    };
+  });
+
+  // 4. Group by app and role for README generation
+  const byApp = {};
+  const byRole = {};
+
+  for (const p of rawPrompts) {
+    const appKey = p.app && APPS[p.app] ? p.app : 'cross-app';
+    const roleKey = p.role && ROLES[p.role] ? p.role : 'general';
+
+    if (!byApp[appKey]) byApp[appKey] = [];
+    byApp[appKey].push({ ...p, _appKey: appKey, _roleKey: roleKey });
+
+    if (!byRole[roleKey]) byRole[roleKey] = [];
+    byRole[roleKey].push({ ...p, _appKey: appKey, _roleKey: roleKey });
   }
-  groupsMap[p.group][p.category].count++;
+
+  // 5. Write data.js
+  writeDataJs(promptsData, groupsMeta);
+
+  // 6. Write by-app/ READMEs
+  writeAppLanding(byApp);
+  for (const appKey of APP_KEYS) {
+    if (byApp[appKey]) {
+      writeAppReadme(appKey, byApp[appKey]);
+    }
+  }
+
+  // 7. Write by-role/ READMEs
+  writeRoleLanding(byRole);
+  for (const roleKey of ROLE_KEYS) {
+    if (byRole[roleKey]) {
+      writeRoleReadme(roleKey, byRole[roleKey]);
+    }
+  }
+
+  // Summary
+  const total = promptsData.length;
+  const appsUsed = Object.keys(byApp).length;
+  const rolesUsed = Object.keys(byRole).length;
+  console.log(`\nDone: ${total} prompts across ${appsUsed} apps and ${rolesUsed} roles.`);
 }
 
-// Preserve group insertion order
-const groups = Object.fromEntries(
-  Object.entries(groupsMap).map(([g, cats]) => [g, cats])
-);
+// ─── data.js generation ──────────────────────────────────────────────
 
-console.log(`\nTotal: ${deduped.length} prompts (${allPrompts.length - deduped.length} duplicates removed)`);
+function writeDataJs(promptsData, groupsMeta) {
+  // Compute APPS_META and ROLES_META from promptsData
+  const appsMeta = {};
+  const rolesMeta = {};
 
-const output = `// Auto-generated by build.js — do not edit manually
-// Run: node build.js
-const PROMPTS_DATA = ${JSON.stringify(deduped, null, 0)};
-const GROUPS_META = ${JSON.stringify(groups, null, 0)};
-`;
+  for (const key of APP_KEYS) {
+    appsMeta[key] = { display: APPS[key].display, count: 0, color: APPS[key].color };
+  }
+  for (const key of ROLE_KEYS) {
+    rolesMeta[key] = { display: ROLES[key].display, count: 0 };
+  }
 
-fs.writeFileSync(OUTPUT, output, 'utf-8');
-console.log(`Written → data.js`);
+  for (const p of promptsData) {
+    const appKey = p.app && APPS[p.app] ? p.app : 'cross-app';
+    const roleKey = p.role && ROLES[p.role] ? p.role : 'general';
+    if (appsMeta[appKey]) appsMeta[appKey].count++;
+    if (rolesMeta[roleKey]) rolesMeta[roleKey].count++;
+  }
+
+  const output = `${HEADER_JS}const PROMPTS_DATA = ${JSON.stringify(promptsData, null, 2)};\n\nconst GROUPS_META = ${JSON.stringify(groupsMeta, null, 2)};\n\nconst APPS_META = ${JSON.stringify(appsMeta, null, 2)};\n\nconst ROLES_META = ${JSON.stringify(rolesMeta, null, 2)};\n`;
+  fs.writeFileSync(DATA_JS_PATH, output, 'utf-8');
+  console.log(`  Written → data.js (${promptsData.length} prompts)`);
+}
+
+// ─── App landing page ────────────────────────────────────────────────
+
+function writeEmptyAppLanding() {
+  ensureDir(BY_APP_DIR);
+  const lines = [
+    HEADER_MD,
+    '# Prompts by App',
+    '',
+    'Browse prompts organized by Microsoft 365 application.',
+    '',
+    '| App | Prompts |',
+    '| --- | ------- |',
+  ];
+  for (const key of APP_KEYS) {
+    lines.push(`| ${APPS[key].display} | 0 |`);
+  }
+  lines.push('');
+  fs.writeFileSync(path.join(BY_APP_DIR, 'README.md'), lines.join('\n'), 'utf-8');
+  console.log('  Written → prompts/by-app/README.md (empty)');
+}
+
+function writeAppLanding(byApp) {
+  ensureDir(BY_APP_DIR);
+  const lines = [
+    HEADER_MD,
+    '# Prompts by App',
+    '',
+    'Browse prompts organized by Microsoft 365 application.',
+    '',
+    '| App | Prompts |',
+    '| --- | ------- |',
+  ];
+  for (const key of APP_KEYS) {
+    const prompts = byApp[key] || [];
+    const count = prompts.length;
+    const display = APPS[key].display;
+    const link = count > 0 ? `[${display}](${key}/README.md)` : display;
+    lines.push(`| ${link} | ${count} |`);
+  }
+  lines.push('');
+  const content = lines.join('\n');
+  fs.writeFileSync(path.join(BY_APP_DIR, 'README.md'), content, 'utf-8');
+  console.log('  Written → prompts/by-app/README.md');
+}
+
+function writeAppReadme(appKey, appPrompts) {
+  const appDir = path.join(BY_APP_DIR, appKey);
+  ensureDir(appDir);
+  const appMeta = APPS[appKey];
+  const sorted = [...appPrompts].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+
+  const lines = [
+    HEADER_MD,
+    `# ${appMeta.display} — Prompts`,
+    '',
+    `Prompt collection for **${appMeta.display}**.`,
+    '',
+    '| Title | Use Case | Roles | Difficulty |',
+    '| ----- | -------- | ----- | ---------- |',
+  ];
+
+  for (const p of sorted) {
+    const title = p.title || 'Untitled';
+    const slug = p.slug || '';
+    const link = `[${title}](../../_canonical/${slug}.md)`;
+    const useCase = p.use_case || p.useCase || '';
+    const roleDisplay = safeDisplay(p._roleKey || p.role, ROLES);
+    const difficulty = p.difficulty || '';
+    lines.push(`| ${link} | ${useCase} | ${roleDisplay} | ${difficulty} |`);
+  }
+
+  lines.push('');
+  fs.writeFileSync(path.join(appDir, 'README.md'), lines.join('\n'), 'utf-8');
+  console.log(`  Written → prompts/by-app/${appKey}/README.md`);
+}
+
+// ─── Role landing page ───────────────────────────────────────────────
+
+function writeEmptyRoleLanding() {
+  ensureDir(BY_ROLE_DIR);
+  const lines = [
+    HEADER_MD,
+    '# Prompts by Role',
+    '',
+    'Browse prompts organized by professional role.',
+    '',
+    '| Role | Prompts |',
+    '| ---- | ------- |',
+  ];
+  for (const key of ROLE_KEYS) {
+    lines.push(`| ${ROLES[key].display} | 0 |`);
+  }
+  lines.push('');
+  fs.writeFileSync(path.join(BY_ROLE_DIR, 'README.md'), lines.join('\n'), 'utf-8');
+  console.log('  Written → prompts/by-role/README.md (empty)');
+}
+
+function writeRoleLanding(byRole) {
+  ensureDir(BY_ROLE_DIR);
+  const lines = [
+    HEADER_MD,
+    '# Prompts by Role',
+    '',
+    'Browse prompts organized by professional role.',
+    '',
+    '| Role | Prompts |',
+    '| ---- | ------- |',
+  ];
+  for (const key of ROLE_KEYS) {
+    const prompts = byRole[key] || [];
+    const count = prompts.length;
+    const display = ROLES[key].display;
+    const link = count > 0 ? `[${display}](${key}/README.md)` : display;
+    lines.push(`| ${link} | ${count} |`);
+  }
+  lines.push('');
+  const content = lines.join('\n');
+  fs.writeFileSync(path.join(BY_ROLE_DIR, 'README.md'), content, 'utf-8');
+  console.log('  Written → prompts/by-role/README.md');
+}
+
+function writeRoleReadme(roleKey, rolePrompts) {
+  const roleDir = path.join(BY_ROLE_DIR, roleKey);
+  ensureDir(roleDir);
+  const roleMeta = ROLES[roleKey];
+  const sorted = [...rolePrompts].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+
+  const lines = [
+    HEADER_MD,
+    `# ${roleMeta.display} — Prompts`,
+    '',
+    `Prompt collection for **${roleMeta.display}**.`,
+    '',
+    '| Title | App | Use Case | Difficulty |',
+    '| ----- | --- | -------- | ---------- |',
+  ];
+
+  for (const p of sorted) {
+    const title = p.title || 'Untitled';
+    const slug = p.slug || '';
+    const link = `[${title}](../../_canonical/${slug}.md)`;
+    const appDisplay = safeDisplay(p._appKey || p.app, APPS);
+    const useCase = p.use_case || p.useCase || '';
+    const difficulty = p.difficulty || '';
+    lines.push(`| ${link} | ${appDisplay} | ${useCase} | ${difficulty} |`);
+  }
+
+  lines.push('');
+  fs.writeFileSync(path.join(roleDir, 'README.md'), lines.join('\n'), 'utf-8');
+  console.log(`  Written → prompts/by-role/${roleKey}/README.md`);
+}
+
+// ─── Execute ─────────────────────────────────────────────────────────
+
+main();
