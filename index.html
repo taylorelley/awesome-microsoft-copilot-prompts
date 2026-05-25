@@ -38,7 +38,7 @@
   --transition: 150ms ease;
 }
 
-html { height: 100%; }
+html { height: 100%; height: 100dvh; }
 
 body {
   font-family: var(--font);
@@ -47,6 +47,7 @@ body {
   color: var(--text);
   background: var(--bg);
   height: 100%;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -205,7 +206,7 @@ body {
 /* ─── Layout ──────────────────────────────────────────────────────── */
 .layout {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   padding-top: var(--header-h);
 }
 
@@ -567,7 +568,7 @@ body {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   width: 100%;
   max-width: 680px;
-  max-height: 92vh;
+  max-height: 90dvh;
   display: flex;
   flex-direction: column;
   animation: slideUp 200ms ease;
