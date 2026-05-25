@@ -368,6 +368,7 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+  font-family: var(--font);
   font-size: 12px;
   font-weight: 500;
   background: var(--primary-50);
@@ -926,6 +927,11 @@ body {
 
   <!-- Main -->
   <main class="main" id="main">
+    <div class="toolbar" id="toolbar">
+      <span class="toolbar-title" id="toolbar-title">All Prompts</span>
+      <span class="toolbar-count" id="toolbar-count"></span>
+      <div class="tag-filter" id="tag-filter"></div>
+    </div>
     <div class="grid" id="grid"></div>
   </main>
 </div>
@@ -1085,9 +1091,38 @@ function applyFilter() {
   updateCount();
 }
 
-function updateCount() {}
+function updateCount() {
+  const countEl = document.getElementById('toolbar-count');
+  const titleEl = document.getElementById('toolbar-title');
+  if (countEl) countEl.textContent = `${state.filtered.length} prompts`;
+  if (titleEl) {
+    if (!state.filterType) {
+      titleEl.textContent = 'All Prompts';
+    } else {
+      const meta = state.filterType === 'app' ? APPS_META[state.filterValue] : ROLES_META[state.filterValue];
+      titleEl.textContent = meta ? meta.display : state.filterValue;
+    }
+  }
+}
 
-function updateActiveFilters() {}
+function updateActiveFilters() {
+  const container = document.getElementById('tag-filter');
+  if (!container) return;
+  if (!state.filterType || !state.filterValue) {
+    container.innerHTML = '';
+    return;
+  }
+  const meta = state.filterType === 'app' ? APPS_META[state.filterValue] : ROLES_META[state.filterValue];
+  const label = meta ? meta.display : state.filterValue;
+  container.innerHTML = `
+    <button type="button" class="active-tag" onclick="clearFilter()"
+            aria-label="Clear ${esc(label)} filter">
+      ${esc(label)}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>`;
+}
 
 // ─── Search ────────────────────────────────────────────────────────
 let searchDebounce;
