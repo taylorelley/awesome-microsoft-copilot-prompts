@@ -1,10 +1,20 @@
 # Role-Specific Copilot Prompts
 
-> 203 production-tested Microsoft Copilot prompts across 12 business functions. Each collection includes governance guardrails.
+> 221 production-tested Microsoft Copilot prompts across 13 business functions. Each collection includes governance guardrails.
 
 [← Back to Main Collection](../../README.md) | [Browse All Prompts](../README.md)
 
 ---
+
+## Management & Leadership
+
+- [**Managers – Personal Assistant**](managers-personal-assistant.md) — 18 prompts 🆕
+  + PA & time automation: daily command centre, meeting audit, focus time protector, email triage
+  + People management: 1:1 prep, team pulse, performance evidence, feedback drafting
+  + Decisions & escalation: decision triage, escalation support, weekly decision log
+  + Strategic alignment: OKR check, skip-level prep, cross-functional alignment, weekly digest
+  + Communication: stakeholder updates, change comms, onboarding orchestrator, end-of-week reset
+  + **Includes ⚠️ Manager Copilot Guardrails**
 
 ## Business Operations & Support
 
