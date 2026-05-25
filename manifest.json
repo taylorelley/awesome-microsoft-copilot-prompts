@@ -1,7 +1,7 @@
 {
   "name": "Copilot Prompt Library",
   "short_name": "CopilotPrompts",
-  "description": "429 production-tested Microsoft Copilot prompts for enterprise professionals",
+  "description": "454 production-tested Microsoft Copilot prompts for enterprise professionals",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

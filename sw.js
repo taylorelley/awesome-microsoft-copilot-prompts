@@ -1,4 +1,4 @@
-const CACHE = 'copilot-prompts-v1';
+const CACHE = 'copilot-prompts-v2';
 const ASSETS = ['./', './index.html', './data.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {
