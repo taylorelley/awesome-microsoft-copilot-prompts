@@ -1,0 +1,19 @@
+{
+  "name": "Copilot Prompt Library",
+  "short_name": "CopilotPrompts",
+  "description": "429 production-tested Microsoft Copilot prompts for enterprise professionals",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#4F46E5",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

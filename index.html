@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="429 production-tested Microsoft Copilot prompts — searchable, filterable, copy-ready.">
+<title>Copilot Prompt Library</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#4F46E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+/* ─── Reset & Variables ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --primary: #4F46E5;
+  --primary-50: #EEF2FF;
+  --primary-100: #E0E7FF;
+  --text: #0F172A;
+  --text-2: #475569;
+  --text-3: #94A3B8;
+  --code-bg: #F1F5F9;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.1), 0 4px 10px rgba(0,0,0,.06);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+  --header-h: 60px;
+  --sidebar-w: 248px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Inter', sans-serif;
+  --mono: 'SF Mono', 'Fira Code', 'Fira Mono', ui-monospace, monospace;
+  --transition: 150ms ease;
+}
+
+html { height: 100%; }
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo-icon {
+  width: 30px; height: 30px;
+  background: var(--primary);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-icon svg { width: 16px; height: 16px; fill: white; }
+
+.logo-text {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.logo-text span {
+  color: var(--primary);
+}
+
+.header-search {
+  flex: 1;
+  max-width: 520px;
+  position: relative;
+}
+
+.header-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px; height: 16px;
+  stroke: var(--text-3);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 38px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.search-input::placeholder { color: var(--text-3); }
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+  background: var(--surface);
+}
+
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; height: 20px;
+  border: none;
+  background: var(--text-3);
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  font-weight: 700;
+}
+
+.search-clear.visible { display: flex; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.count-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.btn-icon {
+  width: 34px; height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-2);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn-icon:hover { background: var(--primary-50); color: var(--primary); border-color: var(--primary-100); }
+.btn-icon svg { width: 16px; height: 16px; }
+
+#install-btn { display: none; }
+#install-btn.visible { display: flex; }
+
+/* ─── Layout ──────────────────────────────────────────────────────── */
+.layout {
+  display: flex;
+  height: 100vh;
+  padding-top: var(--header-h);
+}
+
+/* ─── Sidebar ─────────────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 12px 0 40px;
+  scroll-behavior: smooth;
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.sidebar-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 14px;
+  margin: 0 8px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 13.5px;
+}
+
+.sidebar-all:hover, .sidebar-all.active {
+  background: var(--primary-50);
+  color: var(--primary);
+}
+
+.sidebar-all .nav-count {
+  background: var(--primary);
+  color: white;
+}
+
+.sidebar-all.active .nav-count {
+  background: var(--primary);
+}
+
+.sidebar-group { margin-bottom: 4px; }
+
+.group-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 10px 22px 4px;
+  display: block;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px 6px 18px;
+  margin: 0 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  color: var(--text-2);
+  font-size: 13px;
+  gap: 8px;
+}
+
+.nav-item:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.nav-item.active {
+  background: var(--primary-50);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.nav-count {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--code-bg);
+  color: var(--text-3);
+  border-radius: 10px;
+  padding: 1px 7px;
+  flex-shrink: 0;
+}
+
+.nav-item.active .nav-count {
+  background: var(--primary-100);
+  color: var(--primary);
+}
+
+/* ─── Main Content ────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.main::-webkit-scrollbar { width: 6px; }
+.main::-webkit-scrollbar-track { background: transparent; }
+.main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+
+/* ─── Toolbar ─────────────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-right: 4px;
+}
+
+.toolbar-count {
+  font-size: 13px;
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.tag-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.active-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--primary-50);
+  color: var(--primary);
+  border-radius: 20px;
+  padding: 3px 10px 3px 10px;
+  cursor: pointer;
+  border: 1px solid var(--primary-100);
+  transition: background var(--transition);
+}
+
+.active-tag:hover { background: var(--primary-100); }
+.active-tag svg { width: 12px; height: 12px; stroke: currentColor; }
+
+/* ─── Grid ────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+
+/* ─── Card ────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow var(--transition), border-color var(--transition), transform 150ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  min-height: 0;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  min-width: 0;
+}
+
+.badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copy-btn {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-3);
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  opacity: 0;
+}
+
+.card:hover .copy-btn { opacity: 1; }
+
+.copy-btn:hover {
+  background: var(--primary-50);
+  color: var(--primary);
+  border-color: var(--primary-100);
+}
+
+.copy-btn.copied {
+  background: #DCFCE7;
+  color: #16A34A;
+  border-color: #BBF7D0;
+  opacity: 1;
+}
+
+.copy-btn svg { width: 13px; height: 13px; }
+
+.card-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.card-desc {
+  font-size: 12.5px;
+  color: var(--text-2);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-preview {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--text-2);
+  background: var(--code-bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.card-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--code-bg);
+  color: var(--text-3);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+/* ─── Empty State ─────────────────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 12px;
+  color: var(--text-3);
+  text-align: center;
+}
+
+.empty-icon {
+  width: 48px; height: 48px;
+  background: var(--code-bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.empty-icon svg { width: 22px; height: 22px; stroke: var(--text-3); }
+.empty h3 { font-size: 16px; font-weight: 600; color: var(--text-2); }
+.empty p { font-size: 13px; }
+
+/* ─── Modal ───────────────────────────────────────────────────────── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 200;
+  backdrop-filter: blur(2px);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .modal-backdrop { align-items: center; }
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 680px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 200ms ease;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 640px) {
+  .modal { border-radius: var(--radius-lg); max-height: 85vh; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.modal-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.modal-breadcrumb span { color: var(--text-3); }
+.modal-breadcrumb b { color: var(--text-2); font-weight: 500; }
+
+.modal-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.modal-close {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-3);
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+  transition: background var(--transition), color var(--transition);
+}
+
+.modal-close:hover { background: #FEF2F2; color: #EF4444; }
+
+.modal-body {
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-body::-webkit-scrollbar { width: 4px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-3);
+}
+
+.meta-value {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.meta-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--code-bg);
+  color: var(--text-2);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+.prompt-block {
+  position: relative;
+}
+
+.prompt-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.prompt-code {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--code-bg);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid var(--border);
+}
+
+.modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-copy-full {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0 18px;
+  height: 38px;
+  font-family: var(--font);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 100ms;
+}
+
+.btn-copy-full:hover { background: #4338CA; }
+.btn-copy-full:active { transform: scale(0.98); }
+.btn-copy-full.copied { background: #16A34A; }
+.btn-copy-full svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  height: 38px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-secondary:hover { background: var(--bg); color: var(--text); }
+
+/* ─── Toast ───────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: #0F172A;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 200ms, transform 200ms;
+  pointer-events: none;
+  z-index: 999;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─── Mobile sidebar toggle ───────────────────────────────────────── */
+.sidebar-toggle {
+  display: none;
+  width: 34px; height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  flex-shrink: 0;
+}
+
+.sidebar-toggle svg { width: 16px; height: 16px; }
+
+@media (max-width: 768px) {
+  .sidebar-toggle { display: flex; }
+  .logo-text { display: none; }
+  .count-badge { display: none; }
+
+  .sidebar {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    bottom: 0;
+    z-index: 150;
+    transform: translateX(-100%);
+    transition: transform 200ms ease;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: var(--header-h);
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 140;
+  }
+
+  .sidebar-overlay.open { display: block; }
+
+  .main { padding: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .copy-btn { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .header { padding: 0 12px; gap: 8px; }
+  .header-search { max-width: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <a class="logo" href="#" onclick="return false">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L14.4 8.4L21 8.4L15.9 12.6L17.9 19L12 15.4L6.1 19L8.1 12.6L3 8.4L9.6 8.4Z"/>
+        <circle cx="19.5" cy="4.5" r="2.5" opacity=".5"/>
+      </svg>
+    </div>
+    <span class="logo-text">Copilot <span>Prompts</span></span>
+  </a>
+
+  <div class="header-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input class="search-input" id="search" type="search" placeholder="Search 429 prompts…" autocomplete="off" spellcheck="false">
+    <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+  </div>
+
+  <div class="header-actions">
+    <span class="count-badge" id="header-count">429 prompts</span>
+    <button class="btn-icon" id="install-btn" title="Install app" aria-label="Install app">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </button>
+    <a href="https://github.com/taylorelley/awesome-microsoft-copilot-prompts" target="_blank" rel="noopener" class="btn-icon" title="View on GitHub" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<!-- Layout -->
+<div class="layout">
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Categories">
+    <div class="sidebar-all active" id="nav-all" onclick="setFilter(null, null)">
+      <span>All Prompts</span>
+      <span class="nav-count" id="nav-all-count">429</span>
+    </div>
+    <div id="nav-groups"></div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main" id="main">
+    <div class="toolbar">
+      <div class="tag-filter" id="active-filters"></div>
+      <div class="toolbar-right">
+        <span class="toolbar-count" id="result-count">429 prompts</span>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <div class="modal-breadcrumb" id="modal-breadcrumb"></div>
+      <div class="modal-header-top">
+        <h2 class="modal-title" id="modal-title"></h2>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="btn-copy-full" id="modal-copy-btn" onclick="copyModalPrompt()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+        </svg>
+        Copy Prompt
+      </button>
+      <button class="btn-secondary" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script src="data.js"></script>
+<script>
+// ─── State ─────────────────────────────────────────────────────────
+const state = {
+  search: '',
+  group: null,
+  category: null,
+  filtered: PROMPTS_DATA,
+  activePrompt: null,
+};
+
+// ─── Utilities ─────────────────────────────────────────────────────
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+async function copyText(text, btnEl) {
+  try {
+    await navigator.clipboard.writeText(text);
+    if (btnEl) {
+      btnEl.classList.add('copied');
+      setTimeout(() => btnEl.classList.remove('copied'), 1800);
+    }
+    showToast('Copied to clipboard');
+  } catch {
+    showToast('Press Ctrl+C to copy');
+  }
+}
+
+// ─── Sidebar ───────────────────────────────────────────────────────
+function buildSidebar() {
+  const container = document.getElementById('nav-groups');
+  let html = '';
+
+  for (const [group, categories] of Object.entries(GROUPS_META)) {
+    html += `<div class="sidebar-group">`;
+    html += `<span class="group-label">${esc(group)}</span>`;
+    for (const [cat, meta] of Object.entries(categories)) {
+      html += `
+        <div class="nav-item" data-group="${esc(group)}" data-cat="${esc(cat)}"
+             onclick="setFilter('${esc(group)}', '${esc(cat)}')">
+          <span class="nav-dot" style="background:${meta.color}"></span>
+          <span class="nav-label">${esc(cat)}</span>
+          <span class="nav-count">${meta.count}</span>
+        </div>`;
+    }
+    html += `</div>`;
+  }
+  container.innerHTML = html;
+}
+
+function updateSidebarActive() {
+  document.getElementById('nav-all').classList.toggle('active', !state.group && !state.category);
+  document.querySelectorAll('.nav-item').forEach(el => {
+    const active = el.dataset.group === state.group && el.dataset.cat === state.category;
+    el.classList.toggle('active', active);
+  });
+}
+
+// ─── Filtering ─────────────────────────────────────────────────────
+function setFilter(group, category) {
+  state.group = group;
+  state.category = category;
+  applyFilter();
+  updateSidebarActive();
+  updateActiveFilters();
+  closeSidebarMobile();
+  document.getElementById('main').scrollTop = 0;
+}
+
+function applyFilter() {
+  const q = state.search.trim().toLowerCase();
+  let results = PROMPTS_DATA;
+
+  if (q) {
+    results = results.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      p.prompt.toLowerCase().includes(q) ||
+      p.useCase.toLowerCase().includes(q) ||
+      p.subcategory.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.tags.some(t => t.toLowerCase().includes(q)) ||
+      p.personas.some(pe => pe.toLowerCase().includes(q))
+    );
+  }
+
+  if (state.category) {
+    results = results.filter(p => p.category === state.category);
+  } else if (state.group) {
+    results = results.filter(p => p.group === state.group);
+  }
+
+  state.filtered = results;
+  renderCards();
+  updateCount();
+}
+
+function updateCount() {
+  const n = state.filtered.length;
+  const total = PROMPTS_DATA.length;
+  document.getElementById('result-count').textContent =
+    n === total ? `${n} prompts` : `${n} of ${total} prompts`;
+  document.getElementById('header-count').textContent =
+    n === total ? `${n} prompts` : `${n} results`;
+}
+
+function updateActiveFilters() {
+  const el = document.getElementById('active-filters');
+  if (!state.group && !state.category) { el.innerHTML = ''; return; }
+  const label = state.category || state.group;
+  el.innerHTML = `
+    <span class="active-tag" onclick="setFilter(null, null)">
+      ${esc(label)}
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </span>`;
+}
+
+// ─── Search ────────────────────────────────────────────────────────
+let searchDebounce;
+document.getElementById('search').addEventListener('input', e => {
+  state.search = e.target.value;
+  document.getElementById('search-clear').classList.toggle('visible', state.search.length > 0);
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(applyFilter, 120);
+});
+
+document.getElementById('search-clear').addEventListener('click', () => {
+  const inp = document.getElementById('search');
+  inp.value = '';
+  state.search = '';
+  document.getElementById('search-clear').classList.remove('visible');
+  applyFilter();
+  inp.focus();
+});
+
+// ─── Cards ─────────────────────────────────────────────────────────
+const COPY_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+</svg>`;
+
+const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+  <polyline points="20 6 9 17 4 12"/>
+</svg>`;
+
+function cardHTML(p) {
+  const preview = p.prompt.length > 160 ? p.prompt.slice(0, 157) + '…' : p.prompt;
+  const visibleTags = p.tags.slice(0, 4);
+  return `
+    <div class="card" onclick="openModal('${esc(p.id)}')" role="article" tabindex="0"
+         onkeydown="if(event.key==='Enter')openModal('${esc(p.id)}')">
+      <div class="card-top">
+        <div class="card-badge">
+          <span class="badge-dot" style="background:${p.color}"></span>
+          <span class="badge-text">${esc(p.category)}</span>
+        </div>
+        <button class="copy-btn" onclick="event.stopPropagation();copyCard('${esc(p.id)}',this)"
+                title="Copy prompt" aria-label="Copy prompt">${COPY_ICON}</button>
+      </div>
+      <div class="card-title">${esc(p.title)}</div>
+      ${p.useCase ? `<div class="card-desc">${esc(p.useCase)}</div>` : ''}
+      <pre class="card-preview">${esc(preview)}</pre>
+      ${visibleTags.length ? `<div class="card-tags">${visibleTags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+    </div>`;
+}
+
+function renderCards() {
+  const grid = document.getElementById('grid');
+  if (!state.filtered.length) {
+    grid.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <h3>No prompts found</h3>
+        <p>Try different keywords or clear the filter</p>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = state.filtered.map(cardHTML).join('');
+}
+
+function copyCard(id, btn) {
+  const p = PROMPTS_DATA.find(x => x.id === id);
+  if (!p) return;
+  btn.innerHTML = CHECK_ICON;
+  copyText(p.prompt, btn).then(() => {
+    setTimeout(() => { btn.innerHTML = COPY_ICON; }, 1800);
+  });
+}
+
+// ─── Modal ─────────────────────────────────────────────────────────
+function openModal(id) {
+  const p = PROMPTS_DATA.find(x => x.id === id);
+  if (!p) return;
+  state.activePrompt = p;
+
+  document.getElementById('modal-title').textContent = p.title;
+
+  // Breadcrumb
+  const bc = document.getElementById('modal-breadcrumb');
+  bc.innerHTML = `<b>${esc(p.group)}</b><span>›</span><b>${esc(p.category)}</b>` +
+    (p.subcategory ? `<span>›</span><span>${esc(p.subcategory)}</span>` : '');
+
+  // Body
+  const body = document.getElementById('modal-body');
+  let metaRows = '';
+
+  if (p.useCase) metaRows += `
+    <div class="meta-item">
+      <span class="meta-label">Use Case</span>
+      <span class="meta-value">${esc(p.useCase)}</span>
+    </div>`;
+
+  if (p.personas.length) metaRows += `
+    <div class="meta-item">
+      <span class="meta-label">Target Personas</span>
+      <span class="meta-value">${esc(p.personas.join(', '))}</span>
+    </div>`;
+
+  if (p.tags.length) metaRows += `
+    <div class="meta-item">
+      <span class="meta-label">Tags</span>
+      <div class="meta-tags">${p.tags.map(t => `<span class="meta-tag">${esc(t)}</span>`).join('')}</div>
+    </div>`;
+
+  body.innerHTML = `
+    <div class="meta-row">${metaRows}</div>
+    <div class="prompt-block">
+      <div class="prompt-label">Prompt</div>
+      <pre class="prompt-code">${esc(p.prompt)}</pre>
+    </div>`;
+
+  document.getElementById('modal-copy-btn').textContent = '';
+  document.getElementById('modal-copy-btn').innerHTML = `${COPY_ICON} Copy Prompt`;
+  document.getElementById('modal-backdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-copy-btn').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal-backdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  state.activePrompt = null;
+}
+
+function handleBackdropClick(e) {
+  if (e.target === document.getElementById('modal-backdrop')) closeModal();
+}
+
+function copyModalPrompt() {
+  if (!state.activePrompt) return;
+  const btn = document.getElementById('modal-copy-btn');
+  copyText(state.activePrompt.prompt, null).then(() => {
+    btn.innerHTML = `${CHECK_ICON} Copied!`;
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = `${COPY_ICON} Copy Prompt`;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// Escape key closes modal
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === '/' && !document.getElementById('modal-backdrop').classList.contains('open')) {
+    e.preventDefault();
+    document.getElementById('search').focus();
+  }
+});
+
+// ─── Mobile sidebar ─────────────────────────────────────────────────
+const sidebarEl = document.getElementById('sidebar');
+const overlayEl = document.getElementById('sidebar-overlay');
+
+document.getElementById('sidebar-toggle').addEventListener('click', () => {
+  const open = sidebarEl.classList.toggle('open');
+  overlayEl.classList.toggle('open', open);
+});
+
+overlayEl.addEventListener('click', closeSidebarMobile);
+
+function closeSidebarMobile() {
+  sidebarEl.classList.remove('open');
+  overlayEl.classList.remove('open');
+}
+
+// ─── PWA / Install ─────────────────────────────────────────────────
+let deferredPrompt;
+const installBtn = document.getElementById('install-btn');
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.classList.add('visible');
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') installBtn.classList.remove('visible');
+  deferredPrompt = null;
+});
+
+window.addEventListener('appinstalled', () => installBtn.classList.remove('visible'));
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+// ─── Init ──────────────────────────────────────────────────────────
+buildSidebar();
+renderCards();
+updateCount();
+</script>
+</body>
+</html>
