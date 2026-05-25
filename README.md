@@ -34,11 +34,11 @@ Want to go beyond prompts? **AI Quick Start Essentials** is a free 35-minute cou
 
 ## 📊 Quick Stats
 
-- **365 Total Prompts** across 17 specialized collections
+- **383 Total Prompts** across 18 specialized collections
 - **26 Power User Prompts** for advanced Copilot mastery
 - **70 Outlook Prompts** for email intelligence and automation
 - **66 Standalone Prompts** for any Copilot version
-- **203 Role-Specific Prompts** covering 12 business functions
+- **221 Role-Specific Prompts** covering 13 business functions
 - **Tested in Production** by thousands of enterprise users
 
 ## 🚀 Quick Start
@@ -172,7 +172,17 @@ Even when using the same underlying model (GPT-4/GPT-5), **Copilot behaves diffe
   + Planning & organization
   + Writing & communication
 
-### 👔 Role-Specific Collections (203 prompts)
+### 👔 Role-Specific Collections (221 prompts)
+
+#### Management & Leadership
+
+- [**Managers – Personal Assistant**](prompts/role-specific/managers-personal-assistant.md) (18 prompts) 🆕
+  + PA & time automation: daily command centre, meeting audit, focus time protector, email triage
+  + People management: 1:1 prep, team pulse, performance evidence, feedback drafting
+  + Decisions & escalation: decision triage, escalation support, weekly decision log
+  + Strategic alignment: OKR check, skip-level prep, cross-functional alignment, weekly digest
+  + Communication: stakeholder updates, change comms, onboarding, end-of-week reset
+  + **Includes ⚠️ Manager Copilot Guardrails**
 
 #### Business Operations & Support
 
