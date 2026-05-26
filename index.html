@@ -38,6 +38,22 @@
   --transition: 150ms ease;
 }
 
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --border: #334155;
+  --primary: #6366F1;
+  --primary-50: #1E1B4B;
+  --primary-100: #312E81;
+  --text: #F8FAFC;
+  --text-2: #CBD5E1;
+  --text-3: #94A3B8;
+  --code-bg: #0B1221;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --shadow: 0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.5), 0 4px 10px rgba(0,0,0,.4);
+}
+
 html { height: 100%; height: 100dvh; }
 
 body {
@@ -49,6 +65,11 @@ body {
   height: 100%;
   height: 100dvh;
   overflow: hidden;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.header, .sidebar, .main, .modal, .modal-backdrop, .prompt-code, .prompt-context, .tag, .meta-tag, .empty-icon, .count-badge, .nav-count, .search-clear, .sidebar-toggle, .toast, .card-preview, .empty, .modal-header, .modal-body, .modal-footer, .toolbar, .group-label, .logo-text, .badge-text, .meta-label, .meta-value, .modal-title, .modal-breadcrumb, .prompt-label, .card-title, .card-desc, .card-badge, .modal-header-top {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
 /* ─── Header ─────────────────────────────────────────────────────── */
@@ -134,7 +155,7 @@ body {
   color: var(--text);
   background: var(--bg);
   outline: none;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition), background-color 200ms ease, color 200ms ease;
 }
 
 .search-input::placeholder { color: var(--text-3); }
@@ -233,7 +254,7 @@ body {
   margin: 0 8px 8px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background var(--transition), color var(--transition);
   font-weight: 600;
   color: var(--text);
   font-size: 13.5px;
@@ -378,7 +399,7 @@ body {
   padding: 3px 10px 3px 10px;
   cursor: pointer;
   border: 1px solid var(--primary-100);
-  transition: background var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 .active-tag:hover { background: var(--primary-100); }
@@ -399,7 +420,7 @@ body {
   border-radius: var(--radius);
   padding: 16px;
   cursor: pointer;
-  transition: box-shadow var(--transition), border-color var(--transition), transform 150ms ease;
+  transition: box-shadow var(--transition), border-color var(--transition), transform 150ms ease, background-color 200ms ease, color 200ms ease;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -412,6 +433,8 @@ body {
   border-color: #CBD5E1;
   transform: translateY(-1px);
 }
+
+[data-theme="dark"] .card:hover { border-color: #475569; }
 
 .card-top {
   display: flex;
@@ -442,6 +465,22 @@ body {
   white-space: nowrap;
 }
 
+/* Variant count badge on cards */
+.variant-count {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-50);
+  padding: 2px 6px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+[data-theme="dark"] .variant-count {
+  background: rgba(99, 102, 241, 0.15);
+}
+
 .copy-btn {
   width: 28px; height: 28px;
   border: 1px solid var(--border);
@@ -468,6 +507,12 @@ body {
   color: #16A34A;
   border-color: #BBF7D0;
   opacity: 1;
+}
+
+[data-theme="dark"] .copy-btn.copied {
+  background: #14532D;
+  color: #86EFAC;
+  border-color: #166534;
 }
 
 .copy-btn svg { width: 13px; height: 13px; }
@@ -559,6 +604,8 @@ body {
   display: flex;
 }
 
+[data-theme="dark"] .modal-backdrop { background: rgba(0, 0, 0, 0.6); }
+
 @media (min-width: 640px) {
   .modal-backdrop { align-items: center; }
 }
@@ -633,6 +680,8 @@ body {
 
 .modal-close:hover { background: #FEF2F2; color: #EF4444; }
 
+[data-theme="dark"] .modal-close:hover { background: #450A0A; color: #FCA5A5; }
+
 .modal-body {
   overflow-y: auto;
   padding: 20px;
@@ -690,6 +739,82 @@ body {
   color: var(--text-2);
   border-radius: 4px;
   padding: 3px 8px;
+}
+
+/* Variant selector in modal */
+.variant-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--code-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.variant-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-3);
+}
+
+.variant-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.variant-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-2);
+  transition: all var(--transition);
+}
+
+.variant-btn:hover {
+  border-color: var(--primary-200);
+  background: var(--primary-50);
+  color: var(--text);
+}
+
+.variant-btn.active {
+  border-color: var(--primary);
+  background: var(--primary-50);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .variant-btn:hover {
+  border-color: var(--primary-300);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="dark"] .variant-btn.active {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.variant-app {
+  font-weight: 500;
+}
+
+.variant-role {
+  color: var(--text-3);
+  font-size: 11px;
+}
+
+.variant-btn.active .variant-role {
+  color: var(--primary);
+  opacity: 0.8;
 }
 
 .prompt-block {
@@ -757,6 +882,8 @@ body {
 }
 
 .btn-copy-full:hover { background: #4338CA; }
+
+[data-theme="dark"] .btn-copy-full:hover { background: #4F46E5; }
 .btn-copy-full:active { transform: scale(0.98); }
 .btn-copy-full.copied { background: #16A34A; }
 .btn-copy-full svg { width: 15px; height: 15px; flex-shrink: 0; }
@@ -775,7 +902,7 @@ body {
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 .btn-secondary:hover { background: var(--bg); color: var(--text); }
@@ -804,6 +931,8 @@ body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+[data-theme="dark"] .toast { background: #1E293B; color: #F8FAFC; }
 
 /* ─── Mobile sidebar toggle ───────────────────────────────────────── */
 .sidebar-toggle {
@@ -850,6 +979,8 @@ body {
 
   .sidebar-overlay.open { display: block; }
 
+  [data-theme="dark"] .sidebar-overlay { background: rgba(0, 0, 0, 0.5); }
+
   .main { padding: 16px; }
   .grid { grid-template-columns: 1fr; }
   .copy-btn { opacity: 1; }
@@ -887,11 +1018,16 @@ body {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
     </svg>
-    <input class="search-input" id="search" type="search" placeholder="Search 454 prompts…" autocomplete="off" spellcheck="false">
+    <input class="search-input" id="search" type="search" placeholder="Search prompts…" autocomplete="off" spellcheck="false">
     <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
   </div>
 
   <div class="header-actions">
+    <button class="btn-icon" id="theme-toggle" title="Theme: system" aria-label="Toggle theme">
+      <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+    </button>
     <button class="btn-icon" id="install-btn" title="Install app" aria-label="Install app">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
@@ -899,6 +1035,11 @@ body {
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
     </button>
+    <a class="btn-icon" href="admin.html" title="Management Portal" aria-label="Management Portal" style="text-decoration:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+      </svg>
+    </a>
   </div>
 </header>
 
@@ -965,6 +1106,33 @@ body {
 
 <script src="data.js"></script>
 <script>
+// ─── Merge custom prompts from localStorage ────────────────────────
+(function mergeCustomPrompts() {
+  try {
+    const custom = JSON.parse(localStorage.getItem('custom_prompts') || '[]');
+    const deleted = JSON.parse(localStorage.getItem('deleted_prompt_ids') || '[]');
+    if (!custom.length && !deleted.length) return;
+
+    // Filter out deleted built-in prompts
+    const builtIn = PROMPTS_DATA.filter(p => !deleted.includes(p.id));
+
+    // Override built-in with custom prompts that share an id
+    const builtInIds = new Set(builtIn.map(p => p.id));
+    const customNew = custom.filter(p => !builtInIds.has(p.id));
+
+    const overridden = builtIn.map(p => {
+      const override = custom.find(c => c.id === p.id);
+      return override || p;
+    });
+
+    // Replace PROMPTS_DATA in place so all references work
+    PROMPTS_DATA.length = 0;
+    PROMPTS_DATA.push(...overridden, ...customNew);
+  } catch (e) {
+    console.error('Failed to load custom prompts:', e);
+  }
+})();
+
 // ─── State ─────────────────────────────────────────────────────────
 const state = {
   search: '',
@@ -982,6 +1150,15 @@ function esc(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 let toastTimer;
@@ -1008,16 +1185,29 @@ async function copyText(text, btnEl) {
 
 // ─── Sidebar ───────────────────────────────────────────────────────
 function buildSidebar() {
+  // Compute live counts from PROMPTS_DATA
+  const appCounts = {};
+  const roleCounts = {};
+  for (const p of PROMPTS_DATA) {
+    appCounts[p.app] = (appCounts[p.app] || 0) + 1;
+    roleCounts[p.role] = (roleCounts[p.role] || 0) + 1;
+  }
+
+  // Update "All Prompts" count
+  const allCountEl = document.getElementById('nav-all-count');
+  if (allCountEl) allCountEl.textContent = PROMPTS_DATA.length;
+
   // Build "Browse by App" section from APPS_META
   const appsContainer = document.getElementById('nav-apps');
   let appsHtml = '';
   for (const [key, meta] of Object.entries(APPS_META)) {
+    const count = appCounts[key] || 0;
     appsHtml += `
       <div class="nav-item" data-type="app" data-value="${esc(key)}"
            onclick="setFilter('app', '${esc(key)}')">
         <span class="nav-dot" style="background:${meta.color}"></span>
         <span class="nav-label">${esc(meta.display)}</span>
-        <span class="nav-count">${meta.count}</span>
+        <span class="nav-count">${count}</span>
       </div>`;
   }
   appsContainer.innerHTML = appsHtml;
@@ -1026,11 +1216,12 @@ function buildSidebar() {
   const rolesContainer = document.getElementById('nav-roles');
   let rolesHtml = '';
   for (const [key, meta] of Object.entries(ROLES_META)) {
+    const count = roleCounts[key] || 0;
     rolesHtml += `
       <div class="nav-item" data-type="role" data-value="${esc(key)}"
            onclick="setFilter('role', '${esc(key)}')">
         <span class="nav-label">${esc(meta.display)}</span>
-        <span class="nav-count">${meta.count}</span>
+        <span class="nav-count">${count}</span>
       </div>`;
   }
   rolesContainer.innerHTML = rolesHtml;
@@ -1079,12 +1270,43 @@ function applyFilter() {
       p.tags.some(t => t.toLowerCase().includes(q)) ||
       p.personas.some(pe => pe.toLowerCase().includes(q))
     );
+
+    // Sort by relevance: title match first, then useCase, then tags/personas, then prompt
+    results.sort((a, b) => {
+      const aTitle = a.title.toLowerCase().includes(q) ? 1 : 0;
+      const bTitle = b.title.toLowerCase().includes(q) ? 1 : 0;
+      if (aTitle !== bTitle) return bTitle - aTitle;
+
+      const aUseCase = a.useCase.toLowerCase().includes(q) ? 1 : 0;
+      const bUseCase = b.useCase.toLowerCase().includes(q) ? 1 : 0;
+      if (aUseCase !== bUseCase) return bUseCase - aUseCase;
+
+      const aTags = a.tags.some(t => t.toLowerCase().includes(q)) || a.personas.some(pe => pe.toLowerCase().includes(q)) ? 1 : 0;
+      const bTags = b.tags.some(t => t.toLowerCase().includes(q)) || b.personas.some(pe => pe.toLowerCase().includes(q)) ? 1 : 0;
+      if (aTags !== bTags) return bTags - aTags;
+
+      return 0;
+    });
   }
 
   if (state.filterType === 'app' && state.filterValue) {
     results = results.filter(p => p.app === state.filterValue);
   } else if (state.filterType === 'role' && state.filterValue) {
     results = results.filter(p => p.role === state.filterValue);
+  }
+
+  // Deduplicate: keep only primary variant per groupId
+  const seenGroups = new Set();
+  results = results.filter(p => {
+    if (!p.groupId) return true; // No groupId, keep as-is
+    if (seenGroups.has(p.groupId)) return false; // Already seen this group
+    seenGroups.add(p.groupId);
+    return p.isPrimary; // Keep primary variant
+  });
+
+  // Shuffle when not searching (covers: no filter, filter only)
+  if (!q) {
+    results = shuffle(results);
   }
 
   state.filtered = results;
@@ -1155,14 +1377,42 @@ const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 function cardHTML(p) {
   const preview = p.prompt.length > 160 ? p.prompt.slice(0, 157) + '…' : p.prompt;
   const visibleTags = p.tags.slice(0, 4);
+
+  // Build category badges for all variants
+  let badgesHTML = '';
+  if (p.variantCount > 1 && p.variantSlugs) {
+    // Collect all unique app/role combinations from variants
+    const variantApps = new Set();
+    const variantRoles = new Set();
+    for (const slug of p.variantSlugs) {
+      const variant = PROMPTS_DATA.find(x => x.id === slug);
+      if (variant) {
+        variantApps.add(variant.app);
+        variantRoles.add(variant.role);
+      }
+    }
+    // Show primary badge + variant count
+    const appDisplay = APPS_META[p.app] ? APPS_META[p.app].display : p.group;
+    const roleDisplay = ROLES_META[p.role] ? ROLES_META[p.role].display : p.category;
+    badgesHTML = `
+      <div class="card-badge">
+        <span class="badge-dot" style="background:${p.color}"></span>
+        <span class="badge-text">${esc(roleDisplay)}</span>
+      </div>
+      <span class="variant-count" title="${p.variantCount} variants across ${variantApps.size} app(s)">+${p.variantCount - 1}</span>`;
+  } else {
+    badgesHTML = `
+      <div class="card-badge">
+        <span class="badge-dot" style="background:${p.color}"></span>
+        <span class="badge-text">${esc(p.category)}</span>
+      </div>`;
+  }
+
   return `
     <div class="card" onclick="openModal('${esc(p.id)}')" role="article" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('${esc(p.id)}')">
       <div class="card-top">
-        <div class="card-badge">
-          <span class="badge-dot" style="background:${p.color}"></span>
-          <span class="badge-text">${esc(p.category)}</span>
-        </div>
+        ${badgesHTML}
         <button class="copy-btn" onclick="event.stopPropagation();copyCard('${esc(p.id)}',this)"
                 title="Copy prompt" aria-label="Copy prompt">${COPY_ICON}</button>
       </div>
@@ -1216,6 +1466,30 @@ function openModal(id) {
   bc.innerHTML = `<b>${esc(appDisplay)}</b><span>›</span><b>${esc(roleDisplay)}</b>` +
     (diffDisplay ? `<span>›</span><span>${esc(diffDisplay)}</span>` : '');
 
+  // Variant selector (if multiple variants exist)
+  let variantSelectorHTML = '';
+  if (p.variantCount > 1 && p.variantSlugs && p.variantSlugs.length > 1) {
+    const variants = p.variantSlugs.map(slug => {
+      const v = PROMPTS_DATA.find(x => x.id === slug);
+      if (!v) return '';
+      const vApp = APPS_META[v.app] ? APPS_META[v.app].display : v.group;
+      const vRole = ROLES_META[v.role] ? ROLES_META[v.role].display : v.category;
+      const isActive = v.id === p.id;
+      return `<button class="variant-btn${isActive ? ' active' : ''}"
+                      onclick="switchVariant('${esc(v.id)}')"
+                      ${isActive ? 'aria-current="true"' : ''}>
+        <span class="variant-app">${esc(vApp)}</span>
+        <span class="variant-role">${esc(vRole)}</span>
+      </button>`;
+    }).filter(Boolean).join('');
+
+    variantSelectorHTML = `
+      <div class="variant-selector">
+        <span class="variant-label">${p.variantCount} variants</span>
+        <div class="variant-buttons">${variants}</div>
+      </div>`;
+  }
+
   // Body
   const body = document.getElementById('modal-body');
   let metaRows = '';
@@ -1254,6 +1528,7 @@ function openModal(id) {
     </div>`;
 
   body.innerHTML = `
+    ${variantSelectorHTML}
     <div class="meta-row">${metaRows}</div>
     ${promptSections}`;
 
@@ -1262,6 +1537,10 @@ function openModal(id) {
   document.getElementById('modal-backdrop').classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('modal-copy-btn').focus();
+}
+
+function switchVariant(id) {
+  openModal(id);
 }
 
 function closeModal() {
@@ -1337,10 +1616,60 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 
+// ─── Theme ─────────────────────────────────────────────────────────
+const THEME_ICONS = {
+  system: `<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>`,
+  light: `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`,
+  dark: `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`
+};
+
+function applyTheme(mode) {
+  const root = document.documentElement;
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  let effective = mode;
+  if (mode === 'system') {
+    effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  if (effective === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+    if (metaTheme) metaTheme.setAttribute('content', '#1E1B4B');
+  } else {
+    root.removeAttribute('data-theme');
+    if (metaTheme) metaTheme.setAttribute('content', '#4F46E5');
+  }
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  if (btn && icon) {
+    btn.title = `Theme: ${mode}`;
+    btn.setAttribute('aria-label', `Current theme: ${mode}. Click to cycle.`);
+    icon.innerHTML = THEME_ICONS[mode];
+  }
+}
+
+function cycleTheme() {
+  const current = localStorage.getItem('theme') || 'system';
+  const order = ['system', 'light', 'dark'];
+  const next = order[(order.indexOf(current) + 1) % order.length];
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if ((localStorage.getItem('theme') || 'system') === 'system') {
+    applyTheme('system');
+  }
+});
+
+document.getElementById('theme-toggle').addEventListener('click', cycleTheme);
+applyTheme(localStorage.getItem('theme') || 'system');
+
 // ─── Init ──────────────────────────────────────────────────────────
+// Update search placeholder with actual count
+const searchInput = document.getElementById('search');
+if (searchInput) searchInput.placeholder = `Search ${PROMPTS_DATA.length} prompts…`;
+
 buildSidebar();
-renderCards();
-updateCount();
+applyFilter();
 </script>
 </body>
 </html>

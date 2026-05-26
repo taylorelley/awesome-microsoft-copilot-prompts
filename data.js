@@ -22,7 +22,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Stakeholder relationship management"
+    "use_case": "Stakeholder relationship management",
+    "groupId": "360-relationship-mapper",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-360-degree-relationship-mapper",
+      "360-relationship-mapper"
+    ]
   },
   {
     "id": "action-item-tracking",
@@ -45,7 +52,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Catch action items that may have been assigned through informal channels. Use to reconcile with official tracking systems."
+    "use_case": "Catch action items that may have been assigned through informal channels. Use to reconcile with official tracking systems.",
+    "groupId": "action-item-tracking",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "action-item-tracking"
+    ]
   },
   {
     "id": "action-required-email-detector",
@@ -68,7 +81,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Automatically identify and prioritize emails that need your response or action"
+    "use_case": "Automatically identify and prioritize emails that need your response or action",
+    "groupId": "action-required-email-detector",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "action-required-email-detector"
+    ]
   },
   {
     "id": "admin-board-meeting-preparation",
@@ -91,7 +110,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Prepare comprehensive board meeting support materials."
+    "use_case": "Prepare comprehensive board meeting support materials.",
+    "groupId": "board-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-board-meeting-preparation"
+    ]
   },
   {
     "id": "admin-calendar-conflict-analysis",
@@ -114,7 +139,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Analyze calendar for potential issues and optimization opportunities."
+    "use_case": "Analyze calendar for potential issues and optimization opportunities.",
+    "groupId": "calendar-conflict-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-calendar-conflict-analysis"
+    ]
   },
   {
     "id": "admin-copilot-guardrails",
@@ -137,7 +168,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for administrative professionals using Copilot."
+    "use_case": "Essential guardrails for administrative professionals using Copilot.",
+    "groupId": "administrative-copilot-guardrails-reference",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-copilot-guardrails"
+    ]
   },
   {
     "id": "admin-correspondence-summary",
@@ -160,7 +197,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Create executive correspondence summaries for busy periods."
+    "use_case": "Create executive correspondence summaries for busy periods.",
+    "groupId": "correspondence-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-correspondence-summary"
+    ]
   },
   {
     "id": "admin-document-organization-summary",
@@ -183,7 +226,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Create document inventory from communications and file searches."
+    "use_case": "Create document inventory from communications and file searches.",
+    "groupId": "document-organization-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-document-organization-summary"
+    ]
   },
   {
     "id": "admin-event-planning-summary",
@@ -206,7 +255,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Consolidate event planning communications into organized status."
+    "use_case": "Consolidate event planning communications into organized status.",
+    "groupId": "event-planning-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-event-planning-summary"
+    ]
   },
   {
     "id": "admin-expense-report-context",
@@ -229,7 +284,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Gather business context for expense report documentation."
+    "use_case": "Gather business context for expense report documentation.",
+    "groupId": "expense-report-context",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-expense-report-context"
+    ]
   },
   {
     "id": "admin-facilities-issue-tracking",
@@ -252,7 +313,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Track facilities issues from communications for reporting."
+    "use_case": "Track facilities issues from communications for reporting.",
+    "groupId": "facilities-issue-tracking",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-facilities-issue-tracking"
+    ]
   },
   {
     "id": "admin-meeting-minutes-draft",
@@ -275,7 +342,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Draft meeting minutes from notes and discussion context."
+    "use_case": "Draft meeting minutes from notes and discussion context.",
+    "groupId": "meeting-minutes-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-meeting-minutes-draft"
+    ]
   },
   {
     "id": "admin-meeting-preparation-brief",
@@ -298,7 +371,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Prepare comprehensive meeting briefs for executives."
+    "use_case": "Prepare comprehensive meeting briefs for executives.",
+    "groupId": "meeting-preparation-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-meeting-preparation-brief"
+    ]
   },
   {
     "id": "admin-new-hire-setup-checklist",
@@ -321,7 +400,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Gather onboarding context to ensure complete new hire setup."
+    "use_case": "Gather onboarding context to ensure complete new hire setup.",
+    "groupId": "new-hire-setup-checklist",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-new-hire-setup-checklist"
+    ]
   },
   {
     "id": "admin-office-announcement-draft",
@@ -344,7 +429,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Create office announcements for staff communication."
+    "use_case": "Create office announcements for staff communication.",
+    "groupId": "office-announcement-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-office-announcement-draft"
+    ]
   },
   {
     "id": "admin-process-documentation-draft",
@@ -367,7 +458,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "admin",
     "difficulty": "advanced",
-    "use_case": "Draft process documentation from observed patterns. Requires validation."
+    "use_case": "Draft process documentation from observed patterns. Requires validation.",
+    "groupId": "process-documentation-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-process-documentation-draft"
+    ]
   },
   {
     "id": "admin-report-compilation",
@@ -390,7 +487,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Gather report content from communications."
+    "use_case": "Gather report content from communications.",
+    "groupId": "report-compilation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-report-compilation"
+    ]
   },
   {
     "id": "admin-response-draft-on-behalf",
@@ -413,7 +516,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Draft executive responses maintaining their voice and style."
+    "use_case": "Draft executive responses maintaining their voice and style.",
+    "groupId": "response-draft-on-behalf",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-response-draft-on-behalf"
+    ]
   },
   {
     "id": "admin-travel-itinerary-draft",
@@ -436,7 +545,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Create travel context briefs for executive trips."
+    "use_case": "Create travel context briefs for executive trips.",
+    "groupId": "travel-itinerary-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-travel-itinerary-draft"
+    ]
   },
   {
     "id": "admin-vendor-communication-summary",
@@ -459,7 +574,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "admin",
     "difficulty": "intermediate",
-    "use_case": "Gather vendor relationship context from communications."
+    "use_case": "Gather vendor relationship context from communications.",
+    "groupId": "vendor-communication-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "admin-vendor-communication-summary"
+    ]
   },
   {
     "id": "alert-triage-is-this-a-true-positive",
@@ -482,7 +603,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to quickly assess whether an alert warrants escalation before spending time on full investigation."
+    "use_case": "Use to quickly assess whether an alert warrants escalation before spending time on full investigation.",
+    "groupId": "alert-triage-is-this-true-positive",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "alert-triage-is-this-a-true-positive"
+    ]
   },
   {
     "id": "announcement-draft",
@@ -505,7 +632,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating clear and effective announcements"
+    "use_case": "Creating clear and effective announcements",
+    "groupId": "announcement-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "announcement-draft"
+    ]
   },
   {
     "id": "apology-message",
@@ -528,7 +661,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Crafting sincere professional apologies"
+    "use_case": "Crafting sincere professional apologies",
+    "groupId": "apology-message",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "apology-message"
+    ]
   },
   {
     "id": "architecture-decision-research",
@@ -551,7 +690,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research architecture decisions from discussions. Always verify current state with architecture team."
+    "use_case": "Research architecture decisions from discussions. Always verify current state with architecture team.",
+    "groupId": "architecture-decision-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "architecture-decision-research"
+    ]
   },
   {
     "id": "article-summary",
@@ -574,7 +719,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Quickly extracting value from articles"
+    "use_case": "Quickly extracting value from articles",
+    "groupId": "article-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "article-summary"
+    ]
   },
   {
     "id": "attachment-analyzer",
@@ -597,7 +748,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Quickly understand attachments without reading through entire documents"
+    "use_case": "Quickly understand attachments without reading through entire documents",
+    "groupId": "attachment-analyzer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "attachment-analyzer"
+    ]
   },
   {
     "id": "audit-log-export-summary-user-activity",
@@ -620,7 +777,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when responding to an internal or external audit request for user activity records."
+    "use_case": "Use when responding to an internal or external audit request for user activity records.",
+    "groupId": "audit-log-export-summary-user-activity",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "audit-log-export-summary-user-activity"
+    ]
   },
   {
     "id": "audit-support-research",
@@ -643,7 +806,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Gather context for audit preparation. Formal audit evidence must come from financial systems."
+    "use_case": "Gather context for audit preparation. Formal audit evidence must come from financial systems.",
+    "groupId": "audit-support-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "audit-support-research"
+    ]
   },
   {
     "id": "auto-prioritization-of-todays-emails",
@@ -666,7 +835,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Intelligently sort your inbox by priority with AI-powered reasoning"
+    "use_case": "Intelligently sort your inbox by priority with AI-powered reasoning",
+    "groupId": "auto-prioritization-of-todays-emails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "auto-prioritization-of-todays-emails"
+    ]
   },
   {
     "id": "benchmarking-data-search",
@@ -689,7 +864,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Find historical cost data for benchmarking new estimates. Requires validation for current applicability."
+    "use_case": "Find historical cost data for benchmarking new estimates. Requires validation for current applicability.",
+    "groupId": "benchmarking-data-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "benchmarking-data-search"
+    ]
   },
   {
     "id": "block-focus-time-on-calendar-this-week",
@@ -712,7 +893,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Find the gaps in your calendar and add focus blocks before your week fills up completely."
+    "use_case": "Find the gaps in your calendar and add focus blocks before your week fills up completely.",
+    "groupId": "block-focus-time-on-calendar-this-week",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "block-focus-time-on-calendar-this-week"
+    ]
   },
   {
     "id": "blog-post-outline",
@@ -735,7 +922,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Planning engaging blog content"
+    "use_case": "Planning engaging blog content",
+    "groupId": "blog-post-outline",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "marketing-blog-post-outline",
+      "blog-post-outline"
+    ]
   },
   {
     "id": "board-presentation-builder",
@@ -758,7 +952,13 @@ const PROMPTS_DATA = [
     "app": "powerpoint",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Board presentations and strategic proposals"
+    "use_case": "Board presentations and strategic proposals",
+    "groupId": "board-presentation-builder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "board-presentation-builder"
+    ]
   },
   {
     "id": "book-summary-for-busy-people",
@@ -781,7 +981,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Getting key insights from books quickly"
+    "use_case": "Getting key insights from books quickly",
+    "groupId": "book-summary-for-busy-people",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "book-summary-for-busy-people"
+    ]
   },
   {
     "id": "budget-meeting-preparation",
@@ -804,7 +1010,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Enter budget reviews prepared with full context on recent cost discussions and concerns."
+    "use_case": "Enter budget reviews prepared with full context on recent cost discussions and concerns.",
+    "groupId": "budget-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "budget-meeting-preparation"
+    ]
   },
   {
     "id": "budget-variance-explanation-draft",
@@ -827,7 +1039,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Draft variance explanations based on team discussions. Numbers must come from financial systems."
+    "use_case": "Draft variance explanations based on team discussions. Numbers must come from financial systems.",
+    "groupId": "budget-variance-explanation-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "budget-variance-explanation-draft"
+    ]
   },
   {
     "id": "cab-meeting-preparation",
@@ -850,7 +1068,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Prepare for CAB meetings with context on pending changes and concerns."
+    "use_case": "Prepare for CAB meetings with context on pending changes and concerns.",
+    "groupId": "cab-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cab-meeting-preparation"
+    ]
   },
   {
     "id": "carrier-performance-research",
@@ -873,7 +1097,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Gather carrier feedback from communications for performance review."
+    "use_case": "Gather carrier feedback from communications for performance review.",
+    "groupId": "carrier-performance-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "carrier-performance-research"
+    ]
   },
   {
     "id": "case-study-structure",
@@ -896,7 +1126,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Documenting success stories effectively"
+    "use_case": "Documenting success stories effectively",
+    "groupId": "case-study-structure",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "case-study-structure"
+    ]
   },
   {
     "id": "catch-up-summarizer",
@@ -919,7 +1155,13 @@ const PROMPTS_DATA = [
     "app": "teams",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Meeting catch-up for missed attendees"
+    "use_case": "Meeting catch-up for missed attendees",
+    "groupId": "catch-up-summarizer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "catch-up-summarizer"
+    ]
   },
   {
     "id": "change-communication-drafter",
@@ -942,7 +1184,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Draft a clear, empathetic internal communication for an organisational or process change — balancing transparency with clarity and proactively addressing team concerns."
+    "use_case": "Draft a clear, empathetic internal communication for an organisational or process change — balancing transparency with clarity and proactively addressing team concerns.",
+    "groupId": "change-communication-drafter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "change-communication-drafter"
+    ]
   },
   {
     "id": "change-order-history",
@@ -965,7 +1213,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Track informal change order discussions and ensure they are captured in formal systems."
+    "use_case": "Track informal change order discussions and ensure they are captured in formal systems.",
+    "groupId": "change-order-history",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "change-order-history"
+    ]
   },
   {
     "id": "change-request-preparation",
@@ -988,7 +1242,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research previous change implementations to prepare comprehensive change requests."
+    "use_case": "Research previous change implementations to prepare comprehensive change requests.",
+    "groupId": "change-request-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "change-request-preparation"
+    ]
   },
   {
     "id": "chart-and-graph-interpreter",
@@ -1011,7 +1271,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Extracting data from charts in reports or presentations"
+    "use_case": "Extracting data from charts in reports or presentations",
+    "groupId": "chart-and-graph-interpreter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "chart-and-graph-interpreter"
+    ]
   },
   {
     "id": "ciso-board-report-security-posture",
@@ -1034,7 +1300,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use quarterly for board-level security reporting."
+    "use_case": "Use quarterly for board-level security reporting.",
+    "groupId": "ciso-board-report-security-posture",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "ciso-board-report-security-posture"
+    ]
   },
   {
     "id": "claim-timeline-summary",
@@ -1057,7 +1329,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Organize claim timeline from correspondence. Legal analysis requires qualified legal review."
+    "use_case": "Organize claim timeline from correspondence. Legal analysis requires qualified legal review.",
+    "groupId": "claim-timeline-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "claim-timeline-summary"
+    ]
   },
   {
     "id": "clarify-the-request",
@@ -1080,7 +1358,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Transform vague emails into clear, actionable requests"
+    "use_case": "Transform vague emails into clear, actionable requests",
+    "groupId": "clarify-request",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "clarify-the-request"
+    ]
   },
   {
     "id": "client-communication-draft-pm",
@@ -1103,7 +1387,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Draft client communications quickly while ensuring all relevant information is captured and tone is appropriate."
+    "use_case": "Draft client communications quickly while ensuring all relevant information is captured and tone is appropriate.",
+    "groupId": "client-communication-draft-pm",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "client-communication-draft-pm"
+    ]
   },
   {
     "id": "code-review-assistant",
@@ -1126,7 +1416,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Reviewing code for quality, security, and best practices"
+    "use_case": "Reviewing code for quality, security, and best practices",
+    "groupId": "code-review-assistant",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "code-review-assistant"
+    ]
   },
   {
     "id": "collaborator-request-extractor",
@@ -1149,7 +1445,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Track collaboration requests and generate response drafts"
+    "use_case": "Track collaboration requests and generate response drafts",
+    "groupId": "collaborator-request-extractor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "collaborator-request-extractor"
+    ]
   },
   {
     "id": "commercial-ops-archive-retrieval-research",
@@ -1172,7 +1474,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Plan archive retrievals by finding references to archive locations and access procedures."
+    "use_case": "Plan archive retrievals by finding references to archive locations and access procedures.",
+    "groupId": "archive-retrieval-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-archive-retrieval-research"
+    ]
   },
   {
     "id": "commercial-ops-baseline-history-search",
@@ -1195,7 +1503,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Reconstruct baseline change history from communications. Always verify against scheduling software."
+    "use_case": "Reconstruct baseline change history from communications. Always verify against scheduling software.",
+    "groupId": "baseline-history-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-baseline-history-search"
+    ]
   },
   {
     "id": "commercial-ops-bid-clarification-draft",
@@ -1218,7 +1532,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Quickly draft bid clarification requests while maintaining professional procurement communication standards."
+    "use_case": "Quickly draft bid clarification requests while maintaining professional procurement communication standards.",
+    "groupId": "bid-clarification-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-bid-clarification-draft"
+    ]
   },
   {
     "id": "commercial-ops-comment-resolution-research",
@@ -1241,7 +1561,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Track comment resolution progress from email discussions. Always reconcile with formal comment registers."
+    "use_case": "Track comment resolution progress from email discussions. Always reconcile with formal comment registers.",
+    "groupId": "comment-resolution-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-comment-resolution-research"
+    ]
   },
   {
     "id": "commercial-ops-contract-history-search",
@@ -1264,7 +1590,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Gather comprehensive contract history before renewal negotiations."
+    "use_case": "Gather comprehensive contract history before renewal negotiations.",
+    "groupId": "contract-history-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-contract-history-search"
+    ]
   },
   {
     "id": "commercial-ops-copilot-guardrails",
@@ -1287,7 +1619,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for commercial and operations roles using Copilot. Understand system boundaries and human accountability."
+    "use_case": "Essential guardrails for commercial and operations roles using Copilot. Understand system boundaries and human accountability.",
+    "groupId": "commercial-operations-copilot-guardrails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-copilot-guardrails"
+    ]
   },
   {
     "id": "commercial-ops-delay-analysis-research",
@@ -1310,7 +1648,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Gather delay discussion history to support formal delay analysis documentation."
+    "use_case": "Gather delay discussion history to support formal delay analysis documentation.",
+    "groupId": "delay-analysis-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-delay-analysis-research"
+    ]
   },
   {
     "id": "commercial-ops-distribution-list-verification",
@@ -1333,7 +1677,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Verify document distribution from email records. Always reconcile with formal distribution records."
+    "use_case": "Verify document distribution from email records. Always reconcile with formal distribution records.",
+    "groupId": "distribution-list-verification",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-distribution-list-verification"
+    ]
   },
   {
     "id": "commercial-ops-document-issue-pattern-analysis",
@@ -1356,7 +1706,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "commercial-ops",
     "difficulty": "advanced",
-    "use_case": "Identify patterns in document issues for process improvement. Requires validation with formal tracking data."
+    "use_case": "Identify patterns in document issues for process improvement. Requires validation with formal tracking data.",
+    "groupId": "document-issue-pattern-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-document-issue-pattern-analysis"
+    ]
   },
   {
     "id": "commercial-ops-market-intelligence-summary",
@@ -1379,7 +1735,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "advanced",
-    "use_case": "Gather internal market observations to supplement external intelligence. Always verify with current market data."
+    "use_case": "Gather internal market observations to supplement external intelligence. Always verify with current market data.",
+    "groupId": "market-intelligence-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-market-intelligence-summary"
+    ]
   },
   {
     "id": "commercial-ops-outstanding-documents-follow-up",
@@ -1402,7 +1764,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Identify overdue documents and their causes from email discussions. Use to drive document status meetings."
+    "use_case": "Identify overdue documents and their causes from email discussions. Use to drive document status meetings.",
+    "groupId": "outstanding-documents-follow-up",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-outstanding-documents-follow-up"
+    ]
   },
   {
     "id": "commercial-ops-progress-meeting-preparation",
@@ -1425,7 +1793,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Prepare for schedule review meetings with context from team communications. Always correlate with P6/MSP data."
+    "use_case": "Prepare for schedule review meetings with context from team communications. Always correlate with P6/MSP data.",
+    "groupId": "progress-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-progress-meeting-preparation"
+    ]
   },
   {
     "id": "commercial-ops-rfq-history-research",
@@ -1448,7 +1822,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Inform sourcing decisions with historical procurement data and lessons learned."
+    "use_case": "Inform sourcing decisions with historical procurement data and lessons learned.",
+    "groupId": "rfq-history-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-rfq-history-research"
+    ]
   },
   {
     "id": "commercial-ops-schedule-lessons-learned",
@@ -1471,7 +1851,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "advanced",
-    "use_case": "Identify schedule-related lessons from project communications for close-out. Requires team validation."
+    "use_case": "Identify schedule-related lessons from project communications for close-out. Requires team validation.",
+    "groupId": "schedule-lessons-learned",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-schedule-lessons-learned"
+    ]
   },
   {
     "id": "commercial-ops-schedule-narrative-draft",
@@ -1494,7 +1880,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Draft schedule report narrative from communications. Always verify against scheduling software for actual metrics."
+    "use_case": "Draft schedule report narrative from communications. Always verify against scheduling software for actual metrics.",
+    "groupId": "schedule-narrative-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-schedule-narrative-draft"
+    ]
   },
   {
     "id": "commercial-ops-supplier-meeting-prep",
@@ -1517,7 +1909,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Enter supplier meetings fully prepared with context on all open issues and recent commitments."
+    "use_case": "Enter supplier meetings fully prepared with context on all open issues and recent commitments.",
+    "groupId": "supplier-meeting-prep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-supplier-meeting-prep"
+    ]
   },
   {
     "id": "commercial-ops-transmittal-status-search",
@@ -1540,7 +1938,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Track transmittal discussions across email threads. Always verify against EDMS for official status."
+    "use_case": "Track transmittal discussions across email threads. Always verify against EDMS for official status.",
+    "groupId": "transmittal-status-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-transmittal-status-search"
+    ]
   },
   {
     "id": "commercial-ops-vendor-correspondence-summary",
@@ -1563,7 +1967,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "commercial-ops",
     "difficulty": "intermediate",
-    "use_case": "Prepare for vendor meetings with complete context on all discussions and commitments made."
+    "use_case": "Prepare for vendor meetings with complete context on all discussions and commitments made.",
+    "groupId": "vendor-correspondence-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "commercial-ops-vendor-correspondence-summary"
+    ]
   },
   {
     "id": "compare-options",
@@ -1586,7 +1996,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Making informed decisions between alternatives"
+    "use_case": "Making informed decisions between alternatives",
+    "groupId": "compare-options",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "compare-options"
+    ]
   },
   {
     "id": "competitive-intelligence-digest",
@@ -1609,7 +2025,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Track competitor mentions without manually scanning every thread"
+    "use_case": "Track competitor mentions without manually scanning every thread",
+    "groupId": "competitive-intelligence-digest",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "competitive-intelligence-digest"
+    ]
   },
   {
     "id": "competitive-signal-sweep",
@@ -1632,7 +2054,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Find every mention of competitors or alternatives across your recent communications — before a renewal, pitch, or strategy review."
+    "use_case": "Find every mention of competitors or alternatives across your recent communications — before a renewal, pitch, or strategy review.",
+    "groupId": "competitive-signal-sweep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "competitive-signal-sweep"
+    ]
   },
   {
     "id": "compliance-checklist-generator",
@@ -1655,7 +2083,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Converting regulations into actionable compliance checklists"
+    "use_case": "Converting regulations into actionable compliance checklists",
+    "groupId": "compliance-checklist-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "compliance-checklist-generator"
+    ]
   },
   {
     "id": "compliance-correspondence-review",
@@ -1678,7 +2112,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research compliance discussions. Compliance determinations require formal compliance review."
+    "use_case": "Research compliance discussions. Compliance determinations require formal compliance review.",
+    "groupId": "compliance-correspondence-review",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "compliance-correspondence-review"
+    ]
   },
   {
     "id": "compliance-posture-summary-microsoft-purview",
@@ -1701,7 +2141,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use for quarterly compliance reviews or ahead of external audits."
+    "use_case": "Use for quarterly compliance reviews or ahead of external audits.",
+    "groupId": "compliance-posture-summary-microsoft-purview",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "compliance-posture-summary-microsoft-purview"
+    ]
   },
   {
     "id": "concept-connections",
@@ -1724,7 +2170,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Understanding relationships between ideas"
+    "use_case": "Understanding relationships between ideas",
+    "groupId": "concept-connections",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "concept-connections"
+    ]
   },
   {
     "id": "conditional-access-gap-analysis",
@@ -1747,7 +2199,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to identify users who may be operating outside conditional access policy coverage."
+    "use_case": "Use to identify users who may be operating outside conditional access policy coverage.",
+    "groupId": "conditional-access-gap-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "conditional-access-gap-analysis"
+    ]
   },
   {
     "id": "confidentiality-and-data-check",
@@ -1770,7 +2228,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Identify and redact sensitive information before sending"
+    "use_case": "Identify and redact sensitive information before sending",
+    "groupId": "confidentiality-data-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "confidentiality-and-data-check"
+    ]
   },
   {
     "id": "constructive-feedback",
@@ -1793,7 +2257,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Delivering feedback that drives improvement"
+    "use_case": "Delivering feedback that drives improvement",
+    "groupId": "constructive-feedback",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "constructive-feedback"
+    ]
   },
   {
     "id": "consulting-advisory-practice-insights",
@@ -1816,7 +2286,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "advanced",
-    "use_case": "Identify practice insights from advisory work. Respect confidentiality."
+    "use_case": "Identify practice insights from advisory work. Respect confidentiality.",
+    "groupId": "advisory-practice-insights",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-advisory-practice-insights"
+    ]
   },
   {
     "id": "consulting-advisory-relationship-summary",
@@ -1839,7 +2315,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Maintain advisory relationship context across interactions."
+    "use_case": "Maintain advisory relationship context across interactions.",
+    "groupId": "advisory-relationship-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-advisory-relationship-summary"
+    ]
   },
   {
     "id": "consulting-board-preparation-research",
@@ -1862,7 +2344,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Prepare for board-level advisory presentations."
+    "use_case": "Prepare for board-level advisory presentations.",
+    "groupId": "board-preparation-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-board-preparation-research"
+    ]
   },
   {
     "id": "consulting-client-context-brief",
@@ -1885,7 +2373,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Prepare comprehensive client briefs for consulting engagements."
+    "use_case": "Prepare comprehensive client briefs for consulting engagements.",
+    "groupId": "client-context-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-client-context-brief"
+    ]
   },
   {
     "id": "consulting-client-escalation-summary",
@@ -1908,7 +2402,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Prepare escalation summaries for leadership."
+    "use_case": "Prepare escalation summaries for leadership.",
+    "groupId": "client-escalation-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-client-escalation-summary"
+    ]
   },
   {
     "id": "consulting-copilot-guardrails",
@@ -1931,7 +2431,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for consulting professionals using Copilot. Emphasizes confidentiality."
+    "use_case": "Essential guardrails for consulting professionals using Copilot. Emphasizes confidentiality.",
+    "groupId": "consulting-professional-services-copilot-guardrails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-copilot-guardrails"
+    ]
   },
   {
     "id": "consulting-deliverable-draft-outline",
@@ -1954,7 +2460,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Create deliverable outlines based on proven templates."
+    "use_case": "Create deliverable outlines based on proven templates.",
+    "groupId": "deliverable-draft-outline",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-deliverable-draft-outline"
+    ]
   },
   {
     "id": "consulting-engagement-close-out-prep",
@@ -1977,7 +2489,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Prepare engagement close-out documentation."
+    "use_case": "Prepare engagement close-out documentation.",
+    "groupId": "engagement-close-out-prep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-engagement-close-out-prep"
+    ]
   },
   {
     "id": "consulting-engagement-status-summary",
@@ -2000,7 +2518,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Create engagement status summaries from team communications."
+    "use_case": "Create engagement status summaries from team communications.",
+    "groupId": "engagement-status-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-engagement-status-summary"
+    ]
   },
   {
     "id": "consulting-executive-communication-draft",
@@ -2023,7 +2547,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Draft executive-level advisory communications."
+    "use_case": "Draft executive-level advisory communications.",
+    "groupId": "executive-communication-draft",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "executive-communication-draft",
+      "consulting-executive-communication-draft"
+    ]
   },
   {
     "id": "consulting-industry-trends-research",
@@ -2046,7 +2577,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Synthesize industry observations from client interactions."
+    "use_case": "Synthesize industry observations from client interactions.",
+    "groupId": "industry-trends-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-industry-trends-research"
+    ]
   },
   {
     "id": "consulting-knowledge-asset-search",
@@ -2069,7 +2606,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Find relevant knowledge assets for consulting engagements."
+    "use_case": "Find relevant knowledge assets for consulting engagements.",
+    "groupId": "knowledge-asset-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-knowledge-asset-search"
+    ]
   },
   {
     "id": "consulting-proposal-research",
@@ -2092,7 +2635,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Gather proposal inputs from previous similar engagements."
+    "use_case": "Gather proposal inputs from previous similar engagements.",
+    "groupId": "proposal-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-proposal-research"
+    ]
   },
   {
     "id": "consulting-sow-scope-discussion-summary",
@@ -2115,7 +2664,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Track scope discussions for engagement management."
+    "use_case": "Track scope discussions for engagement management.",
+    "groupId": "sowscope-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-sow-scope-discussion-summary"
+    ]
   },
   {
     "id": "consulting-team-coordination-summary",
@@ -2138,7 +2693,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Coordinate consulting team from communications."
+    "use_case": "Coordinate consulting team from communications.",
+    "groupId": "team-coordination-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-team-coordination-summary"
+    ]
   },
   {
     "id": "consulting-workshop-preparation",
@@ -2161,7 +2722,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "consulting",
     "difficulty": "intermediate",
-    "use_case": "Prepare for client workshops with proven formats and content."
+    "use_case": "Prepare for client workshops with proven formats and content.",
+    "groupId": "workshop-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "consulting-workshop-preparation"
+    ]
   },
   {
     "id": "content-repurposing",
@@ -2184,7 +2751,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Maximizing content value across formats"
+    "use_case": "Maximizing content value across formats",
+    "groupId": "content-repurposing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "content-repurposing"
+    ]
   },
   {
     "id": "context-fusion-engine",
@@ -2207,7 +2780,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Comprehensive project or topic synthesis"
+    "use_case": "Comprehensive project or topic synthesis",
+    "groupId": "context-fusion-engine",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-context-fusion-engine",
+      "context-fusion-engine"
+    ]
   },
   {
     "id": "contract-legal-impact-detector",
@@ -2230,7 +2810,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Flag legal and contractual risks in email communications"
+    "use_case": "Flag legal and contractual risks in email communications",
+    "groupId": "contractlegal-impact-detector",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "contract-legal-impact-detector"
+    ]
   },
   {
     "id": "contract-negotiation-research",
@@ -2253,7 +2839,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Research contract context from discussions. Legal review required for terms."
+    "use_case": "Research contract context from discussions. Legal review required for terms.",
+    "groupId": "contract-negotiation-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "contract-negotiation-research"
+    ]
   },
   {
     "id": "contract-pattern-research",
@@ -2276,7 +2868,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research contract patterns across deals. Legal applicability requires formal legal review."
+    "use_case": "Research contract patterns across deals. Legal applicability requires formal legal review.",
+    "groupId": "contract-pattern-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "contract-pattern-research"
+    ]
   },
   {
     "id": "convert-email-to-slide-outline",
@@ -2299,7 +2897,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Transform email content into presentation-ready slide outlines"
+    "use_case": "Transform email content into presentation-ready slide outlines",
+    "groupId": "convert-email-to-slide-outline",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "convert-email-to-slide-outline"
+    ]
   },
   {
     "id": "convert-email-to-sop-draft",
@@ -2322,7 +2926,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Transform email discussions into structured standard operating procedures"
+    "use_case": "Transform email discussions into structured standard operating procedures",
+    "groupId": "convert-email-to-sop-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "convert-email-to-sop-draft"
+    ]
   },
   {
     "id": "cost-resource-request-extractor",
@@ -2345,7 +2955,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Extract and organize budget and resource requests from emails"
+    "use_case": "Extract and organize budget and resource requests from emails",
+    "groupId": "costresource-request-extractor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cost-resource-request-extractor"
+    ]
   },
   {
     "id": "cost-variance-narrative",
@@ -2368,7 +2984,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Draft variance explanations based on team discussions. Numbers must always come from official cost systems."
+    "use_case": "Draft variance explanations based on team discussions. Numbers must always come from official cost systems.",
+    "groupId": "cost-variance-narrative",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cost-variance-narrative"
+    ]
   },
   {
     "id": "create-and-share-a-document-with-stakeholders",
@@ -2391,7 +3013,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Generate a Word document from notes or a brief, then share it directly with the right people — without manually uploading and emailing."
+    "use_case": "Generate a Word document from notes or a brief, then share it directly with the right people — without manually uploading and emailing.",
+    "groupId": "create-and-share-document-with-stakeholders",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "create-and-share-a-document-with-stakeholders"
+    ]
   },
   {
     "id": "cross-functional-alignment-brief",
@@ -2414,7 +3042,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Detect misalignment or coordination gaps between your team and peer teams before they become blockers — so you can align proactively rather than reactively."
+    "use_case": "Detect misalignment or coordination gaps between your team and peer teams before they become blockers — so you can align proactively rather than reactively.",
+    "groupId": "cross-functional-alignment-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cross-functional-alignment-brief"
+    ]
   },
   {
     "id": "cross-team-alignment-reporter",
@@ -2437,7 +3071,13 @@ const PROMPTS_DATA = [
     "app": "teams",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Cross-functional collaboration and alignment"
+    "use_case": "Cross-functional collaboration and alignment",
+    "groupId": "cross-team-alignment-reporter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cross-team-alignment-reporter"
+    ]
   },
   {
     "id": "cross-team-alignment-summary",
@@ -2460,7 +3100,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Identify alignment gaps and consensus between teams"
+    "use_case": "Identify alignment gaps and consensus between teams",
+    "groupId": "cross-team-alignment-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "cross-team-alignment-summary"
+    ]
   },
   {
     "id": "customer-delivery-communication",
@@ -2483,7 +3129,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Draft customer delivery updates for review and verification."
+    "use_case": "Draft customer delivery updates for review and verification.",
+    "groupId": "customer-delivery-communication",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-delivery-communication"
+    ]
   },
   {
     "id": "customer-impact-email-summary",
@@ -2506,7 +3158,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Analyze customer impact and get AI-powered suggestions for risk mitigation"
+    "use_case": "Analyze customer impact and get AI-powered suggestions for risk mitigation",
+    "groupId": "customer-impact-email-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-impact-email-summary"
+    ]
   },
   {
     "id": "customer-success-at-risk-account-assessment",
@@ -2529,7 +3187,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Identify risk signals from communications. Verify with platform data."
+    "use_case": "Identify risk signals from communications. Verify with platform data.",
+    "groupId": "at-risk-account-assessment",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-at-risk-account-assessment"
+    ]
   },
   {
     "id": "customer-success-contract-discussion-summary",
@@ -2552,7 +3216,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Gather contract negotiation context. Legal review required for actual terms."
+    "use_case": "Gather contract negotiation context. Legal review required for actual terms.",
+    "groupId": "contract-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-contract-discussion-summary"
+    ]
   },
   {
     "id": "customer-success-copilot-guardrails",
@@ -2575,7 +3245,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for customer success and support professionals using Copilot."
+    "use_case": "Essential guardrails for customer success and support professionals using Copilot.",
+    "groupId": "customer-success-support-copilot-guardrails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-copilot-guardrails"
+    ]
   },
   {
     "id": "customer-success-customer-communication-draft",
@@ -2598,7 +3274,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Draft customer support communications for review."
+    "use_case": "Draft customer support communications for review.",
+    "groupId": "customer-communication-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-customer-communication-draft"
+    ]
   },
   {
     "id": "customer-success-customer-health-summary",
@@ -2621,7 +3303,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Gather qualitative account context from communications. Use CS platform for health metrics."
+    "use_case": "Gather qualitative account context from communications. Use CS platform for health metrics.",
+    "groupId": "customer-health-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-customer-health-summary"
+    ]
   },
   {
     "id": "customer-success-escalation-context-summary",
@@ -2644,7 +3332,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Gather escalation context from communications for resolution meetings."
+    "use_case": "Gather escalation context from communications for resolution meetings.",
+    "groupId": "escalation-context-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-escalation-context-summary"
+    ]
   },
   {
     "id": "customer-success-expansion-opportunity-research",
@@ -2667,7 +3361,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Identify expansion signals from customer communications."
+    "use_case": "Identify expansion signals from customer communications.",
+    "groupId": "expansion-opportunity-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-expansion-opportunity-research"
+    ]
   },
   {
     "id": "customer-success-handoff-documentation",
@@ -2690,7 +3390,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Create account handoff documentation from relationship history."
+    "use_case": "Create account handoff documentation from relationship history.",
+    "groupId": "handoff-documentation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-handoff-documentation"
+    ]
   },
   {
     "id": "customer-success-issue-pattern-analysis",
@@ -2713,7 +3419,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "advanced",
-    "use_case": "Identify support themes from discussions. Use ticketing analytics for metrics."
+    "use_case": "Identify support themes from discussions. Use ticketing analytics for metrics.",
+    "groupId": "issue-pattern-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-issue-pattern-analysis"
+    ]
   },
   {
     "id": "customer-success-meeting-preparation",
@@ -2736,7 +3448,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Prepare for customer meetings with full relationship context."
+    "use_case": "Prepare for customer meetings with full relationship context.",
+    "groupId": "meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-meeting-preparation"
+    ]
   },
   {
     "id": "customer-success-onboarding-progress-summary",
@@ -2759,7 +3477,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Track onboarding progress from communications."
+    "use_case": "Track onboarding progress from communications.",
+    "groupId": "onboarding-progress-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-onboarding-progress-summary"
+    ]
   },
   {
     "id": "customer-success-qbr-preparation",
@@ -2782,7 +3506,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Prepare QBR content from relationship context. Add platform metrics separately."
+    "use_case": "Prepare QBR content from relationship context. Add platform metrics separately.",
+    "groupId": "qbr-preparation",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "customer-success-qbr-preparation",
+      "sales-qbr-preparation"
+    ]
   },
   {
     "id": "customer-success-relationship-mapping",
@@ -2805,7 +3536,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Map account relationships from communication patterns."
+    "use_case": "Map account relationships from communication patterns.",
+    "groupId": "relationship-mapping",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-relationship-mapping"
+    ]
   },
   {
     "id": "customer-success-renewal-preparation",
@@ -2828,7 +3565,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Gather renewal context from communications. Contract details in CRM."
+    "use_case": "Gather renewal context from communications. Contract details in CRM.",
+    "groupId": "renewal-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-renewal-preparation"
+    ]
   },
   {
     "id": "customer-success-similar-issue-search",
@@ -2851,7 +3594,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Find precedents for similar issues to inform troubleshooting."
+    "use_case": "Find precedents for similar issues to inform troubleshooting.",
+    "groupId": "similar-issue-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-similar-issue-search"
+    ]
   },
   {
     "id": "customer-success-team-performance-context",
@@ -2874,7 +3623,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "customer-success",
     "difficulty": "intermediate",
-    "use_case": "Gather qualitative team feedback for 1:1s and reviews. Metrics from ticketing system."
+    "use_case": "Gather qualitative team feedback for 1:1s and reviews. Metrics from ticketing system.",
+    "groupId": "team-performance-context",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customer-success-team-performance-context"
+    ]
   },
   {
     "id": "customs-issue-research",
@@ -2897,7 +3652,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Find precedents for customs issues to inform resolution."
+    "use_case": "Find precedents for customs issues to inform resolution.",
+    "groupId": "customs-issue-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "customs-issue-research"
+    ]
   },
   {
     "id": "daily-calendar-prep",
@@ -2920,7 +3681,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Know what today requires before the first meeting starts"
+    "use_case": "Know what today requires before the first meeting starts",
+    "groupId": "daily-calendar-prep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-calendar-prep"
+    ]
   },
   {
     "id": "daily-command-centre",
@@ -2943,7 +3710,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Start each working day with a single synthesised briefing across email, calendar, and outstanding commitments — replacing a 20-minute inbox scan with a 3-minute structured read."
+    "use_case": "Start each working day with a single synthesised briefing across email, calendar, and outstanding commitments — replacing a 20-minute inbox scan with a 3-minute structured read.",
+    "groupId": "daily-command-centre",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-command-centre"
+    ]
   },
   {
     "id": "daily-inbox-priority-scan",
@@ -2966,7 +3739,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Surface the 3–5 emails that actually need your attention today without reading everything."
+    "use_case": "Surface the 3–5 emails that actually need your attention today without reading everything.",
+    "groupId": "daily-inbox-priority-scan",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-inbox-priority-scan"
+    ]
   },
   {
     "id": "daily-priority-list",
@@ -2989,7 +3768,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Managing daily workload effectively"
+    "use_case": "Managing daily workload effectively",
+    "groupId": "daily-priority-list",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-priority-list"
+    ]
   },
   {
     "id": "daily-report-draft",
@@ -3012,7 +3797,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Accelerate daily reporting by capturing information from digital communications. Always supplement with direct field observations."
+    "use_case": "Accelerate daily reporting by capturing information from digital communications. Always supplement with direct field observations.",
+    "groupId": "daily-report-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-report-draft"
+    ]
   },
   {
     "id": "daily-threat-digest",
@@ -3035,7 +3826,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to produce a consistent daily threat summary for the SOC team or security leadership."
+    "use_case": "Use to produce a consistent daily threat summary for the SOC team or security leadership.",
+    "groupId": "daily-threat-digest",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "daily-threat-digest"
+    ]
   },
   {
     "id": "dashboard-feedback-summary",
@@ -3058,7 +3855,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Gather user feedback on dashboards and reports to prioritize improvements."
+    "use_case": "Gather user feedback on dashboards and reports to prioritize improvements.",
+    "groupId": "dashboard-feedback-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "dashboard-feedback-summary"
+    ]
   },
   {
     "id": "dashboard-insight-generator",
@@ -3081,7 +3884,13 @@ const PROMPTS_DATA = [
     "app": "excel",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Executive reporting and KPI tracking"
+    "use_case": "Executive reporting and KPI tracking",
+    "groupId": "dashboard-insight-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "dashboard-insight-generator"
+    ]
   },
   {
     "id": "data-analysis",
@@ -3104,7 +3913,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Extracting insights from data"
+    "use_case": "Extracting insights from data",
+    "groupId": "data-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-analysis"
+    ]
   },
   {
     "id": "data-definition-research",
@@ -3127,7 +3942,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Research metric definitions across the organization to ensure consistency."
+    "use_case": "Research metric definitions across the organization to ensure consistency.",
+    "groupId": "data-definition-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-definition-research"
+    ]
   },
   {
     "id": "data-quality-auditor",
@@ -3150,7 +3971,13 @@ const PROMPTS_DATA = [
     "app": "excel",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Data governance and data preparation"
+    "use_case": "Data governance and data preparation",
+    "groupId": "data-quality-auditor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-quality-auditor"
+    ]
   },
   {
     "id": "data-quality-issue-research",
@@ -3173,7 +4000,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Research data quality issues from communications to support improvement initiatives."
+    "use_case": "Research data quality issues from communications to support improvement initiatives.",
+    "groupId": "data-quality-issue-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-quality-issue-research"
+    ]
   },
   {
     "id": "data-retention-and-dlp-policy-coverage-check",
@@ -3196,7 +4029,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to verify that DLP and retention policies cover your critical data types before an audit."
+    "use_case": "Use to verify that DLP and retention policies cover your critical data types before an audit.",
+    "groupId": "data-retention-and-dlp-policy-coverage-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-retention-and-dlp-policy-coverage-check"
+    ]
   },
   {
     "id": "data-storyteller",
@@ -3219,7 +4058,13 @@ const PROMPTS_DATA = [
     "app": "excel",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Data analysis and business intelligence"
+    "use_case": "Data analysis and business intelligence",
+    "groupId": "data-storyteller",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-storyteller"
+    ]
   },
   {
     "id": "data-visualization-optimizer",
@@ -3242,7 +4087,13 @@ const PROMPTS_DATA = [
     "app": "powerpoint",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Presentation design and data storytelling"
+    "use_case": "Presentation design and data storytelling",
+    "groupId": "data-visualization-optimizer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "data-visualization-optimizer"
+    ]
   },
   {
     "id": "de-escalation-professional-reply",
@@ -3265,7 +4116,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Handle difficult situations with AI-powered diplomatic responses"
+    "use_case": "Handle difficult situations with AI-powered diplomatic responses",
+    "groupId": "de-escalation-professional-reply",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "de-escalation-professional-reply"
+    ]
   },
   {
     "id": "deadline-plus-task-extractor",
@@ -3288,7 +4145,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Convert email threads into structured task lists with deadlines and dependencies"
+    "use_case": "Convert email threads into structured task lists with deadlines and dependencies",
+    "groupId": "deadline-task-extractor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "deadline-plus-task-extractor"
+    ]
   },
   {
     "id": "decision-clarifier",
@@ -3311,7 +4174,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "beginner",
-    "use_case": "Extract pending decisions and decision-makers from email threads"
+    "use_case": "Extract pending decisions and decision-makers from email threads",
+    "groupId": "decision-clarifier",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-clarifier"
+    ]
   },
   {
     "id": "decision-context-research",
@@ -3334,7 +4203,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Gather comprehensive context before making important decisions without scheduling multiple briefing meetings."
+    "use_case": "Gather comprehensive context before making important decisions without scheduling multiple briefing meetings.",
+    "groupId": "decision-context-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-context-research"
+    ]
   },
   {
     "id": "decision-framework",
@@ -3357,7 +4232,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Making structured decisions"
+    "use_case": "Making structured decisions",
+    "groupId": "decision-framework",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-framework"
+    ]
   },
   {
     "id": "decision-log-research",
@@ -3380,7 +4261,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Reconstruct decision history from communications when formal records are incomplete or need verification."
+    "use_case": "Reconstruct decision history from communications when formal records are incomplete or need verification.",
+    "groupId": "decision-log-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-log-research"
+    ]
   },
   {
     "id": "decision-maker-digest",
@@ -3403,7 +4290,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Present complex decisions in a clear, executive-friendly format"
+    "use_case": "Present complex decisions in a clear, executive-friendly format",
+    "groupId": "decision-maker-digest",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-maker-digest"
+    ]
   },
   {
     "id": "decision-matrix-builder",
@@ -3426,7 +4319,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Evaluating options for business decisions systematically"
+    "use_case": "Evaluating options for business decisions systematically",
+    "groupId": "decision-matrix-builder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-matrix-builder"
+    ]
   },
   {
     "id": "decision-triage",
@@ -3449,7 +4348,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Surface all pending decisions sitting in email and Teams and classify each one by who should own it — reducing decision bottlenecks and freeing the manager to focus on what only they can decide."
+    "use_case": "Surface all pending decisions sitting in email and Teams and classify each one by who should own it — reducing decision bottlenecks and freeing the manager to focus on what only they can decide.",
+    "groupId": "decision-triage",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "decision-triage"
+    ]
   },
   {
     "id": "deep-research-multi-source-synthesis",
@@ -3472,7 +4377,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Compile a research brief from both internal M365 data and external sources on a specific topic, company, or technology."
+    "use_case": "Compile a research brief from both internal M365 data and external sources on a specific topic, company, or technology.",
+    "groupId": "deep-research-multi-source-synthesis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "deep-research-multi-source-synthesis"
+    ]
   },
   {
     "id": "delegation-brief",
@@ -3495,7 +4406,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Delegating tasks effectively"
+    "use_case": "Delegating tasks effectively",
+    "groupId": "delegation-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "delegation-brief"
+    ]
   },
   {
     "id": "demand-signal-summary",
@@ -3518,7 +4435,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Gather qualitative demand signals from communications for planning input."
+    "use_case": "Gather qualitative demand signals from communications for planning input.",
+    "groupId": "demand-signal-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "demand-signal-summary"
+    ]
   },
   {
     "id": "design-review-meeting-preparation",
@@ -3541,7 +4464,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Walk into design reviews prepared with full context on outstanding issues and concerns raised by the team."
+    "use_case": "Walk into design reviews prepared with full context on outstanding issues and concerns raised by the team.",
+    "groupId": "design-review-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "design-review-meeting-preparation"
+    ]
   },
   {
     "id": "device-investigation-rapid-scope",
@@ -3564,7 +4493,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to quickly establish what a device has been doing around the time of an alert before deciding whether to isolate."
+    "use_case": "Use to quickly establish what a device has been doing around the time of an alert before deciding whether to isolate.",
+    "groupId": "device-investigation-rapid-scope",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "device-investigation-rapid-scope"
+    ]
   },
   {
     "id": "difficult-conversation-script",
@@ -3587,7 +4522,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Preparing for challenging workplace conversations"
+    "use_case": "Preparing for challenging workplace conversations",
+    "groupId": "difficult-conversation-script",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "difficult-conversation-script"
+    ]
   },
   {
     "id": "dispute-preparation",
@@ -3610,7 +4551,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Prepare for dispute meetings with context from correspondence. Legal strategy requires legal counsel."
+    "use_case": "Prepare for dispute meetings with context from correspondence. Legal strategy requires legal counsel.",
+    "groupId": "dispute-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "dispute-preparation"
+    ]
   },
   {
     "id": "disruption-response-summary",
@@ -3633,7 +4580,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Document disruption response from communications for review and lessons learned."
+    "use_case": "Document disruption response from communications for review and lessons learned.",
+    "groupId": "disruption-response-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "disruption-response-summary"
+    ]
   },
   {
     "id": "dlp-alert-investigation",
@@ -3656,7 +4609,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to investigate a data loss prevention alert before deciding on escalation or user notification."
+    "use_case": "Use to investigate a data loss prevention alert before deciding on escalation or user notification.",
+    "groupId": "dlp-alert-investigation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "dlp-alert-investigation"
+    ]
   },
   {
     "id": "document-from-meeting-notes",
@@ -3679,7 +4638,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Turn raw meeting notes or a transcript into a finished Word document — briefing, MOM, or decision record."
+    "use_case": "Turn raw meeting notes or a transcript into a finished Word document — briefing, MOM, or decision record.",
+    "groupId": "document-from-meeting-notes",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "document-from-meeting-notes"
+    ]
   },
   {
     "id": "document-layout-analyzer",
@@ -3702,7 +4667,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Pre-processing document images before detailed analysis"
+    "use_case": "Pre-processing document images before detailed analysis",
+    "groupId": "document-layout-analyzer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "document-layout-analyzer"
+    ]
   },
   {
     "id": "document-search-for-field-use",
@@ -3725,7 +4696,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Quickly locate critical field documents before starting work activities. Always verify revision status with document control."
+    "use_case": "Quickly locate critical field documents before starting work activities. Always verify revision status with document control.",
+    "groupId": "document-search-for-field-use",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "document-search-for-field-use"
+    ]
   },
   {
     "id": "draft-a-polished-escalation-email",
@@ -3748,7 +4725,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Escalate issues professionally to senior leadership"
+    "use_case": "Escalate issues professionally to senior leadership",
+    "groupId": "draft-polished-escalation-email",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "draft-a-polished-escalation-email"
+    ]
   },
   {
     "id": "draft-and-send-renewal-or-follow-up-reminder",
@@ -3771,7 +4754,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "For accounts approaching a renewal, contract review, or follow-up date — research the relationship, draft the outreach, and send after approval."
+    "use_case": "For accounts approaching a renewal, contract review, or follow-up date — research the relationship, draft the outreach, and send after approval.",
+    "groupId": "draft-and-send-renewal-or-follow-up-reminder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "draft-and-send-renewal-or-follow-up-reminder"
+    ]
   },
   {
     "id": "early-warning-system",
@@ -3794,7 +4783,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Proactive risk management and issue prevention"
+    "use_case": "Proactive risk management and issue prevention",
+    "groupId": "early-warning-system",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-early-warning-system",
+      "early-warning-system"
+    ]
   },
   {
     "id": "email-battle-plan-generator",
@@ -3817,7 +4813,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Strategic email prioritization and workload planning"
+    "use_case": "Strategic email prioritization and workload planning",
+    "groupId": "email-battle-plan-generator",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-email-battle-plan-generator",
+      "email-battle-plan-generator"
+    ]
   },
   {
     "id": "email-threat-analysis",
@@ -3840,7 +4843,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to investigate a suspicious email that has been reported or flagged by Defender for Office 365."
+    "use_case": "Use to investigate a suspicious email that has been reported or flagged by Defender for Office 365.",
+    "groupId": "email-threat-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "email-threat-analysis"
+    ]
   },
   {
     "id": "email-triage-and-delegation-filter",
@@ -3863,7 +4872,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Rapidly classify today's inbox into respond-myself, delegate, monitor, or archive — cutting inbox processing time and reducing decision fatigue."
+    "use_case": "Rapidly classify today's inbox into respond-myself, delegate, monitor, or archive — cutting inbox processing time and reducing decision fatigue.",
+    "groupId": "email-triage-and-delegation-filter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "email-triage-and-delegation-filter"
+    ]
   },
   {
     "id": "employee-check-in-follow-up-tracker",
@@ -3886,7 +4901,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Track one-on-one commitments and follow through on them"
+    "use_case": "Track one-on-one commitments and follow through on them",
+    "groupId": "employee-check-in-follow-up-tracker",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "employee-check-in-follow-up-tracker"
+    ]
   },
   {
     "id": "end-of-day-commitment-tracker",
@@ -3909,7 +4930,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Close the day knowing what you promised and to whom"
+    "use_case": "Close the day knowing what you promised and to whom",
+    "groupId": "end-of-day-commitment-tracker",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "end-of-day-commitment-tracker"
+    ]
   },
   {
     "id": "end-of-week-manager-reset",
@@ -3932,7 +4959,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "A structured weekly closure routine — capturing wins, open loops, and priorities to carry forward — so the manager doesn't mentally carry work into the weekend."
+    "use_case": "A structured weekly closure routine — capturing wins, open loops, and priorities to carry forward — so the manager doesn't mentally carry work into the weekend.",
+    "groupId": "end-of-week-manager-reset",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "end-of-week-manager-reset"
+    ]
   },
   {
     "id": "end-to-end-weekly-status-report-research-draft-send",
@@ -3955,7 +4988,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "The full weekly status workflow: pull data across M365, compile the report, send it to your distribution list. Set it once, runs every week."
+    "use_case": "The full weekly status workflow: pull data across M365, compile the report, send it to your distribution list. Set it once, runs every week.",
+    "groupId": "end-to-end-weekly-status-report-research-draft-send",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "end-to-end-weekly-status-report-research-draft-send"
+    ]
   },
   {
     "id": "engagement-theme-analysis",
@@ -3978,7 +5017,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Identify engagement themes from informal feedback. Always supplement with formal surveys."
+    "use_case": "Identify engagement themes from informal feedback. Always supplement with formal surveys.",
+    "groupId": "engagement-theme-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "engagement-theme-analysis"
+    ]
   },
   {
     "id": "engineering-drawing-tag-identifier",
@@ -4001,7 +5046,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Identifying equipment tags in P&IDs, schematics, or site photos"
+    "use_case": "Identifying equipment tags in P&IDs, schematics, or site photos",
+    "groupId": "engineering-drawing-tag-identifier",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "engineering-drawing-tag-identifier"
+    ]
   },
   {
     "id": "engineering-meeting-preparation",
@@ -4024,7 +5075,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Prepare effectively for technical meetings by gathering context from scattered communications. Use the day before important reviews."
+    "use_case": "Prepare effectively for technical meetings by gathering context from scattered communications. Use the day before important reviews.",
+    "groupId": "engineering-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "engineering-meeting-preparation"
+    ]
   },
   {
     "id": "environmental-compliance-research",
@@ -4047,7 +5104,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research environmental compliance discussions. Actual compliance activities use formal environmental systems."
+    "use_case": "Research environmental compliance discussions. Actual compliance activities use formal environmental systems.",
+    "groupId": "environmental-compliance-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "environmental-compliance-research"
+    ]
   },
   {
     "id": "escalation-decision-support",
@@ -4070,7 +5133,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Before escalating an issue to senior leadership, gather full context, assess options, and structure the escalation communication — so you arrive prepared and with a clear ask."
+    "use_case": "Before escalating an issue to senior leadership, gather full context, assess options, and structure the escalation communication — so you arrive prepared and with a clear ask.",
+    "groupId": "escalation-decision-support",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "escalation-decision-support"
+    ]
   },
   {
     "id": "escalation-radar-detector",
@@ -4093,7 +5162,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Early crisis detection and conflict prevention"
+    "use_case": "Early crisis detection and conflict prevention",
+    "groupId": "escalation-radar-detector",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-escalation-radar-detector",
+      "escalation-radar-detector"
+    ]
   },
   {
     "id": "escalation-temperature-check",
@@ -4116,7 +5192,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Gauge escalation severity and get response recommendations"
+    "use_case": "Gauge escalation severity and get response recommendations",
+    "groupId": "escalation-temperature-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "escalation-temperature-check"
+    ]
   },
   {
     "id": "excess-inventory-discussion",
@@ -4139,7 +5221,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Research excess inventory discussions for optimization planning."
+    "use_case": "Research excess inventory discussions for optimization planning.",
+    "groupId": "excess-inventory-discussion",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "excess-inventory-discussion"
+    ]
   },
   {
     "id": "executive-brief-generator",
@@ -4162,7 +5250,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Executive communication and decision support"
+    "use_case": "Executive communication and decision support",
+    "groupId": "executive-brief-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-brief-generator"
+    ]
   },
   {
     "id": "executive-communication-draft",
@@ -4185,7 +5279,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Quickly draft executive communications while maintaining appropriate tone and completeness."
+    "use_case": "Quickly draft executive communications while maintaining appropriate tone and completeness.",
+    "groupId": "executive-communication-draft",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "executive-communication-draft",
+      "consulting-executive-communication-draft"
+    ]
   },
   {
     "id": "executive-monday-morning-brief",
@@ -4208,7 +5309,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Weekly situational awareness before the day begins"
+    "use_case": "Weekly situational awareness before the day begins",
+    "groupId": "executive-monday-morning-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-monday-morning-brief"
+    ]
   },
   {
     "id": "executive-pre-read",
@@ -4231,7 +5338,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Before meeting with a senior stakeholder or exec, get a concise picture of the relationship, recent context, and what they care about."
+    "use_case": "Before meeting with a senior stakeholder or exec, get a concise picture of the relationship, recent context, and what they care about.",
+    "groupId": "executive-pre-read",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-pre-read"
+    ]
   },
   {
     "id": "executive-security-briefing-non-technical",
@@ -4254,7 +5367,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when you need to communicate security posture or an incident to a non-technical audience."
+    "use_case": "Use when you need to communicate security posture or an incident to a non-technical audience.",
+    "groupId": "executive-security-briefing-non-technical",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-security-briefing-non-technical"
+    ]
   },
   {
     "id": "executive-summary-generator",
@@ -4277,7 +5396,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Summarizing reports, proposals, or lengthy documents for executives"
+    "use_case": "Summarizing reports, proposals, or lengthy documents for executives",
+    "groupId": "executive-summary-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-summary-generator"
+    ]
   },
   {
     "id": "executive-summary-of-my-inbox",
@@ -4300,7 +5425,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Get a high-level overview of critical items in your inbox at a glance"
+    "use_case": "Get a high-level overview of critical items in your inbox at a glance",
+    "groupId": "executive-summary-of-my-inbox",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "executive-summary-of-my-inbox"
+    ]
   },
   {
     "id": "explain-complex-topic-simply",
@@ -4323,7 +5454,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Understanding complex subjects quickly"
+    "use_case": "Understanding complex subjects quickly",
+    "groupId": "explain-complex-topic-simply",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "explain-complex-topic-simply"
+    ]
   },
   {
     "id": "extract-agenda-items",
@@ -4346,7 +5483,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "beginner",
-    "use_case": "Build meeting agendas from email discussions"
+    "use_case": "Build meeting agendas from email discussions",
+    "groupId": "extract-agenda-items",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "extract-agenda-items"
+    ]
   },
   {
     "id": "faq-generator",
@@ -4369,7 +5512,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Anticipating and answering common questions"
+    "use_case": "Anticipating and answering common questions",
+    "groupId": "faq-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "faq-generator"
+    ]
   },
   {
     "id": "feedback-drafting-assistant",
@@ -4392,7 +5541,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Draft specific, evidence-based, developmental or recognitive feedback for a team member using a structured SBI framework — so the conversation is grounded and constructive."
+    "use_case": "Draft specific, evidence-based, developmental or recognitive feedback for a team member using a structured SBI framework — so the conversation is grounded and constructive.",
+    "groupId": "feedback-drafting-assistant",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "feedback-drafting-assistant"
+    ]
   },
   {
     "id": "feedback-synthesis",
@@ -4415,7 +5570,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Making sense of diverse feedback"
+    "use_case": "Making sense of diverse feedback",
+    "groupId": "feedback-synthesis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "feedback-synthesis"
+    ]
   },
   {
     "id": "financial-review-preparation",
@@ -4438,7 +5599,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Enter financial reviews prepared with context on all recent discussions and concerns."
+    "use_case": "Enter financial reviews prepared with context on all recent discussions and concerns.",
+    "groupId": "financial-review-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "financial-review-preparation"
+    ]
   },
   {
     "id": "finops-cloud-cost-discussion-search",
@@ -4461,7 +5628,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Gather context on cloud cost discussions to prepare for FinOps reviews. Cost data comes from cloud platforms."
+    "use_case": "Gather context on cloud cost discussions to prepare for FinOps reviews. Cost data comes from cloud platforms.",
+    "groupId": "finops-cloud-cost-discussion-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "finops-cloud-cost-discussion-search"
+    ]
   },
   {
     "id": "first-look-incident-summary",
@@ -4484,7 +5657,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when a new high-severity incident lands and you need a fast, structured overview before diving in."
+    "use_case": "Use when a new high-severity incident lands and you need a fast, structured overview before diving in.",
+    "groupId": "first-look-incident-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "first-look-incident-summary"
+    ]
   },
   {
     "id": "focus-time-protector",
@@ -4507,7 +5686,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Analyse the current week's calendar for deep-work gaps and generate specific focus-block recommendations before the week fills completely with meetings."
+    "use_case": "Analyse the current week's calendar for deep-work gaps and generate specific focus-block recommendations before the week fills completely with meetings.",
+    "groupId": "focus-time-protector",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "focus-time-protector"
+    ]
   },
   {
     "id": "follow-up-message",
@@ -4530,7 +5715,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Following up professionally without being pushy"
+    "use_case": "Following up professionally without being pushy",
+    "groupId": "follow-up-message",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "follow-up-message"
+    ]
   },
   {
     "id": "follow-up-tracking-engine",
@@ -4553,7 +5744,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Track outstanding requests and generate polite follow-up messages"
+    "use_case": "Track outstanding requests and generate polite follow-up messages",
+    "groupId": "follow-up-tracking-engine",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "follow-up-tracking-engine"
+    ]
   },
   {
     "id": "forecasting-model-builder",
@@ -4576,7 +5773,13 @@ const PROMPTS_DATA = [
     "app": "excel",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Financial forecasting and planning"
+    "use_case": "Financial forecasting and planning",
+    "groupId": "forecasting-model-builder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "forecasting-model-builder"
+    ]
   },
   {
     "id": "friday-end-of-week-digest",
@@ -4599,7 +5802,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Close the week with a record of what was done, what's open, and what carries into next week."
+    "use_case": "Close the week with a record of what was done, what's open, and what carries into next week.",
+    "groupId": "friday-end-of-week-digest",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "friday-end-of-week-digest"
+    ]
   },
   {
     "id": "friday-team-communication-summary",
@@ -4622,7 +5831,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Weekly record of key decisions and communications for your team"
+    "use_case": "Weekly record of key decisions and communications for your team",
+    "groupId": "friday-team-communication-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "friday-team-communication-summary"
+    ]
   },
   {
     "id": "gap-analysis",
@@ -4645,7 +5860,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Understanding and bridging gaps"
+    "use_case": "Understanding and bridging gaps",
+    "groupId": "gap-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "gap-analysis"
+    ]
   },
   {
     "id": "goal-setting",
@@ -4668,7 +5889,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Setting and planning for goals"
+    "use_case": "Setting and planning for goals",
+    "groupId": "goal-setting",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "goal-setting"
+    ]
   },
   {
     "id": "governance-communication-draft",
@@ -4691,7 +5918,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Draft data governance communications while maintaining consistent organizational tone."
+    "use_case": "Draft data governance communications while maintaining consistent organizational tone.",
+    "groupId": "governance-communication-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "governance-communication-draft"
+    ]
   },
   {
     "id": "historical-context",
@@ -4714,7 +5947,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Understanding current events in context"
+    "use_case": "Understanding current events in context",
+    "groupId": "historical-context",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "historical-context"
+    ]
   },
   {
     "id": "hse-meeting-preparation",
@@ -4737,7 +5976,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Prepare for HSE meetings with context from communications. Formal HSE metrics come from HSE systems."
+    "use_case": "Prepare for HSE meetings with context from communications. Formal HSE metrics come from HSE systems.",
+    "groupId": "hse-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hse-meeting-preparation"
+    ]
   },
   {
     "id": "hse-procedure-search",
@@ -4760,7 +6005,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Quickly locate HSE procedures. ALWAYS verify revision status with Document Control before field use."
+    "use_case": "Quickly locate HSE procedures. ALWAYS verify revision status with Document Control before field use.",
+    "groupId": "hse-procedure-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hse-procedure-search"
+    ]
   },
   {
     "id": "hse-trend-identification",
@@ -4783,7 +6034,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Explore HSE themes from communications. Formal trend analysis must use HSE incident systems."
+    "use_case": "Explore HSE themes from communications. Formal trend analysis must use HSE incident systems.",
+    "groupId": "hse-trend-identification",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hse-trend-identification"
+    ]
   },
   {
     "id": "hunting-lateral-movement-via-smb-psexec",
@@ -4806,7 +6063,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "advanced",
-    "use_case": "Use to identify potential lateral movement patterns in your environment."
+    "use_case": "Use to identify potential lateral movement patterns in your environment.",
+    "groupId": "hunting-lateral-movement-via-smbpsexec",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hunting-lateral-movement-via-smb-psexec"
+    ]
   },
   {
     "id": "hunting-persistence-mechanisms",
@@ -4829,7 +6092,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "advanced",
-    "use_case": "Use when investigating a suspected compromise and you want to check for persistence before containment."
+    "use_case": "Use when investigating a suspected compromise and you want to check for persistence before containment.",
+    "groupId": "hunting-persistence-mechanisms",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hunting-persistence-mechanisms"
+    ]
   },
   {
     "id": "hunting-suspicious-powershell-execution",
@@ -4852,7 +6121,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "advanced",
-    "use_case": "Use to hunt for LOLBin/PowerShell abuse patterns across your environment."
+    "use_case": "Use to hunt for LOLBin/PowerShell abuse patterns across your environment.",
+    "groupId": "hunting-suspicious-powershell-execution",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "hunting-suspicious-powershell-execution"
+    ]
   },
   {
     "id": "inbox-cleanup-plan",
@@ -4875,7 +6150,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Get AI-powered inbox organization and cleanup recommendations"
+    "use_case": "Get AI-powered inbox organization and cleanup recommendations",
+    "groupId": "inbox-cleanup-plan",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "inbox-cleanup-plan"
+    ]
   },
   {
     "id": "inbox-intelligence-officer",
@@ -4898,7 +6179,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Deep inbox analysis and strategic email management"
+    "use_case": "Deep inbox analysis and strategic email management",
+    "groupId": "inbox-intelligence-officer",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-inbox-intelligence-officer",
+      "inbox-intelligence-officer"
+    ]
   },
   {
     "id": "inbox-triage-reply-to-flagged-emails",
@@ -4921,7 +6209,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Surface the emails that need a reply today and draft responses — then send after your review, not before."
+    "use_case": "Surface the emails that need a reply today and draft responses — then send after your review, not before.",
+    "groupId": "inbox-triage-reply-to-flagged-emails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "inbox-triage-reply-to-flagged-emails"
+    ]
   },
   {
     "id": "incident-context-research",
@@ -4944,7 +6238,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Gather context on incident discussions. Formal incident data and investigation must use official HSE systems."
+    "use_case": "Gather context on incident discussions. Formal incident data and investigation must use official HSE systems.",
+    "groupId": "incident-context-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "incident-context-research"
+    ]
   },
   {
     "id": "incident-history-search",
@@ -4967,7 +6267,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research previous incident resolutions to inform current troubleshooting."
+    "use_case": "Research previous incident resolutions to inform current troubleshooting.",
+    "groupId": "incident-history-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "incident-history-search"
+    ]
   },
   {
     "id": "incident-post-mortem-draft",
@@ -4990,7 +6296,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use after incident closure to produce a structured post-mortem without starting from a blank page."
+    "use_case": "Use after incident closure to produce a structured post-mortem without starting from a blank page.",
+    "groupId": "incident-post-mortem-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "incident-post-mortem-draft"
+    ]
   },
   {
     "id": "insider-risk-signal-review",
@@ -5013,7 +6325,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use for periodic review of insider risk signals or when a user is flagged for HR/Legal review."
+    "use_case": "Use for periodic review of insider risk signals or when a user is flagged for HR/Legal review.",
+    "groupId": "insider-risk-signal-review",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "insider-risk-signal-review"
+    ]
   },
   {
     "id": "internal-announcement-draft",
@@ -5036,7 +6354,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Draft internal announcements quickly while ensuring appropriate tone and completeness."
+    "use_case": "Draft internal announcements quickly while ensuring appropriate tone and completeness.",
+    "groupId": "internal-announcement-draft",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "internal-announcement-draft",
+      "marketing-internal-announcement-draft"
+    ]
   },
   {
     "id": "internal-comms-feedback-summary",
@@ -5059,7 +6384,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Gather feedback on internal communications to improve future messaging."
+    "use_case": "Gather feedback on internal communications to improve future messaging.",
+    "groupId": "internal-comms-feedback-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "internal-comms-feedback-summary"
+    ]
   },
   {
     "id": "inventory-pattern-analysis",
@@ -5082,7 +6413,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Identify inventory planning themes from discussions. Use analytics for metrics."
+    "use_case": "Identify inventory planning themes from discussions. Use analytics for metrics.",
+    "groupId": "inventory-pattern-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "inventory-pattern-analysis"
+    ]
   },
   {
     "id": "invoice-dispute-research",
@@ -5105,7 +6442,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Gather invoice dispute history before vendor reconciliation meetings."
+    "use_case": "Gather invoice dispute history before vendor reconciliation meetings.",
+    "groupId": "invoice-dispute-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "invoice-dispute-research"
+    ]
   },
   {
     "id": "issue-to-solution-matrix",
@@ -5128,7 +6471,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Organize problems and solutions in a structured matrix"
+    "use_case": "Organize problems and solutions in a structured matrix",
+    "groupId": "issue-to-solution-matrix",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "issue-to-solution-matrix"
+    ]
   },
   {
     "id": "jargon-decoder",
@@ -5151,7 +6500,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Understanding industry-specific terminology"
+    "use_case": "Understanding industry-specific terminology",
+    "groupId": "jargon-decoder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "jargon-decoder"
+    ]
   },
   {
     "id": "json-xml-structure-generator",
@@ -5174,7 +6529,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Converting documents or text into machine-readable formats"
+    "use_case": "Converting documents or text into machine-readable formats",
+    "groupId": "jsonxml-structure-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "json-xml-structure-generator"
+    ]
   },
   {
     "id": "kpi-and-commitment-extractor",
@@ -5197,7 +6558,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Goal tracking and OKR alignment"
+    "use_case": "Goal tracking and OKR alignment",
+    "groupId": "kpi-and-commitment-extractor",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-kpi-and-commitment-extractor",
+      "kpi-and-commitment-extractor"
+    ]
   },
   {
     "id": "kql-query-generation-save-for-reuse",
@@ -5220,7 +6588,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "advanced",
-    "use_case": "Use to generate a KQL query you can save, test, and reuse — avoiding repeated Copilot prompting for the same hunt."
+    "use_case": "Use to generate a KQL query you can save, test, and reuse — avoiding repeated Copilot prompting for the same hunt.",
+    "groupId": "kql-query-generation-save-for-reuse",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "kql-query-generation-save-for-reuse"
+    ]
   },
   {
     "id": "leadership-meeting-preparation",
@@ -5243,7 +6617,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Walk into leadership meetings fully prepared with context on all likely discussion topics and pending decisions."
+    "use_case": "Walk into leadership meetings fully prepared with context on all likely discussion topics and pending decisions.",
+    "groupId": "leadership-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "leadership-meeting-preparation"
+    ]
   },
   {
     "id": "learn-new-skill-roadmap",
@@ -5266,7 +6646,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating a structured learning plan"
+    "use_case": "Creating a structured learning plan",
+    "groupId": "learn-new-skill-roadmap",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "learn-new-skill-roadmap"
+    ]
   },
   {
     "id": "lessons-learned-collection",
@@ -5289,7 +6675,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Jumpstart lessons learned sessions by identifying themes from project communications. Requires team validation."
+    "use_case": "Jumpstart lessons learned sessions by identifying themes from project communications. Requires team validation.",
+    "groupId": "lessons-learned-collection",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "lessons-learned-collection"
+    ]
   },
   {
     "id": "lessons-learned-discovery-pm",
@@ -5312,7 +6704,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Jumpstart lessons learned by identifying patterns from project communications. Requires team validation."
+    "use_case": "Jumpstart lessons learned by identifying patterns from project communications. Requires team validation.",
+    "groupId": "lessons-learned-discovery-pm",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "lessons-learned-discovery-pm"
+    ]
   },
   {
     "id": "linkedin-connection-message",
@@ -5335,7 +6733,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Networking effectively on LinkedIn"
+    "use_case": "Networking effectively on LinkedIn",
+    "groupId": "linkedin-connection-message",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "linkedin-connection-message"
+    ]
   },
   {
     "id": "managers-weekly-decision-log",
@@ -5358,7 +6762,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Create a running record of decisions made during the week to reduce repeated re-litigating and build institutional memory — for personal use, not HR records."
+    "use_case": "Create a running record of decisions made during the week to reduce repeated re-litigating and build institutional memory — for personal use, not HR records.",
+    "groupId": "managers-weekly-decision-log",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "managers-weekly-decision-log"
+    ]
   },
   {
     "id": "marketing-agency-coordination-summary",
@@ -5381,7 +6791,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Prepare for agency meetings with full project context."
+    "use_case": "Prepare for agency meetings with full project context.",
+    "groupId": "agency-coordination-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-agency-coordination-summary"
+    ]
   },
   {
     "id": "marketing-blog-post-outline",
@@ -5404,7 +6820,14 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Generate blog post outlines that can be developed into full content."
+    "use_case": "Generate blog post outlines that can be developed into full content.",
+    "groupId": "blog-post-outline",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "marketing-blog-post-outline",
+      "blog-post-outline"
+    ]
   },
   {
     "id": "marketing-campaign-performance-summary",
@@ -5427,7 +6850,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Gather qualitative campaign feedback from communications. Use analytics for hard metrics."
+    "use_case": "Gather qualitative campaign feedback from communications. Use analytics for hard metrics.",
+    "groupId": "campaign-performance-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-campaign-performance-summary"
+    ]
   },
   {
     "id": "marketing-content-calendar-research",
@@ -5450,7 +6879,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Gather content requests and ideas from communications for planning."
+    "use_case": "Gather content requests and ideas from communications for planning.",
+    "groupId": "content-calendar-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-content-calendar-research"
+    ]
   },
   {
     "id": "marketing-content-performance-themes",
@@ -5473,7 +6908,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "advanced",
-    "use_case": "Identify content themes from qualitative feedback. Use analytics for metrics."
+    "use_case": "Identify content themes from qualitative feedback. Use analytics for metrics.",
+    "groupId": "content-performance-themes",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-content-performance-themes"
+    ]
   },
   {
     "id": "marketing-copilot-guardrails",
@@ -5496,7 +6937,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for marketing and communications professionals using Copilot."
+    "use_case": "Essential guardrails for marketing and communications professionals using Copilot.",
+    "groupId": "marketing-communications-copilot-guardrails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-copilot-guardrails"
+    ]
   },
   {
     "id": "marketing-crisis-communication-prep",
@@ -5519,7 +6966,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Gather crisis context from internal discussions. External comms require approval."
+    "use_case": "Gather crisis context from internal discussions. External comms require approval.",
+    "groupId": "crisis-communication-prep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-crisis-communication-prep"
+    ]
   },
   {
     "id": "marketing-email-newsletter-draft",
@@ -5542,7 +6995,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Create newsletter drafts for refinement in email marketing platform."
+    "use_case": "Create newsletter drafts for refinement in email marketing platform.",
+    "groupId": "email-newsletter-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-email-newsletter-draft"
+    ]
   },
   {
     "id": "marketing-event-planning-consolidation",
@@ -5565,7 +7024,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Consolidate event planning discussions into organized summary."
+    "use_case": "Consolidate event planning discussions into organized summary.",
+    "groupId": "event-planning-consolidation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-event-planning-consolidation"
+    ]
   },
   {
     "id": "marketing-executive-speech-outline",
@@ -5588,7 +7053,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Create executive speech outlines for refinement."
+    "use_case": "Create executive speech outlines for refinement.",
+    "groupId": "executive-speech-outline",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-executive-speech-outline"
+    ]
   },
   {
     "id": "marketing-internal-announcement-draft",
@@ -5611,7 +7082,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Create internal communications drafts for leadership review."
+    "use_case": "Create internal communications drafts for leadership review.",
+    "groupId": "internal-announcement-draft",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "internal-announcement-draft",
+      "marketing-internal-announcement-draft"
+    ]
   },
   {
     "id": "marketing-marketing-brief-draft",
@@ -5634,7 +7112,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Create initial marketing briefs from scattered discussions."
+    "use_case": "Create initial marketing briefs from scattered discussions.",
+    "groupId": "marketing-brief-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-marketing-brief-draft"
+    ]
   },
   {
     "id": "marketing-media-inquiry-response",
@@ -5657,7 +7141,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Research internal positions to inform media response. Always verify with leadership."
+    "use_case": "Research internal positions to inform media response. Always verify with leadership.",
+    "groupId": "media-inquiry-response",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-media-inquiry-response"
+    ]
   },
   {
     "id": "marketing-press-release-draft",
@@ -5680,7 +7170,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Create press release drafts following standard format."
+    "use_case": "Create press release drafts following standard format.",
+    "groupId": "press-release-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-press-release-draft"
+    ]
   },
   {
     "id": "marketing-social-media-copy-draft",
@@ -5703,7 +7199,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Generate social media copy variations for review and refinement."
+    "use_case": "Generate social media copy variations for review and refinement.",
+    "groupId": "social-media-copy-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-social-media-copy-draft"
+    ]
   },
   {
     "id": "marketing-stakeholder-update-draft",
@@ -5726,7 +7228,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "marketing",
     "difficulty": "intermediate",
-    "use_case": "Draft executive marketing updates that can be enhanced with metrics."
+    "use_case": "Draft executive marketing updates that can be enhanced with metrics.",
+    "groupId": "stakeholder-update-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "marketing-stakeholder-update-draft"
+    ]
   },
   {
     "id": "meeting-agenda",
@@ -5749,7 +7257,13 @@ const PROMPTS_DATA = [
     "app": "teams",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Running effective meetings"
+    "use_case": "Running effective meetings",
+    "groupId": "meeting-agenda",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-agenda"
+    ]
   },
   {
     "id": "meeting-audit-and-calendar-declutter",
@@ -5772,7 +7286,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Identify which recurring and one-off meetings to skip, delegate, shorten, or cancel — recovering focus time without dropping important commitments."
+    "use_case": "Identify which recurring and one-off meetings to skip, delegate, shorten, or cancel — recovering focus time without dropping important commitments.",
+    "groupId": "meeting-audit-and-calendar-declutter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-audit-and-calendar-declutter"
+    ]
   },
   {
     "id": "meeting-email-prep-pack",
@@ -5795,7 +7315,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Prepare comprehensively for meetings by extracting context from email threads"
+    "use_case": "Prepare comprehensively for meetings by extracting context from email threads",
+    "groupId": "meeting-email-prep-pack",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-email-prep-pack"
+    ]
   },
   {
     "id": "meeting-minutes-formatter",
@@ -5818,7 +7344,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Converting rough meeting notes into professional documentation"
+    "use_case": "Converting rough meeting notes into professional documentation",
+    "groupId": "meeting-minutes-formatter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-minutes-formatter"
+    ]
   },
   {
     "id": "meeting-notes-to-action-plan-converter",
@@ -5841,7 +7373,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Meeting follow-up and accountability"
+    "use_case": "Meeting follow-up and accountability",
+    "groupId": "meeting-notes-to-action-plan-converter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-notes-to-action-plan-converter"
+    ]
   },
   {
     "id": "meeting-prep-intelligence-pack",
@@ -5864,7 +7402,13 @@ const PROMPTS_DATA = [
     "app": "teams",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Meeting preparation and context gathering"
+    "use_case": "Meeting preparation and context gathering",
+    "groupId": "meeting-prep-intelligence-pack",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-prep-intelligence-pack"
+    ]
   },
   {
     "id": "meeting-request-email",
@@ -5887,7 +7431,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating effective meeting invitations"
+    "use_case": "Creating effective meeting invitations",
+    "groupId": "meeting-request-email",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "meeting-request-email"
+    ]
   },
   {
     "id": "monday-blocker-check",
@@ -5910,7 +7460,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Surface blockers before they become escalations"
+    "use_case": "Surface blockers before they become escalations",
+    "groupId": "monday-blocker-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "monday-blocker-check"
+    ]
   },
   {
     "id": "monday-week-start-briefing",
@@ -5933,7 +7489,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Start every week with a clear picture of what needs your attention — open threads, commitments, calendar priorities."
+    "use_case": "Start every week with a clear picture of what needs your attention — open threads, commitments, calendar priorities.",
+    "groupId": "monday-week-start-briefing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "monday-week-start-briefing"
+    ]
   },
   {
     "id": "month-end-discussion-summary",
@@ -5956,7 +7518,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Prepare for month-end close meetings with context on all issues discussed. Close activities use ERP systems."
+    "use_case": "Prepare for month-end close meetings with context on all issues discussed. Close activities use ERP systems.",
+    "groupId": "month-end-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "month-end-discussion-summary"
+    ]
   },
   {
     "id": "monthly-expense-and-approval-review",
@@ -5979,7 +7547,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Ensure nothing requiring finance sign-off slips through at month-end"
+    "use_case": "Ensure nothing requiring finance sign-off slips through at month-end",
+    "groupId": "monthly-expense-and-approval-review",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "monthly-expense-and-approval-review"
+    ]
   },
   {
     "id": "monthly-vulnerability-summary-for-leadership",
@@ -6002,7 +7576,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use at the end of each month to produce a consistent vulnerability posture report without manually pulling data."
+    "use_case": "Use at the end of each month to produce a consistent vulnerability posture report without manually pulling data.",
+    "groupId": "monthly-vulnerability-summary-for-leadership",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "monthly-vulnerability-summary-for-leadership"
+    ]
   },
   {
     "id": "morning-email-briefing",
@@ -6025,7 +7605,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Start each day knowing what needs your attention before opening your inbox"
+    "use_case": "Start each day knowing what needs your attention before opening your inbox",
+    "groupId": "morning-email-briefing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "morning-email-briefing"
+    ]
   },
   {
     "id": "multi-alert-correlation-single-incident-thread",
@@ -6048,7 +7634,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when multiple alerts across different products appear related and you need to determine if they form a single attack chain."
+    "use_case": "Use when multiple alerts across different products appear related and you need to determine if they form a single attack chain.",
+    "groupId": "multi-alert-correlation-single-incident-thread",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "multi-alert-correlation-single-incident-thread"
+    ]
   },
   {
     "id": "multi-thread-consolidation",
@@ -6071,7 +7663,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Consolidate scattered email threads into a single coherent summary"
+    "use_case": "Consolidate scattered email threads into a single coherent summary",
+    "groupId": "multi-thread-consolidation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "multi-thread-consolidation"
+    ]
   },
   {
     "id": "negotiation-history-research",
@@ -6094,7 +7692,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Research contract negotiation history for preparation. Legal analysis requires qualified legal review."
+    "use_case": "Research contract negotiation history for preparation. Legal analysis requires qualified legal review.",
+    "groupId": "negotiation-history-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "negotiation-history-research"
+    ]
   },
   {
     "id": "new-colleague-or-stakeholder-onboarding-brief",
@@ -6117,7 +7721,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Before working with someone new, quickly understand who they are based on your org's existing communications and their public profile."
+    "use_case": "Before working with someone new, quickly understand who they are based on your org's existing communications and their public profile.",
+    "groupId": "new-colleague-or-stakeholder-onboarding-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "new-colleague-or-stakeholder-onboarding-brief"
+    ]
   },
   {
     "id": "new-team-member-onboarding-orchestrator",
@@ -6140,7 +7750,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Generate a manager-side onboarding plan and communications for a new direct report joining the team — so the first 30 days are intentional, not improvised."
+    "use_case": "Generate a manager-side onboarding plan and communications for a new direct report joining the team — so the first 30 days are intentional, not improvised.",
+    "groupId": "new-team-member-onboarding-orchestrator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "new-team-member-onboarding-orchestrator"
+    ]
   },
   {
     "id": "newsletter-content",
@@ -6163,7 +7779,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating engaging newsletter content"
+    "use_case": "Creating engaging newsletter content",
+    "groupId": "newsletter-content",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "newsletter-content"
+    ]
   },
   {
     "id": "okr-and-goal-alignment-check",
@@ -6186,7 +7808,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Map where your actual time and team communications are going against stated quarterly goals — surfacing misalignment between stated priorities and real effort allocation."
+    "use_case": "Map where your actual time and team communications are going against stated quarterly goals — surfacing misalignment between stated priorities and real effort allocation.",
+    "groupId": "okr-and-goal-alignment-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "okr-and-goal-alignment-check"
+    ]
   },
   {
     "id": "onboarding-checklist-research",
@@ -6209,7 +7837,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Compile existing onboarding materials to create comprehensive new hire packages."
+    "use_case": "Compile existing onboarding materials to create comprehensive new hire packages.",
+    "groupId": "onboarding-checklist-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "onboarding-checklist-research"
+    ]
   },
   {
     "id": "onboarding-checklist",
@@ -6232,7 +7866,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating effective onboarding experiences"
+    "use_case": "Creating effective onboarding experiences",
+    "groupId": "onboarding-checklist",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "onboarding-checklist"
+    ]
   },
   {
     "id": "one-to-one-meeting-prep-assistant",
@@ -6255,7 +7895,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Auto-generate a structured 1:1 agenda for any direct report, synthesising carry-forward items, open commitments, and recent signals — so no important topic is forgotten."
+    "use_case": "Auto-generate a structured 1:1 agenda for any direct report, synthesising carry-forward items, open commitments, and recent signals — so no important topic is forgotten.",
+    "groupId": "one-to-one-meeting-prep-assistant",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "one-to-one-meeting-prep-assistant"
+    ]
   },
   {
     "id": "opportunity-analysis",
@@ -6278,7 +7924,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Evaluating opportunities systematically"
+    "use_case": "Evaluating opportunities systematically",
+    "groupId": "opportunity-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "opportunity-analysis"
+    ]
   },
   {
     "id": "organizational-pulse-check",
@@ -6301,7 +7953,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Get informal visibility into organizational sentiment. Always supplement with formal feedback mechanisms."
+    "use_case": "Get informal visibility into organizational sentiment. Always supplement with formal feedback mechanisms.",
+    "groupId": "organizational-pulse-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "organizational-pulse-check"
+    ]
   },
   {
     "id": "patch-compliance-report-by-business-unit",
@@ -6324,7 +7982,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to track patch compliance across organisational units and identify which teams are creating risk."
+    "use_case": "Use to track patch compliance across organisational units and identify which teams are creating risk.",
+    "groupId": "patch-compliance-report-by-business-unit",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "patch-compliance-report-by-business-unit"
+    ]
   },
   {
     "id": "pattern-miner-for-operational-insights",
@@ -6347,7 +8011,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Operational excellence and process improvement"
+    "use_case": "Operational excellence and process improvement",
+    "groupId": "pattern-miner-for-operational-insights",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-pattern-miner-for-operational-insights",
+      "pattern-miner-for-operational-insights"
+    ]
   },
   {
     "id": "performance-review-evidence-synthesiser",
@@ -6370,7 +8041,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Aggregate work evidence from communications to support a fair, fact-based performance review conversation — reducing recency bias and memory gaps."
+    "use_case": "Aggregate work evidence from communications to support a fair, fact-based performance review conversation — reducing recency bias and memory gaps.",
+    "groupId": "performance-review-evidence-synthesiser",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "performance-review-evidence-synthesiser"
+    ]
   },
   {
     "id": "policy-research",
@@ -6393,7 +8070,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Quickly find relevant HR policies to answer employee inquiries. Always verify currency of policies."
+    "use_case": "Quickly find relevant HR policies to answer employee inquiries. Always verify currency of policies.",
+    "groupId": "policy-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "policy-research"
+    ]
   },
   {
     "id": "portfolio-overview",
@@ -6416,7 +8099,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Get a quick pulse on your portfolio without reading dozens of individual project updates."
+    "use_case": "Get a quick pulse on your portfolio without reading dozens of individual project updates.",
+    "groupId": "portfolio-overview",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "portfolio-overview"
+    ]
   },
   {
     "id": "post-meeting-action-capture",
@@ -6439,7 +8128,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Immediately after a meeting, convert notes and transcript into assigned tasks and a recap email — without doing it manually."
+    "use_case": "Immediately after a meeting, convert notes and transcript into assigned tasks and a recap email — without doing it manually.",
+    "groupId": "post-meeting-action-capture",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "post-meeting-action-capture"
+    ]
   },
   {
     "id": "post-weekly-project-update-to-teams-channel",
@@ -6462,7 +8157,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Compile the week's project developments from email and Teams, then post a structured update to the team channel — without writing it from scratch."
+    "use_case": "Compile the week's project developments from email and Teams, then post a structured update to the team channel — without writing it from scratch.",
+    "groupId": "post-weekly-project-update-to-teams-channel",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "post-weekly-project-update-to-teams-channel"
+    ]
   },
   {
     "id": "pre-meeting-research-brief",
@@ -6485,7 +8186,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Walk into any meeting fully prepared — know what was last discussed, what's open, and what they're likely to raise."
+    "use_case": "Walk into any meeting fully prepared — know what was last discussed, what's open, and what they're likely to raise.",
+    "groupId": "pre-meeting-research-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "pre-meeting-research-brief"
+    ]
   },
   {
     "id": "precedent-search",
@@ -6508,7 +8215,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Find contract precedents for reference. Legal applicability requires qualified legal assessment."
+    "use_case": "Find contract precedents for reference. Legal applicability requires qualified legal assessment.",
+    "groupId": "precedent-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "precedent-search"
+    ]
   },
   {
     "id": "predecessor-issue-search",
@@ -6531,7 +8244,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Learn from previous similar issues without reinventing solutions. Current conditions may differ and require independent assessment."
+    "use_case": "Learn from previous similar issues without reinventing solutions. Current conditions may differ and require independent assessment.",
+    "groupId": "predecessor-issue-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "predecessor-issue-search"
+    ]
   },
   {
     "id": "presentation-from-brief",
@@ -6554,7 +8273,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Turn a written brief or set of bullet points into a structured PowerPoint deck."
+    "use_case": "Turn a written brief or set of bullet points into a structured PowerPoint deck.",
+    "groupId": "presentation-from-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "presentation-from-brief"
+    ]
   },
   {
     "id": "presentation-outline",
@@ -6577,7 +8302,13 @@ const PROMPTS_DATA = [
     "app": "powerpoint",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Planning impactful presentations"
+    "use_case": "Planning impactful presentations",
+    "groupId": "presentation-outline",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "presentation-outline"
+    ]
   },
   {
     "id": "privileged-access-review-report",
@@ -6600,7 +8331,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use for quarterly privileged access reviews (PAR) required by ISO 27001, SOC 2, and similar frameworks."
+    "use_case": "Use for quarterly privileged access reviews (PAR) required by ISO 27001, SOC 2, and similar frameworks.",
+    "groupId": "privileged-access-review-report",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "privileged-access-review-report"
+    ]
   },
   {
     "id": "privileged-account-audit",
@@ -6623,7 +8360,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use for routine checks on privileged accounts or before/after a change freeze."
+    "use_case": "Use for routine checks on privileged accounts or before/after a change freeze.",
+    "groupId": "privileged-account-audit",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "privileged-account-audit"
+    ]
   },
   {
     "id": "problem-breakdown-plus-solutions",
@@ -6646,7 +8389,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Analyze problems systematically and generate solution options"
+    "use_case": "Analyze problems systematically and generate solution options",
+    "groupId": "problem-breakdown-solutions",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "problem-breakdown-plus-solutions"
+    ]
   },
   {
     "id": "problem-reframing",
@@ -6669,7 +8418,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Looking at problems from new angles"
+    "use_case": "Looking at problems from new angles",
+    "groupId": "problem-reframing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "problem-reframing"
+    ]
   },
   {
     "id": "process-documentation",
@@ -6692,7 +8447,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating clear process documentation"
+    "use_case": "Creating clear process documentation",
+    "groupId": "process-documentation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "process-documentation"
+    ]
   },
   {
     "id": "product-description",
@@ -6715,7 +8476,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Writing compelling product copy"
+    "use_case": "Writing compelling product copy",
+    "groupId": "product-description",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "product-description"
+    ]
   },
   {
     "id": "product-launch-planning",
@@ -6738,7 +8505,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Gather product launch context for inventory planning."
+    "use_case": "Gather product launch context for inventory planning.",
+    "groupId": "product-launch-planning",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "product-launch-planning"
+    ]
   },
   {
     "id": "professional-email-draft",
@@ -6761,7 +8534,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Writing professional emails for any business situation"
+    "use_case": "Writing professional emails for any business situation",
+    "groupId": "professional-email-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "professional-email-draft"
+    ]
   },
   {
     "id": "professional-email-drafter",
@@ -6784,7 +8563,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Drafting professional emails for various business situations"
+    "use_case": "Drafting professional emails for various business situations",
+    "groupId": "professional-email-drafter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "professional-email-drafter"
+    ]
   },
   {
     "id": "progress-vs-plan-review",
@@ -6807,7 +8592,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Compare actual progress against plans and identify risks"
+    "use_case": "Compare actual progress against plans and identify risks",
+    "groupId": "progress-vs-plan-review",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "progress-vs-plan-review"
+    ]
   },
   {
     "id": "project-correspondence-search",
@@ -6830,7 +8621,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Stay on top of project communications across multiple channels. Use weekly to ensure nothing falls through the cracks."
+    "use_case": "Stay on top of project communications across multiple channels. Use weekly to ensure nothing falls through the cracks.",
+    "groupId": "project-correspondence-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "project-correspondence-search"
+    ]
   },
   {
     "id": "project-plan",
@@ -6853,7 +8650,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Creating comprehensive project plans"
+    "use_case": "Creating comprehensive project plans",
+    "groupId": "project-plan",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "project-plan"
+    ]
   },
   {
     "id": "project-status-digest-across-all-active-projects",
@@ -6876,7 +8679,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Get a cross-project status overview by letting Cowork sweep all recent communications rather than chasing each project lead."
+    "use_case": "Get a cross-project status overview by letting Cowork sweep all recent communications rather than chasing each project lead.",
+    "groupId": "project-status-digest-across-all-active-projects",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "project-status-digest-across-all-active-projects"
+    ]
   },
   {
     "id": "proposal-win-strategy-enhancer",
@@ -6899,7 +8708,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Sales proposals and business development"
+    "use_case": "Sales proposals and business development",
+    "groupId": "proposal-win-strategy-enhancer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "proposal-win-strategy-enhancer"
+    ]
   },
   {
     "id": "pros-cons-list",
@@ -6922,7 +8737,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Evaluating options thoroughly"
+    "use_case": "Evaluating options thoroughly",
+    "groupId": "pros-cons-list",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "pros-cons-list"
+    ]
   },
   {
     "id": "prospect-follow-up-reminder",
@@ -6945,7 +8766,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Never let a warm lead go cold"
+    "use_case": "Never let a warm lead go cold",
+    "groupId": "prospect-follow-up-reminder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "prospect-follow-up-reminder"
+    ]
   },
   {
     "id": "punch-list-consolidation",
@@ -6968,7 +8795,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Capture informally reported punch items that may not have made it to the official list. Requires formal verification."
+    "use_case": "Capture informally reported punch items that may not have made it to the official list. Requires formal verification.",
+    "groupId": "punch-list-consolidation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "punch-list-consolidation"
+    ]
   },
   {
     "id": "quality-audit-preparation",
@@ -6991,7 +8824,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Prepare for quality audits with context from communications. Formal quality data comes from QMS."
+    "use_case": "Prepare for quality audits with context from communications. Formal quality data comes from QMS.",
+    "groupId": "quality-audit-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "quality-audit-preparation"
+    ]
   },
   {
     "id": "quick-reference-guide",
@@ -7014,7 +8853,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating handy reference materials"
+    "use_case": "Creating handy reference materials",
+    "groupId": "quick-reference-guide",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "quick-reference-guide"
+    ]
   },
   {
     "id": "recurring-meeting-optimizer",
@@ -7037,7 +8882,13 @@ const PROMPTS_DATA = [
     "app": "teams",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Meeting efficiency and optimization"
+    "use_case": "Meeting efficiency and optimization",
+    "groupId": "recurring-meeting-optimizer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "recurring-meeting-optimizer"
+    ]
   },
   {
     "id": "recurring-meeting-preparation-automated",
@@ -7060,7 +8911,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "For a meeting that recurs every week or two, automatically pull the relevant context before each occurrence."
+    "use_case": "For a meeting that recurs every week or two, automatically pull the relevant context before each occurrence.",
+    "groupId": "recurring-meeting-preparation-automated",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "recurring-meeting-preparation-automated"
+    ]
   },
   {
     "id": "rejection-email-kind",
@@ -7083,7 +8940,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Declining requests while maintaining relationships"
+    "use_case": "Declining requests while maintaining relationships",
+    "groupId": "rejection-email-kind",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rejection-email-kind"
+    ]
   },
   {
     "id": "rephrase-to-sound-more-diplomatic",
@@ -7106,7 +8969,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Transform direct or harsh messages into diplomatic communications"
+    "use_case": "Transform direct or harsh messages into diplomatic communications",
+    "groupId": "rephrase-to-sound-more-diplomatic",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rephrase-to-sound-more-diplomatic"
+    ]
   },
   {
     "id": "requirements-gathering-summary",
@@ -7129,7 +8998,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Consolidate stakeholder requirements for data products from scattered communications."
+    "use_case": "Consolidate stakeholder requirements for data products from scattered communications.",
+    "groupId": "requirements-gathering-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "requirements-gathering-summary"
+    ]
   },
   {
     "id": "reschedule-conflicts-on-my-calendar",
@@ -7152,7 +9027,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "When your week has scheduling conflicts, let Cowork identify them and propose resolutions — then act after your approval."
+    "use_case": "When your week has scheduling conflicts, let Cowork identify them and propose resolutions — then act after your approval.",
+    "groupId": "reschedule-conflicts-on-my-calendar",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "reschedule-conflicts-on-my-calendar"
+    ]
   },
   {
     "id": "research-dev-collaboration-network-search",
@@ -7175,7 +9056,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Map research collaboration network from communications."
+    "use_case": "Map research collaboration network from communications.",
+    "groupId": "collaboration-network-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-collaboration-network-search"
+    ]
   },
   {
     "id": "research-dev-competitive-analysis-research",
@@ -7198,7 +9085,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Gather internal competitive insights from discussions."
+    "use_case": "Gather internal competitive insights from discussions.",
+    "groupId": "competitive-analysis-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-competitive-analysis-research"
+    ]
   },
   {
     "id": "research-dev-copilot-guardrails",
@@ -7221,7 +9114,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for R&D professionals using Copilot."
+    "use_case": "Essential guardrails for R&D professionals using Copilot.",
+    "groupId": "rd-copilot-guardrails-reference",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-copilot-guardrails"
+    ]
   },
   {
     "id": "research-dev-cross-team-collaboration-summary",
@@ -7244,7 +9143,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Track cross-team R&D collaboration from communications."
+    "use_case": "Track cross-team R&D collaboration from communications.",
+    "groupId": "cross-team-collaboration-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-cross-team-collaboration-summary"
+    ]
   },
   {
     "id": "research-dev-experiment-documentation-search",
@@ -7267,7 +9172,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Find historical experiment documentation from communications."
+    "use_case": "Find historical experiment documentation from communications.",
+    "groupId": "experiment-documentation-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-experiment-documentation-search"
+    ]
   },
   {
     "id": "research-dev-grant-funding-research",
@@ -7290,7 +9201,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Gather funding and grant context from internal discussions."
+    "use_case": "Gather funding and grant context from internal discussions.",
+    "groupId": "grantfunding-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-grant-funding-research"
+    ]
   },
   {
     "id": "research-dev-lab-equipment-discussion-summary",
@@ -7313,7 +9230,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Track lab and equipment discussions for resource planning."
+    "use_case": "Track lab and equipment discussions for resource planning.",
+    "groupId": "labequipment-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-lab-equipment-discussion-summary"
+    ]
   },
   {
     "id": "research-dev-literature-discussion-summary",
@@ -7336,7 +9259,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Organize literature review discussions and references."
+    "use_case": "Organize literature review discussions and references.",
+    "groupId": "literature-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-literature-discussion-summary"
+    ]
   },
   {
     "id": "research-dev-prior-art-research-summary",
@@ -7359,7 +9288,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Gather internal knowledge about previous R&D efforts. Formal IP search requires legal."
+    "use_case": "Gather internal knowledge about previous R&D efforts. Formal IP search requires legal.",
+    "groupId": "prior-art-research-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-prior-art-research-summary"
+    ]
   },
   {
     "id": "research-dev-publication-planning-summary",
@@ -7382,7 +9317,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Track publication planning from research communications."
+    "use_case": "Track publication planning from research communications.",
+    "groupId": "publication-planning-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-publication-planning-summary"
+    ]
   },
   {
     "id": "research-dev-research-study-planning",
@@ -7405,7 +9346,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Research study planning using past study learnings."
+    "use_case": "Research study planning using past study learnings.",
+    "groupId": "research-study-planning",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-research-study-planning"
+    ]
   },
   {
     "id": "research-dev-research-theme-analysis",
@@ -7428,7 +9375,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "advanced",
-    "use_case": "Identify research themes from discussions. Use research tools for formal analysis."
+    "use_case": "Identify research themes from discussions. Use research tools for formal analysis.",
+    "groupId": "research-theme-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-research-theme-analysis"
+    ]
   },
   {
     "id": "research-dev-stakeholder-research-brief",
@@ -7451,7 +9404,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Create stakeholder research briefs from findings discussions."
+    "use_case": "Create stakeholder research briefs from findings discussions.",
+    "groupId": "stakeholder-research-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-stakeholder-research-brief"
+    ]
   },
   {
     "id": "research-dev-technical-review-preparation",
@@ -7474,7 +9433,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Prepare for R&D technical reviews with comprehensive context."
+    "use_case": "Prepare for R&D technical reviews with comprehensive context.",
+    "groupId": "technical-review-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-technical-review-preparation"
+    ]
   },
   {
     "id": "research-dev-technical-specifications-search",
@@ -7497,7 +9462,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Gather technical requirements from R&D discussions."
+    "use_case": "Gather technical requirements from R&D discussions.",
+    "groupId": "technical-specifications-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-technical-specifications-search"
+    ]
   },
   {
     "id": "research-dev-user-research-summary",
@@ -7520,7 +9491,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "research-dev",
     "difficulty": "intermediate",
-    "use_case": "Synthesize user research findings from communications."
+    "use_case": "Synthesize user research findings from communications.",
+    "groupId": "user-research-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-dev-user-research-summary"
+    ]
   },
   {
     "id": "research-synthesis",
@@ -7543,7 +9520,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Consolidating research findings"
+    "use_case": "Consolidating research findings",
+    "groupId": "research-synthesis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "research-synthesis"
+    ]
   },
   {
     "id": "retrospective-structure",
@@ -7566,7 +9549,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Learning from completed projects"
+    "use_case": "Learning from completed projects",
+    "groupId": "retrospective-structure",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "retrospective-structure"
+    ]
   },
   {
     "id": "rewrite-as-clear-business-requirements",
@@ -7589,7 +9578,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Convert informal discussions into formal business requirements documents"
+    "use_case": "Convert informal discussions into formal business requirements documents",
+    "groupId": "rewrite-as-clear-business-requirements",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rewrite-as-clear-business-requirements"
+    ]
   },
   {
     "id": "rewrite-as-executive-summary",
@@ -7612,7 +9607,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "intermediate",
-    "use_case": "Condense lengthy emails into executive-friendly bullet points"
+    "use_case": "Condense lengthy emails into executive-friendly bullet points",
+    "groupId": "rewrite-as-executive-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rewrite-as-executive-summary"
+    ]
   },
   {
     "id": "rewrite-in-plain-language",
@@ -7635,7 +9636,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Simplify complex technical or jargon-heavy emails"
+    "use_case": "Simplify complex technical or jargon-heavy emails",
+    "groupId": "rewrite-in-plain-language",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rewrite-in-plain-language"
+    ]
   },
   {
     "id": "rewrite-to-ask-for-next-steps",
@@ -7658,7 +9665,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Transform passive emails into actionable requests"
+    "use_case": "Transform passive emails into actionable requests",
+    "groupId": "rewrite-to-ask-for-next-steps",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rewrite-to-ask-for-next-steps"
+    ]
   },
   {
     "id": "rewrite-to-be-more-assertive",
@@ -7681,7 +9694,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Strengthen communication while maintaining professionalism"
+    "use_case": "Strengthen communication while maintaining professionalism",
+    "groupId": "rewrite-to-be-more-assertive",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "rewrite-to-be-more-assertive"
+    ]
   },
   {
     "id": "risk-and-blocker-sweep",
@@ -7704,7 +9723,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Surface every risk, blocker, or escalation mentioned across your communications before it reaches you in a meeting."
+    "use_case": "Surface every risk, blocker, or escalation mentioned across your communications before it reaches you in a meeting.",
+    "groupId": "risk-and-blocker-sweep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "risk-and-blocker-sweep"
+    ]
   },
   {
     "id": "risk-and-issue-surfacing",
@@ -7727,7 +9752,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Proactively surface risks and issues from team communications before they escalate."
+    "use_case": "Proactively surface risks and issues from team communications before they escalate.",
+    "groupId": "risk-and-issue-surfacing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "risk-and-issue-surfacing"
+    ]
   },
   {
     "id": "risk-assessment-framework",
@@ -7750,7 +9781,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Structured risk assessment for projects, decisions, or initiatives"
+    "use_case": "Structured risk assessment for projects, decisions, or initiatives",
+    "groupId": "risk-assessment-framework",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "risk-assessment-framework"
+    ]
   },
   {
     "id": "risk-assessment",
@@ -7773,7 +9810,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Identifying and planning for risks"
+    "use_case": "Identifying and planning for risks",
+    "groupId": "risk-assessment",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "risk-assessment"
+    ]
   },
   {
     "id": "risk-flagged-email-overview",
@@ -7796,7 +9839,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Automatically detect emails with potential risks or compliance issues"
+    "use_case": "Automatically detect emails with potential risks or compliance issues",
+    "groupId": "risk-flagged-email-overview",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "risk-flagged-email-overview"
+    ]
   },
   {
     "id": "role-clarification-from-thread",
@@ -7819,7 +9868,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Clarify roles and identify responsibility gaps in email threads"
+    "use_case": "Clarify roles and identify responsibility gaps in email threads",
+    "groupId": "role-clarification-from-thread",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "role-clarification-from-thread"
+    ]
   },
   {
     "id": "root-cause-analysis",
@@ -7842,7 +9897,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Finding the real source of problems"
+    "use_case": "Finding the real source of problems",
+    "groupId": "root-cause-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "root-cause-analysis"
+    ]
   },
   {
     "id": "root-cause-summary",
@@ -7865,7 +9926,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Convert email discussions into structured root cause analysis"
+    "use_case": "Convert email discussions into structured root cause analysis",
+    "groupId": "root-cause-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "root-cause-summary"
+    ]
   },
   {
     "id": "sales-account-research-summary",
@@ -7888,7 +9955,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Prepare for client calls with comprehensive account context from all communications."
+    "use_case": "Prepare for client calls with comprehensive account context from all communications.",
+    "groupId": "account-research-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-account-research-summary"
+    ]
   },
   {
     "id": "sales-competitive-intelligence-search",
@@ -7911,7 +9984,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Gather competitive intelligence from past interactions to inform sales strategy."
+    "use_case": "Gather competitive intelligence from past interactions to inform sales strategy.",
+    "groupId": "competitive-intelligence-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-competitive-intelligence-search"
+    ]
   },
   {
     "id": "sales-copilot-guardrails",
@@ -7934,7 +10013,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Essential guardrails for sales professionals using Copilot. Understand CRM vs. Copilot boundaries."
+    "use_case": "Essential guardrails for sales professionals using Copilot. Understand CRM vs. Copilot boundaries.",
+    "groupId": "sales-copilot-guardrails",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-copilot-guardrails"
+    ]
   },
   {
     "id": "sales-customer-escalation-summary",
@@ -7957,7 +10042,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Create escalation summaries for leadership briefings."
+    "use_case": "Create escalation summaries for leadership briefings.",
+    "groupId": "customer-escalation-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-customer-escalation-summary"
+    ]
   },
   {
     "id": "sales-deal-progress-summary",
@@ -7980,7 +10071,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Get a complete picture of deal progress from scattered communications before pipeline reviews."
+    "use_case": "Get a complete picture of deal progress from scattered communications before pipeline reviews.",
+    "groupId": "deal-progress-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-deal-progress-summary"
+    ]
   },
   {
     "id": "sales-deal-review-preparation",
@@ -8003,7 +10100,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Prepare for deal reviews with full context on the opportunity."
+    "use_case": "Prepare for deal reviews with full context on the opportunity.",
+    "groupId": "deal-review-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-deal-review-preparation"
+    ]
   },
   {
     "id": "sales-forecast-discussion-summary",
@@ -8026,7 +10129,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Gather forecast context from team discussions. CRM is source of truth for numbers."
+    "use_case": "Gather forecast context from team discussions. CRM is source of truth for numbers.",
+    "groupId": "forecast-discussion-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-forecast-discussion-summary"
+    ]
   },
   {
     "id": "sales-lead-qualification-notes",
@@ -8049,7 +10158,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Organize discovery information into structured qualification notes."
+    "use_case": "Organize discovery information into structured qualification notes.",
+    "groupId": "lead-qualification-notes",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-lead-qualification-notes"
+    ]
   },
   {
     "id": "sales-meeting-request-follow-up",
@@ -8072,7 +10187,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Create follow-up sequences that add value without being pushy."
+    "use_case": "Create follow-up sequences that add value without being pushy.",
+    "groupId": "meeting-request-follow-up",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-meeting-request-follow-up"
+    ]
   },
   {
     "id": "sales-outreach-pattern-analysis",
@@ -8095,7 +10216,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "sales",
     "difficulty": "advanced",
-    "use_case": "Identify patterns in outreach effectiveness. Supplement with sales analytics tools."
+    "use_case": "Identify patterns in outreach effectiveness. Supplement with sales analytics tools.",
+    "groupId": "outreach-pattern-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-outreach-pattern-analysis"
+    ]
   },
   {
     "id": "sales-outreach-sequence-draft",
@@ -8118,7 +10245,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Draft initial outreach emails that can be personalized before sending."
+    "use_case": "Draft initial outreach emails that can be personalized before sending.",
+    "groupId": "outreach-sequence-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-outreach-sequence-draft"
+    ]
   },
   {
     "id": "sales-pitch-perfector",
@@ -8141,7 +10274,13 @@ const PROMPTS_DATA = [
     "app": "powerpoint",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Sales presentations and pitches"
+    "use_case": "Sales presentations and pitches",
+    "groupId": "sales-pitch-perfector",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-pitch-perfector"
+    ]
   },
   {
     "id": "sales-proposal-follow-up-draft",
@@ -8164,7 +10303,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Create personalized proposal follow-ups that reference actual conversation points."
+    "use_case": "Create personalized proposal follow-ups that reference actual conversation points.",
+    "groupId": "proposal-follow-up-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-proposal-follow-up-draft"
+    ]
   },
   {
     "id": "sales-prospect-research",
@@ -8187,7 +10332,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Research prospects using internal knowledge before outreach."
+    "use_case": "Research prospects using internal knowledge before outreach.",
+    "groupId": "prospect-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-prospect-research"
+    ]
   },
   {
     "id": "sales-qbr-preparation",
@@ -8210,7 +10361,14 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Prepare comprehensive QBR content from client interactions. Add metrics from CRM separately."
+    "use_case": "Prepare comprehensive QBR content from client interactions. Add metrics from CRM separately.",
+    "groupId": "qbr-preparation",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "customer-success-qbr-preparation",
+      "sales-qbr-preparation"
+    ]
   },
   {
     "id": "sales-rep-performance-context",
@@ -8233,7 +10391,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Gather context for 1:1 coaching conversations. Use HR systems for formal reviews."
+    "use_case": "Gather context for 1:1 coaching conversations. Use HR systems for formal reviews.",
+    "groupId": "rep-performance-context",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-rep-performance-context"
+    ]
   },
   {
     "id": "sales-team-pipeline-summary",
@@ -8256,7 +10420,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "sales",
     "difficulty": "intermediate",
-    "use_case": "Consolidate team updates from communications before adding CRM metrics."
+    "use_case": "Consolidate team updates from communications before adding CRM metrics.",
+    "groupId": "team-pipeline-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sales-team-pipeline-summary"
+    ]
   },
   {
     "id": "scenario-planning",
@@ -8279,7 +10449,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Preparing for multiple outcomes"
+    "use_case": "Preparing for multiple outcomes",
+    "groupId": "scenario-planning",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "scenario-planning"
+    ]
   },
   {
     "id": "schedule-a-meeting-based-on-calendar-availability",
@@ -8302,7 +10478,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Find a time that works for a group of people and send the calendar invite — without the back-and-forth."
+    "use_case": "Find a time that works for a group of people and send the calendar invite — without the back-and-forth.",
+    "groupId": "schedule-meeting-based-on-calendar-availability",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "schedule-a-meeting-based-on-calendar-availability"
+    ]
   },
   {
     "id": "security-awareness-training-compliance-report",
@@ -8325,7 +10507,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to track mandatory security training completion and identify non-compliant staff before an audit."
+    "use_case": "Use to track mandatory security training completion and identify non-compliant staff before an audit.",
+    "groupId": "security-awareness-training-compliance-report",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "security-awareness-training-compliance-report"
+    ]
   },
   {
     "id": "security-incident-communication-external-notification-draft",
@@ -8348,7 +10536,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when a breach or significant incident may require external notification (customers, regulators, or partners)."
+    "use_case": "Use when a breach or significant incident may require external notification (customers, regulators, or partners).",
+    "groupId": "security-incident-communication-external-notification-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "security-incident-communication-external-notification-draft"
+    ]
   },
   {
     "id": "security-metrics-dashboard-preparation",
@@ -8371,7 +10565,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to pull the raw metrics you need before building or updating a security dashboard or scorecard."
+    "use_case": "Use to pull the raw metrics you need before building or updating a security dashboard or scorecard.",
+    "groupId": "security-metrics-dashboard-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "security-metrics-dashboard-preparation"
+    ]
   },
   {
     "id": "security-questionnaire-response-vendor-customer",
@@ -8394,7 +10594,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when a customer or vendor sends a security questionnaire and you need to draft responses grounded in your actual environment state."
+    "use_case": "Use when a customer or vendor sends a security questionnaire and you need to draft responses grounded in your actual environment state.",
+    "groupId": "security-questionnaire-response-vendorcustomer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "security-questionnaire-response-vendor-customer"
+    ]
   },
   {
     "id": "security-sensitivity-check",
@@ -8417,7 +10623,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Identify and mitigate security risks in email communications"
+    "use_case": "Identify and mitigate security risks in email communications",
+    "groupId": "security-sensitivity-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "security-sensitivity-check"
+    ]
   },
   {
     "id": "self-service-analytics-support-research",
@@ -8440,7 +10652,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Identify common user struggles with self-service analytics to improve support and training."
+    "use_case": "Identify common user struggles with self-service analytics to improve support and training.",
+    "groupId": "self-service-analytics-support-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "self-service-analytics-support-research"
+    ]
   },
   {
     "id": "send-meeting-follow-up-email",
@@ -8463,7 +10681,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "After any meeting, automatically draft and send the recap email to all attendees — without doing it manually."
+    "use_case": "After any meeting, automatically draft and send the recap email to all attendees — without doing it manually.",
+    "groupId": "send-meeting-follow-up-email",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "send-meeting-follow-up-email"
+    ]
   },
   {
     "id": "send-stakeholder-update-after-approval",
@@ -8486,7 +10710,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Full end-to-end workflow — research, draft, get approval, send. The action-taking version of the Stakeholder Update from the research collection."
+    "use_case": "Full end-to-end workflow — research, draft, get approval, send. The action-taking version of the Stakeholder Update from the research collection.",
+    "groupId": "send-stakeholder-update-after-approval",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "send-stakeholder-update-after-approval"
+    ]
   },
   {
     "id": "sentiment-and-tone-analysis",
@@ -8509,7 +10739,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Understand email sentiment and get AI recommendations for appropriate response tone"
+    "use_case": "Understand email sentiment and get AI recommendations for appropriate response tone",
+    "groupId": "sentiment-tone-analysis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sentiment-and-tone-analysis"
+    ]
   },
   {
     "id": "shipment-issue-summary",
@@ -8532,7 +10768,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Compile shipment issue context from communications. TMS is source of tracking data."
+    "use_case": "Compile shipment issue context from communications. TMS is source of tracking data.",
+    "groupId": "shipment-issue-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "shipment-issue-summary"
+    ]
   },
   {
     "id": "single-cve-impact-assessment",
@@ -8555,7 +10797,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when a new CVE is published or reported and you need to know your exposure fast."
+    "use_case": "Use when a new CVE is published or reported and you need to know your exposure fast.",
+    "groupId": "single-cve-impact-assessment",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "single-cve-impact-assessment"
+    ]
   },
   {
     "id": "site-coordination-summary",
@@ -8578,7 +10826,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Prepare for site coordination meetings with a clear picture of cross-trade issues and conflicts."
+    "use_case": "Prepare for site coordination meetings with a clear picture of cross-trade issues and conflicts.",
+    "groupId": "site-coordination-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "site-coordination-summary"
+    ]
   },
   {
     "id": "skip-level-meeting-prep",
@@ -8601,7 +10855,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Prepare for a meeting with your manager or your manager's manager — surfacing what they are focused on, what to proactively address, and what wins to highlight."
+    "use_case": "Prepare for a meeting with your manager or your manager's manager — surfacing what they are focused on, what to proactively address, and what wins to highlight.",
+    "groupId": "skip-level-meeting-prep",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "skip-level-meeting-prep"
+    ]
   },
   {
     "id": "smart-auto-reply-generator",
@@ -8624,7 +10884,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Create professional out-of-office messages with varying detail levels"
+    "use_case": "Create professional out-of-office messages with varying detail levels",
+    "groupId": "smart-auto-reply-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "smart-auto-reply-generator"
+    ]
   },
   {
     "id": "social-media-caption",
@@ -8647,7 +10913,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Creating engaging social media posts"
+    "use_case": "Creating engaging social media posts",
+    "groupId": "social-media-caption",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "social-media-caption"
+    ]
   },
   {
     "id": "sop-meeting-preparation",
@@ -8670,7 +10942,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Prepare for S&OP meetings with context from cross-functional discussions."
+    "use_case": "Prepare for S&OP meetings with context from cross-functional discussions.",
+    "groupId": "sop-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "sop-meeting-preparation"
+    ]
   },
   {
     "id": "specification-outline-draft",
@@ -8693,7 +10971,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Accelerate specification development by starting from similar documents. Use only as a starting point requiring full engineering review."
+    "use_case": "Accelerate specification development by starting from similar documents. Use only as a starting point requiring full engineering review.",
+    "groupId": "specification-outline-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "specification-outline-draft"
+    ]
   },
   {
     "id": "speed-reply-suggestions",
@@ -8716,7 +11000,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Get multiple response options for quick email replies"
+    "use_case": "Get multiple response options for quick email replies",
+    "groupId": "speed-reply-suggestions",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "speed-reply-suggestions"
+    ]
   },
   {
     "id": "stakeholder-communication-draft",
@@ -8739,7 +11029,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Draft professional stakeholder communications quickly while ensuring all relevant information is captured."
+    "use_case": "Draft professional stakeholder communications quickly while ensuring all relevant information is captured.",
+    "groupId": "stakeholder-communication-draft",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-communication-draft"
+    ]
   },
   {
     "id": "stakeholder-mapping-from-thread",
@@ -8762,7 +11058,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Map stakeholders and their expectations from email threads"
+    "use_case": "Map stakeholders and their expectations from email threads",
+    "groupId": "stakeholder-mapping-from-thread",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-mapping-from-thread"
+    ]
   },
   {
     "id": "stakeholder-meeting-prep-pm",
@@ -8785,7 +11087,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Enter stakeholder meetings prepared to address their specific concerns and highlight relevant achievements."
+    "use_case": "Enter stakeholder meetings prepared to address their specific concerns and highlight relevant achievements.",
+    "groupId": "stakeholder-meeting-prep-pm",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-meeting-prep-pm"
+    ]
   },
   {
     "id": "stakeholder-meeting-preparation",
@@ -8808,7 +11116,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Prepare for important stakeholder meetings with full context on the relationship history and open items."
+    "use_case": "Prepare for important stakeholder meetings with full context on the relationship history and open items.",
+    "groupId": "stakeholder-meeting-preparation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-meeting-preparation"
+    ]
   },
   {
     "id": "stakeholder-update-batch-generator",
@@ -8831,7 +11145,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Draft tailored status updates for multiple audiences in a single session — adapting the same facts to different levels of detail and tone without starting from scratch each time."
+    "use_case": "Draft tailored status updates for multiple audiences in a single session — adapting the same facts to different levels of detail and tone without starting from scratch each time.",
+    "groupId": "stakeholder-update-batch-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-update-batch-generator"
+    ]
   },
   {
     "id": "stakeholder-update-multi-step",
@@ -8854,7 +11174,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Prepare a structured stakeholder update by letting Cowork find the relevant content first, then draft from verified sources."
+    "use_case": "Prepare a structured stakeholder update by letting Cowork find the relevant content first, then draft from verified sources.",
+    "groupId": "stakeholder-update-multi-step",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stakeholder-update-multi-step"
+    ]
   },
   {
     "id": "stale-account-report",
@@ -8877,7 +11203,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use for periodic hygiene reviews or ahead of audits — stale accounts are a common audit finding."
+    "use_case": "Use for periodic hygiene reviews or ahead of audits — stale accounts are a common audit finding.",
+    "groupId": "stale-account-report",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stale-account-report"
+    ]
   },
   {
     "id": "stock-issue-research",
@@ -8900,7 +11232,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Research stock issue history from communications."
+    "use_case": "Research stock issue history from communications.",
+    "groupId": "stock-issue-research",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "stock-issue-research"
+    ]
   },
   {
     "id": "storytelling-outline",
@@ -8923,7 +11261,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Crafting compelling narratives"
+    "use_case": "Crafting compelling narratives",
+    "groupId": "storytelling-outline",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "storytelling-outline"
+    ]
   },
   {
     "id": "structured-document-comparison",
@@ -8946,7 +11290,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Comparing contracts, specifications, or technical documents"
+    "use_case": "Comparing contracts, specifications, or technical documents",
+    "groupId": "structured-document-comparison",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "structured-document-comparison"
+    ]
   },
   {
     "id": "supplier-performance-summary",
@@ -8969,7 +11319,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Gather qualitative supplier context from communications. Use SCM system for metrics."
+    "use_case": "Gather qualitative supplier context from communications. Use SCM system for metrics.",
+    "groupId": "supplier-performance-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "supplier-performance-summary"
+    ]
   },
   {
     "id": "supply-chain-risk-assessment",
@@ -8992,7 +11348,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Gather supply chain risk discussions for formal risk assessment."
+    "use_case": "Gather supply chain risk discussions for formal risk assessment.",
+    "groupId": "supply-chain-risk-assessment",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "supply-chain-risk-assessment"
+    ]
   },
   {
     "id": "swot-analysis-generator",
@@ -9015,7 +11377,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Strategic analysis for business planning or competitive assessment"
+    "use_case": "Strategic analysis for business planning or competitive assessment",
+    "groupId": "swot-analysis-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "swot-analysis-generator"
+    ]
   },
   {
     "id": "table-data-extractor-with-validation",
@@ -9038,7 +11406,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Extracting data from tables in PDFs or images"
+    "use_case": "Extracting data from tables in PDFs or images",
+    "groupId": "table-data-extractor-with-validation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "table-data-extractor-with-validation"
+    ]
   },
   {
     "id": "team-sentiment-and-pulse-check",
@@ -9061,7 +11435,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Surface early signals of team disengagement, morale shifts, or workload imbalance from communication patterns — without replacing formal engagement surveys."
+    "use_case": "Surface early signals of team disengagement, morale shifts, or workload imbalance from communication patterns — without replacing formal engagement surveys.",
+    "groupId": "team-sentiment-and-pulse-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "team-sentiment-and-pulse-check"
+    ]
   },
   {
     "id": "team-status-consolidation",
@@ -9084,7 +11464,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Consolidate scattered status updates into a coherent summary for leadership reporting. Use weekly before management meetings."
+    "use_case": "Consolidate scattered status updates into a coherent summary for leadership reporting. Use weekly before management meetings.",
+    "groupId": "team-status-consolidation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "team-status-consolidation"
+    ]
   },
   {
     "id": "technical-doc-simplifier",
@@ -9107,7 +11493,13 @@ const PROMPTS_DATA = [
     "app": "word",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Technical communication and stakeholder alignment"
+    "use_case": "Technical communication and stakeholder alignment",
+    "groupId": "technical-doc-simplifier",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "technical-doc-simplifier"
+    ]
   },
   {
     "id": "technical-document-summary",
@@ -9130,7 +11522,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "engineering-construction",
     "difficulty": "intermediate",
-    "use_case": "Quickly extract key technical requirements from specifications without reading the entire document. Use before design reviews or when onboarding to a new project."
+    "use_case": "Quickly extract key technical requirements from specifications without reading the entire document. Use before design reviews or when onboarding to a new project.",
+    "groupId": "technical-document-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "technical-document-summary"
+    ]
   },
   {
     "id": "technical-documentation-improver",
@@ -9153,7 +11551,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Improving clarity and completeness of technical docs"
+    "use_case": "Improving clarity and completeness of technical docs",
+    "groupId": "technical-documentation-improver",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "technical-documentation-improver"
+    ]
   },
   {
     "id": "technical-documentation-search",
@@ -9176,7 +11580,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Locate technical documentation and assess currency. Always verify documentation is current before use."
+    "use_case": "Locate technical documentation and assess currency. Always verify documentation is current before use.",
+    "groupId": "technical-documentation-search",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "technical-documentation-search"
+    ]
   },
   {
     "id": "technical-specification-extractor",
@@ -9199,7 +11609,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Extracting requirements from RFPs, specs, or technical docs"
+    "use_case": "Extracting requirements from RFPs, specs, or technical docs",
+    "groupId": "technical-specification-extractor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "technical-specification-extractor"
+    ]
   },
   {
     "id": "thank-you-note",
@@ -9222,7 +11638,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Expressing gratitude professionally"
+    "use_case": "Expressing gratitude professionally",
+    "groupId": "thank-you-note",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "thank-you-note"
+    ]
   },
   {
     "id": "the-360-degree-relationship-mapper",
@@ -9245,7 +11667,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Stakeholder relationship management, network building, and partnership optimization"
+    "use_case": "Stakeholder relationship management, network building, and partnership optimization",
+    "groupId": "360-relationship-mapper",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-360-degree-relationship-mapper",
+      "360-relationship-mapper"
+    ]
   },
   {
     "id": "the-cognitive-load-reducer",
@@ -9268,7 +11697,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Productivity optimization, stress reduction, and capacity management"
+    "use_case": "Productivity optimization, stress reduction, and capacity management",
+    "groupId": "cognitive-load-reducer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-cognitive-load-reducer"
+    ]
   },
   {
     "id": "the-commitment-tracker",
@@ -9291,7 +11726,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Commitment tracking, accountability, and reputation management"
+    "use_case": "Commitment tracking, accountability, and reputation management",
+    "groupId": "commitment-tracker",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-commitment-tracker"
+    ]
   },
   {
     "id": "the-compliance-monitor",
@@ -9314,7 +11755,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Regulatory compliance, risk management, and governance oversight"
+    "use_case": "Regulatory compliance, risk management, and governance oversight",
+    "groupId": "compliance-monitor",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-compliance-monitor"
+    ]
   },
   {
     "id": "the-context-fusion-engine",
@@ -9337,7 +11784,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Comprehensive project synthesis, knowledge consolidation, and briefing creation"
+    "use_case": "Comprehensive project synthesis, knowledge consolidation, and briefing creation",
+    "groupId": "context-fusion-engine",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-context-fusion-engine",
+      "context-fusion-engine"
+    ]
   },
   {
     "id": "the-decision-log-creator",
@@ -9360,7 +11814,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Decision tracking, organizational memory, and strategic governance"
+    "use_case": "Decision tracking, organizational memory, and strategic governance",
+    "groupId": "decision-log-creator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-decision-log-creator"
+    ]
   },
   {
     "id": "the-early-warning-system",
@@ -9383,7 +11843,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Proactive risk management, issue prevention, and strategic foresight"
+    "use_case": "Proactive risk management, issue prevention, and strategic foresight",
+    "groupId": "early-warning-system",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-early-warning-system",
+      "early-warning-system"
+    ]
   },
   {
     "id": "the-email-battle-plan-generator",
@@ -9406,7 +11873,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Strategic email prioritization, tactical planning, and execution optimization"
+    "use_case": "Strategic email prioritization, tactical planning, and execution optimization",
+    "groupId": "email-battle-plan-generator",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-email-battle-plan-generator",
+      "email-battle-plan-generator"
+    ]
   },
   {
     "id": "the-escalation-radar-detector",
@@ -9429,7 +11903,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Early crisis detection, conflict prevention, and relationship management"
+    "use_case": "Early crisis detection, conflict prevention, and relationship management",
+    "groupId": "escalation-radar-detector",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-escalation-radar-detector",
+      "escalation-radar-detector"
+    ]
   },
   {
     "id": "the-inbox-intelligence-officer",
@@ -9452,7 +11933,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Comprehensive inbox intelligence and strategic email management"
+    "use_case": "Comprehensive inbox intelligence and strategic email management",
+    "groupId": "inbox-intelligence-officer",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-inbox-intelligence-officer",
+      "inbox-intelligence-officer"
+    ]
   },
   {
     "id": "the-knowledge-base-builder",
@@ -9475,7 +11963,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Knowledge management, documentation strategy, and organizational efficiency"
+    "use_case": "Knowledge management, documentation strategy, and organizational efficiency",
+    "groupId": "knowledge-base-builder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-knowledge-base-builder"
+    ]
   },
   {
     "id": "the-kpi-and-commitment-extractor",
@@ -9498,7 +11992,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Goal tracking, OKR management, performance monitoring, and strategic alignment"
+    "use_case": "Goal tracking, OKR management, performance monitoring, and strategic alignment",
+    "groupId": "kpi-and-commitment-extractor",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-kpi-and-commitment-extractor",
+      "kpi-and-commitment-extractor"
+    ]
   },
   {
     "id": "the-networking-opportunity-finder",
@@ -9521,7 +12022,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Network building, relationship nurturing, and social capital development"
+    "use_case": "Network building, relationship nurturing, and social capital development",
+    "groupId": "networking-opportunity-finder",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-networking-opportunity-finder"
+    ]
   },
   {
     "id": "the-pattern-miner-for-operational-insights",
@@ -9544,7 +12051,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Operational excellence, process improvement, and data-driven decision making"
+    "use_case": "Operational excellence, process improvement, and data-driven decision making",
+    "groupId": "pattern-miner-for-operational-insights",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-pattern-miner-for-operational-insights",
+      "pattern-miner-for-operational-insights"
+    ]
   },
   {
     "id": "the-priority-matrix-architect",
@@ -9567,7 +12081,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Priority management, time optimization, and strategic task allocation"
+    "use_case": "Priority management, time optimization, and strategic task allocation",
+    "groupId": "priority-matrix-architect",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-priority-matrix-architect"
+    ]
   },
   {
     "id": "the-quick-win-identifier",
@@ -9590,7 +12110,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Momentum building, quick productivity gains, and relationship management"
+    "use_case": "Momentum building, quick productivity gains, and relationship management",
+    "groupId": "quick-win-identifier",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-quick-win-identifier"
+    ]
   },
   {
     "id": "the-stakeholder-sentiment-analyzer",
@@ -9613,7 +12139,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "executive",
     "difficulty": "advanced",
-    "use_case": "Stakeholder management, influence mapping, and strategic relationship building"
+    "use_case": "Stakeholder management, influence mapping, and strategic relationship building",
+    "groupId": "stakeholder-sentiment-analyzer",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-stakeholder-sentiment-analyzer"
+    ]
   },
   {
     "id": "the-task-ownership-clarifier",
@@ -9636,7 +12168,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Clarity on responsibilities, effective delegation, and accountability"
+    "use_case": "Clarity on responsibilities, effective delegation, and accountability",
+    "groupId": "task-ownership-clarifier",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "the-task-ownership-clarifier"
+    ]
   },
   {
     "id": "the-thread-dissection-surgeon",
@@ -9659,7 +12197,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Untangling complex email chains, conflict resolution, and driving action"
+    "use_case": "Untangling complex email chains, conflict resolution, and driving action",
+    "groupId": "thread-dissection-surgeon",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-thread-dissection-surgeon",
+      "thread-dissection-surgeon"
+    ]
   },
   {
     "id": "the-workload-forecast-generator",
@@ -9682,7 +12227,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "advanced",
-    "use_case": "Capacity planning, workload balancing, and proactive schedule management"
+    "use_case": "Capacity planning, workload balancing, and proactive schedule management",
+    "groupId": "workload-forecast-generator",
+    "isPrimary": true,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-workload-forecast-generator",
+      "workload-forecast-generator"
+    ]
   },
   {
     "id": "third-party-risk-summary-vendor-with-elevated-access",
@@ -9705,7 +12257,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when onboarding a new vendor with access to your Microsoft environment or reviewing an existing one."
+    "use_case": "Use when onboarding a new vendor with access to your Microsoft environment or reviewing an existing one.",
+    "groupId": "third-party-risk-summary-vendor-with-elevated-access",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "third-party-risk-summary-vendor-with-elevated-access"
+    ]
   },
   {
     "id": "thread-dissection-surgeon",
@@ -9728,7 +12286,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Untangling complex email chains and driving resolution"
+    "use_case": "Untangling complex email chains and driving resolution",
+    "groupId": "thread-dissection-surgeon",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-thread-dissection-surgeon",
+      "thread-dissection-surgeon"
+    ]
   },
   {
     "id": "threat-intelligence-enrichment-ioc-lookup",
@@ -9751,7 +12316,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to enrich an IOC (IP, domain, file hash) with threat intelligence context before deciding on response actions."
+    "use_case": "Use to enrich an IOC (IP, domain, file hash) with threat intelligence context before deciding on response actions.",
+    "groupId": "threat-intelligence-enrichment-ioc-lookup",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "threat-intelligence-enrichment-ioc-lookup"
+    ]
   },
   {
     "id": "time-saver-sorter",
@@ -9774,7 +12345,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Optimize email processing by time investment required"
+    "use_case": "Optimize email processing by time investment required",
+    "groupId": "time-saver-sorter",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "time-saver-sorter"
+    ]
   },
   {
     "id": "timeline-extraction",
@@ -9797,7 +12374,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Build chronological timelines from email discussions"
+    "use_case": "Build chronological timelines from email discussions",
+    "groupId": "timeline-extraction",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "timeline-extraction"
+    ]
   },
   {
     "id": "training-deck-creator",
@@ -9820,7 +12403,13 @@ const PROMPTS_DATA = [
     "app": "powerpoint",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Training and enablement"
+    "use_case": "Training and enablement",
+    "groupId": "training-deck-creator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "training-deck-creator"
+    ]
   },
   {
     "id": "training-program-summary",
@@ -9843,7 +12432,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "finance-hr",
     "difficulty": "intermediate",
-    "use_case": "Gather training program context and feedback for program planning and improvement."
+    "use_case": "Gather training program context and feedback for program planning and improvement.",
+    "groupId": "training-program-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "training-program-summary"
+    ]
   },
   {
     "id": "transform-rough-notes-to-polished-reply",
@@ -9866,7 +12461,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Convert quick notes into professional, well-structured email responses"
+    "use_case": "Convert quick notes into professional, well-structured email responses",
+    "groupId": "transform-rough-notes-to-polished-reply",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "transform-rough-notes-to-polished-reply"
+    ]
   },
   {
     "id": "troubleshooting-guide",
@@ -9889,7 +12490,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Creating systematic troubleshooting guides"
+    "use_case": "Creating systematic troubleshooting guides",
+    "groupId": "troubleshooting-guide",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "troubleshooting-guide"
+    ]
   },
   {
     "id": "turn-complaint-to-improvement-plan",
@@ -9912,7 +12519,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Convert complaints into actionable improvement initiatives"
+    "use_case": "Convert complaints into actionable improvement initiatives",
+    "groupId": "turn-complaint-to-improvement-plan",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "turn-complaint-to-improvement-plan"
+    ]
   },
   {
     "id": "turn-thread-into-qa",
@@ -9935,7 +12548,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Create FAQ documentation from email discussions"
+    "use_case": "Create FAQ documentation from email discussions",
+    "groupId": "turn-thread-into-q",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "turn-thread-into-qa"
+    ]
   },
   {
     "id": "turning-thread-into-status-report",
@@ -9958,7 +12577,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Transform email discussions into formal status reports"
+    "use_case": "Transform email discussions into formal status reports",
+    "groupId": "turning-thread-into-status-report",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "turning-thread-into-status-report"
+    ]
   },
   {
     "id": "user-investigation-credential-compromise-assessment",
@@ -9981,7 +12606,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use when a user account shows anomalous behaviour or is referenced in an alert."
+    "use_case": "Use when a user account shows anomalous behaviour or is referenced in an alert.",
+    "groupId": "user-investigation-credential-compromise-assessment",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "user-investigation-credential-compromise-assessment"
+    ]
   },
   {
     "id": "vendor-support-summary",
@@ -10004,7 +12635,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "legal-compliance",
     "difficulty": "intermediate",
-    "use_case": "Compile vendor support history to prepare for escalations."
+    "use_case": "Compile vendor support history to prepare for escalations.",
+    "groupId": "vendor-support-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "vendor-support-summary"
+    ]
   },
   {
     "id": "video-script",
@@ -10027,7 +12664,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Scripting effective video content"
+    "use_case": "Scripting effective video content",
+    "groupId": "video-script",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "video-script"
+    ]
   },
   {
     "id": "vulnerability-prioritisation",
@@ -10050,7 +12693,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to cut through a long vulnerability list and focus remediation effort on what matters most."
+    "use_case": "Use to cut through a long vulnerability list and focus remediation effort on what matters most.",
+    "groupId": "vulnerability-prioritisation",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "vulnerability-prioritisation"
+    ]
   },
   {
     "id": "weekly-budget-alert-digest",
@@ -10073,7 +12722,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Catch cost overruns and approvals before they escalate"
+    "use_case": "Catch cost overruns and approvals before they escalate",
+    "groupId": "weekly-budget-alert-digest",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-budget-alert-digest"
+    ]
   },
   {
     "id": "weekly-calendar-triage",
@@ -10096,7 +12751,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Delegate your weekly calendar review — surface conflicts, low-value meetings, and missing focus time — then approve changes."
+    "use_case": "Delegate your weekly calendar review — surface conflicts, low-value meetings, and missing focus time — then approve changes.",
+    "groupId": "weekly-calendar-triage",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-calendar-triage"
+    ]
   },
   {
     "id": "weekly-commitment-tracker",
@@ -10119,7 +12780,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Automatically surface every promise you made across email and Teams before it becomes a missed deadline."
+    "use_case": "Automatically surface every promise you made across email and Teams before it becomes a missed deadline.",
+    "groupId": "weekly-commitment-tracker",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-commitment-tracker"
+    ]
   },
   {
     "id": "weekly-hiring-pipeline-update",
@@ -10142,7 +12809,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Keep hiring momentum visible without a manual status call"
+    "use_case": "Keep hiring momentum visible without a manual status call",
+    "groupId": "weekly-hiring-pipeline-update",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-hiring-pipeline-update"
+    ]
   },
   {
     "id": "weekly-manager-update-generator",
@@ -10165,7 +12838,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Automate weekly status reports from your email activity"
+    "use_case": "Automate weekly status reports from your email activity",
+    "groupId": "weekly-manager-update-generator",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-manager-update-generator"
+    ]
   },
   {
     "id": "weekly-operations-summary",
@@ -10188,7 +12867,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "supply-chain",
     "difficulty": "intermediate",
-    "use_case": "Create weekly logistics summary from communications."
+    "use_case": "Create weekly logistics summary from communications.",
+    "groupId": "weekly-operations-summary",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-operations-summary"
+    ]
   },
   {
     "id": "weekly-pipeline-pulse",
@@ -10211,7 +12896,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Start Monday knowing which deals need attention this week"
+    "use_case": "Start Monday knowing which deals need attention this week",
+    "groupId": "weekly-pipeline-pulse",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-pipeline-pulse"
+    ]
   },
   {
     "id": "weekly-project-status-brief",
@@ -10234,7 +12925,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Know where every project stands before the week begins"
+    "use_case": "Know where every project stands before the week begins",
+    "groupId": "weekly-project-status-brief",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-project-status-brief"
+    ]
   },
   {
     "id": "weekly-review-template",
@@ -10257,7 +12954,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Maintaining weekly productivity rhythm"
+    "use_case": "Maintaining weekly productivity rhythm",
+    "groupId": "weekly-review-template",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-review-template"
+    ]
   },
   {
     "id": "weekly-stakeholder-communication-audit",
@@ -10280,7 +12983,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Ensure no critical relationship goes quiet"
+    "use_case": "Ensure no critical relationship goes quiet",
+    "groupId": "weekly-stakeholder-communication-audit",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-stakeholder-communication-audit"
+    ]
   },
   {
     "id": "weekly-status-synthesis",
@@ -10303,7 +13012,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "project-leadership",
     "difficulty": "intermediate",
-    "use_case": "Synthesize a week of scattered communications into a coherent status report. Use weekly before stakeholder reporting."
+    "use_case": "Synthesize a week of scattered communications into a coherent status report. Use weekly before stakeholder reporting.",
+    "groupId": "weekly-status-synthesis",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-status-synthesis"
+    ]
   },
   {
     "id": "weekly-threat-landscape-briefing",
@@ -10326,7 +13041,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use to produce a consistent weekly threat briefing for the security leadership team."
+    "use_case": "Use to produce a consistent weekly threat briefing for the security leadership team.",
+    "groupId": "weekly-threat-landscape-briefing",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "weekly-threat-landscape-briefing"
+    ]
   },
   {
     "id": "what-cowork-should-never-do-without-your-approval",
@@ -10349,7 +13070,13 @@ const PROMPTS_DATA = [
     "app": "cross-app",
     "role": "general",
     "difficulty": "intermediate",
-    "use_case": "Understand Cowork's approval model before delegating any action that affects others. Run this prompt first — it sets the expectation for every workflow that follows."
+    "use_case": "Understand Cowork's approval model before delegating any action that affects others. Run this prompt first — it sets the expectation for every workflow that follows.",
+    "groupId": "what-cowork-should-never-do-without-your-approval",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "what-cowork-should-never-do-without-your-approval"
+    ]
   },
   {
     "id": "workload-forecast-generator",
@@ -10372,7 +13099,14 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "advanced",
-    "use_case": "Capacity planning and workload management"
+    "use_case": "Capacity planning and workload management",
+    "groupId": "workload-forecast-generator",
+    "isPrimary": false,
+    "variantCount": 2,
+    "variantSlugs": [
+      "the-workload-forecast-generator",
+      "workload-forecast-generator"
+    ]
   },
   {
     "id": "write-a-please-clarify-reply",
@@ -10395,7 +13129,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "general",
     "difficulty": "beginner",
-    "use_case": "Professionally request clarification for unclear or incomplete emails"
+    "use_case": "Professionally request clarification for unclear or incomplete emails",
+    "groupId": "write-please-clarify-reply",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "write-a-please-clarify-reply"
+    ]
   },
   {
     "id": "write-an-internal-announcement",
@@ -10418,7 +13158,13 @@ const PROMPTS_DATA = [
     "app": "outlook",
     "role": "manager",
     "difficulty": "intermediate",
-    "use_case": "Transform informal updates into professional company announcements"
+    "use_case": "Transform informal updates into professional company announcements",
+    "groupId": "write-internal-announcement",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "write-an-internal-announcement"
+    ]
   },
   {
     "id": "zero-day-and-active-exploit-exposure-check",
@@ -10441,7 +13187,13 @@ const PROMPTS_DATA = [
     "app": "security-copilot",
     "role": "security",
     "difficulty": "intermediate",
-    "use_case": "Use immediately when a new zero-day or actively exploited CVE is announced."
+    "use_case": "Use immediately when a new zero-day or actively exploited CVE is announced.",
+    "groupId": "zero-day-and-active-exploit-exposure-check",
+    "isPrimary": true,
+    "variantCount": 1,
+    "variantSlugs": [
+      "zero-day-and-active-exploit-exposure-check"
+    ]
   }
 ];
 

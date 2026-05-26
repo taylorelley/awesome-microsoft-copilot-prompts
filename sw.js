@@ -1,5 +1,5 @@
-const CACHE = 'copilot-prompts-v2';
-const ASSETS = ['./', './index.html', './data.js', './manifest.json', './icon.svg'];
+const CACHE = 'copilot-prompts-v3';
+const ASSETS = ['./', './index.html', './admin.html', './data.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(

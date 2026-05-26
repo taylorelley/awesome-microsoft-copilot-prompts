@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Manage Copilot Prompts">
+<title>Copilot Prompt Library — Management Portal</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#4F46E5">
+<style>
+/* ─── Reset & Variables ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --primary: #4F46E5;
+  --primary-50: #EEF2FF;
+  --primary-100: #E0E7FF;
+  --primary-600: #4F46E5;
+  --text: #0F172A;
+  --text-2: #475569;
+  --text-3: #94A3B8;
+  --code-bg: #F1F5F9;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.1), 0 4px 10px rgba(0,0,0,.06);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Inter', sans-serif;
+  --mono: 'SF Mono', 'Fira Code', 'Fira Mono', ui-monospace, monospace;
+  --transition: 150ms ease;
+  --danger: #EF4444;
+  --danger-50: #FEF2F2;
+  --danger-100: #FEE2E2;
+  --success: #16A34A;
+  --success-50: #DCFCE7;
+}
+
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --border: #334155;
+  --primary: #6366F1;
+  --primary-50: #1E1B4B;
+  --primary-100: #312E81;
+  --text: #F8FAFC;
+  --text-2: #CBD5E1;
+  --text-3: #94A3B8;
+  --code-bg: #0B1221;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --shadow: 0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.5), 0 4px 10px rgba(0,0,0,.4);
+  --danger: #F87171;
+  --danger-50: #450A0A;
+  --danger-100: #7F1D1D;
+  --success: #4ADE80;
+  --success-50: #14532D;
+}
+
+html { height: 100%; height: 100dvh; }
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* ─── Login Screen ───────────────────────────────────────────────── */
+.login-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  padding: 20px;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.login-logo {
+  width: 48px; height: 48px;
+  background: var(--primary);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.login-logo svg { width: 24px; height: 24px; fill: white; }
+
+.login-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: var(--text-3);
+  margin-bottom: 28px;
+}
+
+.login-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-bottom: 12px;
+  min-height: 20px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+  background: var(--surface);
+}
+
+.form-input::placeholder { color: var(--text-3); }
+
+.btn-primary {
+  width: 100%;
+  height: 42px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 100ms;
+}
+
+.btn-primary:hover { background: #4338CA; }
+.btn-primary:active { transform: scale(0.98); }
+
+/* ─── Admin Layout ───────────────────────────────────────────────── */
+.admin-layout {
+  display: none;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.admin-layout.authenticated { display: flex; }
+
+/* ─── Header ─────────────────────────────────────────────────────── */
+.admin-header {
+  height: 60px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.admin-header-start {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-header-start a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.admin-header-start a span { color: var(--primary); }
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-3);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.back-link:hover { color: var(--primary); }
+
+.back-link svg { width: 16px; height: 16px; }
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Main Content ───────────────────────────────────────────────── */
+.admin-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.admin-main::-webkit-scrollbar { width: 6px; }
+.admin-main::-webkit-scrollbar-track { background: transparent; }
+.admin-main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+
+/* ─── Toolbar ────────────────────────────────────────────────────── */
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-toolbar h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.admin-toolbar-count {
+  font-size: 13px;
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn svg { width: 15px; height: 15px; }
+
+.btn-primary-outline {
+  background: var(--primary-50);
+  color: var(--primary);
+  border-color: var(--primary-100);
+}
+
+.btn-primary-outline:hover { background: var(--primary-100); }
+
+.btn-danger-outline {
+  background: var(--danger-50);
+  color: var(--danger);
+  border-color: var(--danger-100);
+}
+
+.btn-danger-outline:hover { background: var(--danger-100); }
+
+.btn-secondary-outline {
+  background: var(--surface);
+  color: var(--text-2);
+  border-color: var(--border);
+}
+
+.btn-secondary-outline:hover { background: var(--bg); color: var(--text); }
+
+.btn-sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.btn-sm svg { width: 13px; height: 13px; }
+
+/* ─── Table ──────────────────────────────────────────────────────── */
+.data-table-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-3);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+  vertical-align: top;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+
+.data-table tr:hover td { background: var(--bg); }
+
+.data-table .col-title {
+  font-weight: 600;
+  color: var(--text);
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.data-table .col-category {
+  white-space: nowrap;
+}
+
+.data-table .col-app {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.data-table .col-actions {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.data-table .col-prompt {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ─── Empty State ────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 12px;
+  color: var(--text-3);
+  text-align: center;
+}
+
+.empty-state svg {
+  width: 48px; height: 48px;
+  stroke: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.empty-state h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.empty-state p {
+  font-size: 13px;
+}
+
+/* ─── Modal ──────────────────────────────────────────────────────── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 200;
+  backdrop-filter: blur(2px);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-backdrop.open { display: flex; }
+
+[data-theme="dark"] .modal-backdrop { background: rgba(0, 0, 0, 0.6); }
+
+@media (min-width: 640px) {
+  .modal-backdrop { align-items: center; }
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90dvh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 200ms ease;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 640px) {
+  .modal { border-radius: var(--radius-lg); max-height: 85vh; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.modal-close {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-3);
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+  transition: background var(--transition), color var(--transition);
+}
+
+.modal-close:hover { background: #FEF2F2; color: #EF4444; }
+
+[data-theme="dark"] .modal-close:hover { background: #450A0A; color: #FCA5A5; }
+
+.modal-body {
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-body::-webkit-scrollbar { width: 4px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.modal-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ─── Form Elements ──────────────────────────────────────────────── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  resize: vertical;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  line-height: 1.5;
+}
+
+.form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+  background: var(--surface);
+}
+
+.form-select {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+  background-color: var(--surface);
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* ─── Color Picker ─────────────────────────────────────────────── */
+.color-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 100ms, border-color 150ms;
+  position: relative;
+}
+
+.color-option:hover { transform: scale(1.1); }
+
+.color-option.selected {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--text);
+}
+
+/* ─── Tags Input ─────────────────────────────────────────────────── */
+.tags-input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  min-height: 42px;
+  align-items: center;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.tags-input-wrapper:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+  background: var(--surface);
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--primary-50);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.tag-chip button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  width: 14px; height: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.tags-input {
+  flex: 1;
+  min-width: 80px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  padding: 4px 2px;
+}
+
+.tags-input::placeholder { color: var(--text-3); }
+
+/* ─── Delete Confirmation ──────────────────────────────────────── */
+.delete-confirm {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.delete-confirm p {
+  color: var(--text-2);
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.delete-confirm strong {
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ─── Toast ──────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: #0F172A;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 200ms, transform 200ms;
+  pointer-events: none;
+  z-index: 999;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-theme="dark"] .toast { background: #1E293B; color: #F8FAFC; }
+
+/* ─── Settings Panel ─────────────────────────────────────────────── */
+.settings-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.settings-panel h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.settings-row .form-input {
+  max-width: 280px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .admin-main { padding: 16px; }
+  .data-table .col-prompt,
+  .data-table .col-category,
+  .data-table th:nth-child(4),
+  .data-table td:nth-child(4) { display: none; }
+  .login-card { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  .admin-header { padding: 0 16px; }
+  .data-table .col-app,
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) { display: none; }
+  .toolbar-actions { width: 100%; }
+  .toolbar-actions .btn { flex: 1; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L14.4 8.4L21 8.4L15.9 12.6L17.9 19L12 15.4L6.1 19L8.1 12.6L3 8.4L9.6 8.4Z"/>
+        <circle cx="19.5" cy="4.5" r="2.5" opacity=".5"/>
+      </svg>
+    </div>
+    <div class="login-title">Management Portal</div>
+    <div class="login-subtitle">Enter your password to manage prompts</div>
+    <div class="login-error" id="login-error"></div>
+    <form id="login-form" onsubmit="return handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" id="password" type="password" placeholder="Enter password" autocomplete="current-password" required>
+      </div>
+      <button class="btn-primary" type="submit">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<!-- Admin Layout -->
+<div class="admin-layout" id="admin-layout">
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-header-start">
+      <a href="./" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to Library
+      </a>
+      <span style="color:var(--border)">|</span>
+      <a href="./">
+        <span>Copilot</span> <span>Prompts</span>
+      </a>
+    </div>
+    <div class="admin-header-actions">
+      <button class="btn btn-secondary-outline btn-sm" id="theme-toggle" title="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </button>
+      <button class="btn btn-danger-outline btn-sm" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Log Out
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="admin-main" id="admin-main">
+    <!-- Settings -->
+    <div class="settings-panel">
+      <h3>Portal Settings</h3>
+      <div class="settings-row">
+        <div>
+          <label class="form-label" for="new-password">Change Password</label>
+          <div class="form-hint">Set a new password for the management portal</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input class="form-input" id="new-password" type="password" placeholder="New password" style="width:200px">
+          <button class="btn btn-primary-outline btn-sm" onclick="changePassword()">Update</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="admin-toolbar">
+      <div>
+        <h1>All Prompts <span class="admin-toolbar-count" id="prompt-count"></span></h1>
+      </div>
+      <div class="toolbar-actions">
+        <button class="btn btn-secondary-outline" onclick="exportData()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export
+        </button>
+        <button class="btn btn-primary-outline" onclick="openAddModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="data-table-wrapper" id="table-wrapper">
+      <table class="data-table" id="prompts-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>App</th>
+            <th>Category</th>
+            <th>Prompt Preview</th>
+            <th style="width:1px">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal-backdrop" id="form-modal-backdrop" onclick="if(event.target===this)closeFormModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="form-modal-title">Add Prompt</div>
+      <button class="modal-close" onclick="closeFormModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="edit-id">
+      <div class="form-row">
+        <div class="form-group" style="flex:2">
+          <label class="form-label" for="form-title">Title *</label>
+          <input class="form-input" id="form-title" type="text" placeholder="e.g., Meeting Summary Generator" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="form-slug">ID / Slug *</label>
+          <input class="form-input" id="form-slug" type="text" placeholder="meeting-summary" required>
+          <div class="form-hint">Unique identifier, no spaces</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="form-usecase">Use Case</label>
+        <input class="form-input" id="form-usecase" type="text" placeholder="Brief description of when to use this prompt">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="form-app">App *</label>
+          <select class="form-select" id="form-app" required></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="form-role">Role / Category *</label>
+          <select class="form-select" id="form-role" required></select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="form-difficulty">Difficulty</label>
+          <select class="form-select" id="form-difficulty">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate" selected>Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Color</label>
+          <div class="color-picker" id="color-picker"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="form-context">Context</label>
+        <textarea class="form-textarea" id="form-context" placeholder="When and how to use this prompt..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="form-prompt">Prompt Text *</label>
+        <textarea class="form-textarea" id="form-prompt" placeholder="Enter the full prompt text here..." required style="min-height:160px"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tags</label>
+        <div class="tags-input-wrapper" id="tags-wrapper">
+          <input class="tags-input" id="tags-input" type="text" placeholder="Type and press Enter to add tags">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Personas</label>
+        <div class="tags-input-wrapper" id="personas-wrapper">
+          <input class="tags-input" id="personas-input" type="text" placeholder="Type and press Enter to add personas">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary-outline" onclick="closeFormModal()">Cancel</button>
+      <button class="btn btn-primary-outline" onclick="savePrompt()" style="background:var(--primary);color:white;border-color:var(--primary)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Save Prompt
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal-backdrop" id="delete-modal-backdrop" onclick="if(event.target===this)closeDeleteModal()">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-header">
+      <div class="modal-title">Delete Prompt</div>
+      <button class="modal-close" onclick="closeDeleteModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="delete-confirm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto 12px;display:block">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <p>Are you sure you want to delete this prompt? This action cannot be undone.</p>
+        <strong id="delete-prompt-title"></strong>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary-outline" onclick="closeDeleteModal()">Cancel</button>
+      <button class="btn btn-danger-outline" onclick="confirmDelete()" style="background:var(--danger);color:white;border-color:var(--danger)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+        </svg>
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Saved successfully</div>
+
+<script src="data.js"></script>
+<script>
+// ─── Constants ─────────────────────────────────────────────────────
+const DEFAULT_PASSWORD_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // "password"
+const COLOR_OPTIONS = [
+  '#4F46E5', '#3B82F6', '#06B6D4', '#10B981', '#84CC16',
+  '#EAB308', '#F59E0B', '#F97316', '#EF4444', '#EC4899',
+  '#D946EF', '#8B5CF6', '#6366F1', '#14B8A6', '#22C55E'
+];
+
+// ─── State ───────────────────────────────────────────────────────────
+let allPrompts = [];
+let customPrompts = [];
+let deletedIds = [];
+let editingId = null;
+let deletingId = null;
+let currentTags = [];
+let currentPersonas = [];
+
+// ─── Utilities ─────────────────────────────────────────────────────
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function slugify(str) {
+  return String(str).toLowerCase().trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+async function sha256(text) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ─── Auth ──────────────────────────────────────────────────────────
+async function handleLogin(e) {
+  e.preventDefault();
+  const input = document.getElementById('password').value;
+  const hash = await sha256(input);
+  const storedHash = localStorage.getItem('admin_password_hash') || DEFAULT_PASSWORD_HASH;
+
+  if (hash === storedHash) {
+    sessionStorage.setItem('admin_authenticated', 'true');
+    showAdmin();
+  } else {
+    document.getElementById('login-error').textContent = 'Incorrect password. Please try again.';
+    document.getElementById('password').value = '';
+    document.getElementById('password').focus();
+  }
+  return false;
+}
+
+function logout() {
+  sessionStorage.removeItem('admin_authenticated');
+  location.reload();
+}
+
+function showAdmin() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-layout').classList.add('authenticated');
+  initAdmin();
+}
+
+async function changePassword() {
+  const input = document.getElementById('new-password');
+  const val = input.value.trim();
+  if (!val) {
+    showToast('Please enter a new password');
+    return;
+  }
+  if (val.length < 4) {
+    showToast('Password must be at least 4 characters');
+    return;
+  }
+  const hash = await sha256(val);
+  localStorage.setItem('admin_password_hash', hash);
+  input.value = '';
+  showToast('Password updated successfully');
+}
+
+// ─── Data Management ───────────────────────────────────────────────
+function loadData() {
+  customPrompts = JSON.parse(localStorage.getItem('custom_prompts') || '[]');
+  deletedIds = JSON.parse(localStorage.getItem('deleted_prompt_ids') || '[]');
+
+  // Start with built-in prompts, filter out deleted
+  const builtIn = PROMPTS_DATA.filter(p => !deletedIds.includes(p.id));
+
+  // Override built-in prompts with custom ones that have same id
+  const builtInIds = new Set(builtIn.map(p => p.id));
+  const customNew = customPrompts.filter(p => !builtInIds.has(p.id));
+
+  // For custom prompts that override built-in, replace them
+  const overridden = builtIn.map(p => {
+    const override = customPrompts.find(c => c.id === p.id);
+    return override || p;
+  });
+
+  allPrompts = [...overridden, ...customNew];
+}
+
+function saveCustomData() {
+  localStorage.setItem('custom_prompts', JSON.stringify(customPrompts));
+  localStorage.setItem('deleted_prompt_ids', JSON.stringify(deletedIds));
+}
+
+function getAppMeta() {
+  // Build from APPS_META or derive from data
+  if (typeof APPS_META !== 'undefined') return APPS_META;
+  const apps = {};
+  PROMPTS_DATA.forEach(p => {
+    if (!apps[p.app]) {
+      apps[p.app] = { display: p.group || p.app, color: p.color };
+    }
+  });
+  return apps;
+}
+
+function getRoleMeta() {
+  if (typeof ROLES_META !== 'undefined') return ROLES_META;
+  const roles = {};
+  PROMPTS_DATA.forEach(p => {
+    if (!roles[p.role]) {
+      roles[p.role] = { display: p.category || p.role };
+    }
+  });
+  return roles;
+}
+
+// ─── Admin Init ────────────────────────────────────────────────────
+function initAdmin() {
+  loadData();
+  populateSelects();
+  buildColorPicker();
+  setupTagsInputs();
+  renderTable();
+}
+
+function populateSelects() {
+  const appSelect = document.getElementById('form-app');
+  const roleSelect = document.getElementById('form-role');
+  const apps = getAppMeta();
+  const roles = getRoleMeta();
+
+  appSelect.innerHTML = Object.entries(apps).map(([key, meta]) =>
+    `<option value="${esc(key)}">${esc(meta.display)}</option>`
+  ).join('');
+
+  roleSelect.innerHTML = Object.entries(roles).map(([key, meta]) =>
+    `<option value="${esc(key)}">${esc(meta.display)}</option>`
+  ).join('');
+}
+
+function buildColorPicker() {
+  const container = document.getElementById('color-picker');
+  container.innerHTML = COLOR_OPTIONS.map(c =>
+    `<div class="color-option" data-color="${esc(c)}" style="background:${esc(c)}" onclick="selectColor(this)"></div>`
+  ).join('');
+  // Select first by default
+  selectColor(container.querySelector('.color-option'));
+}
+
+function selectColor(el) {
+  document.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function getSelectedColor() {
+  const selected = document.querySelector('.color-option.selected');
+  return selected ? selected.dataset.color : COLOR_OPTIONS[0];
+}
+
+// ─── Tags Input ────────────────────────────────────────────────────
+function setupTagsInputs() {
+  setupTagInput('tags-input', 'tags-wrapper', () => currentTags, (v) => { currentTags = v; });
+  setupTagInput('personas-input', 'personas-wrapper', () => currentPersonas, (v) => { currentPersonas = v; });
+}
+
+function setupTagInput(inputId, wrapperId, getter, setter) {
+  const input = document.getElementById(inputId);
+  const wrapper = document.getElementById(wrapperId);
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      const val = input.value.trim();
+      if (val && !getter().includes(val)) {
+        setter([...getter(), val]);
+        renderTags(wrapperId, inputId, getter, setter);
+        input.value = '';
+      }
+    }
+    if (e.key === 'Backspace' && !input.value && getter().length) {
+      setter(getter().slice(0, -1));
+      renderTags(wrapperId, inputId, getter, setter);
+    }
+  });
+
+  input.addEventListener('blur', () => {
+    const val = input.value.trim();
+    if (val && !getter().includes(val)) {
+      setter([...getter(), val]);
+      renderTags(wrapperId, inputId, getter, setter);
+      input.value = '';
+    }
+  });
+}
+
+function renderTags(wrapperId, inputId, getter, setter) {
+  const wrapper = document.getElementById(wrapperId);
+  const input = document.getElementById(inputId);
+  const tags = getter();
+
+  // Remove existing chips
+  wrapper.querySelectorAll('.tag-chip').forEach(c => c.remove());
+
+  tags.forEach((tag, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.innerHTML = `${esc(tag)} <button type="button" onclick="removeTag('${wrapperId}', '${inputId}', ${i})">×</button>`;
+    wrapper.insertBefore(chip, input);
+  });
+}
+
+function removeTag(wrapperId, inputId, index) {
+  const wrapper = document.getElementById(wrapperId);
+  const input = document.getElementById(inputId);
+  if (wrapperId === 'tags-wrapper') {
+    currentTags.splice(index, 1);
+    renderTags(wrapperId, inputId, () => currentTags, (v) => { currentTags = v; });
+  } else {
+    currentPersonas.splice(index, 1);
+    renderTags(wrapperId, inputId, () => currentPersonas, (v) => { currentPersonas = v; });
+  }
+}
+
+// ─── Table ─────────────────────────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById('table-body');
+  const countEl = document.getElementById('prompt-count');
+
+  if (!allPrompts.length) {
+    tbody.innerHTML = `
+      <tr><td colspan="5">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <h3>No prompts found</h3>
+          <p>Add your first prompt to get started</p>
+        </div>
+      </td></tr>`;
+    countEl.textContent = '';
+    return;
+  }
+
+  countEl.textContent = `(${allPrompts.length})`;
+
+  tbody.innerHTML = allPrompts.map(p => {
+    const apps = getAppMeta();
+    const appName = apps[p.app] ? apps[p.app].display : p.app;
+    const preview = p.prompt.length > 80 ? p.prompt.slice(0, 77) + '…' : p.prompt;
+    const isCustom = customPrompts.some(c => c.id === p.id);
+    const isDeletedBuiltIn = deletedIds.includes(p.id);
+
+    return `
+      <tr>
+        <td class="col-title" title="${esc(p.title)}">${esc(p.title)}</td>
+        <td class="col-app">
+          <span class="app-dot" style="background:${esc(p.color)}"></span>
+          ${esc(appName)}
+        </td>
+        <td class="col-category">${esc(p.category)}</td>
+        <td class="col-prompt" title="${esc(p.prompt)}">${esc(preview)}</td>
+        <td class="col-actions">
+          <button class="btn btn-primary-outline btn-sm" onclick="openEditModal('${esc(p.id)}')" title="Edit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Edit
+          </button>
+          <button class="btn btn-danger-outline btn-sm" onclick="openDeleteModal('${esc(p.id)}')" title="Delete">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+            Delete
+          </button>
+        </td>
+      </tr>`;
+  }).join('');
+}
+
+// ─── Modal Actions ─────────────────────────────────────────────────
+function openAddModal() {
+  editingId = null;
+  document.getElementById('form-modal-title').textContent = 'Add Prompt';
+  document.getElementById('edit-id').value = '';
+  document.getElementById('form-title').value = '';
+  document.getElementById('form-slug').value = '';
+  document.getElementById('form-usecase').value = '';
+  document.getElementById('form-context').value = '';
+  document.getElementById('form-prompt').value = '';
+  document.getElementById('form-difficulty').value = 'intermediate';
+  currentTags = [];
+  currentPersonas = [];
+  renderTags('tags-wrapper', 'tags-input', () => currentTags, (v) => { currentTags = v; });
+  renderTags('personas-wrapper', 'personas-input', () => currentPersonas, (v) => { currentPersonas = v; });
+  selectColor(document.querySelector('.color-option'));
+  document.getElementById('form-modal-backdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openEditModal(id) {
+  const p = allPrompts.find(x => x.id === id);
+  if (!p) return;
+
+  editingId = id;
+  document.getElementById('form-modal-title').textContent = 'Edit Prompt';
+  document.getElementById('edit-id').value = id;
+  document.getElementById('form-title').value = p.title;
+  document.getElementById('form-slug').value = p.id;
+  document.getElementById('form-usecase').value = p.useCase || '';
+  document.getElementById('form-context').value = p.context || '';
+  document.getElementById('form-prompt').value = p.prompt;
+  document.getElementById('form-app').value = p.app;
+  document.getElementById('form-role').value = p.role;
+  document.getElementById('form-difficulty').value = p.difficulty || 'intermediate';
+
+  currentTags = [...(p.tags || [])];
+  currentPersonas = [...(p.personas || [])];
+  renderTags('tags-wrapper', 'tags-input', () => currentTags, (v) => { currentTags = v; });
+  renderTags('personas-wrapper', 'personas-input', () => currentPersonas, (v) => { currentPersonas = v; });
+
+  // Select matching color
+  const colorEl = document.querySelector(`.color-option[data-color="${esc(p.color)}"]`) || document.querySelector('.color-option');
+  selectColor(colorEl);
+
+  document.getElementById('form-modal-backdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFormModal() {
+  document.getElementById('form-modal-backdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  editingId = null;
+}
+
+function openDeleteModal(id) {
+  const p = allPrompts.find(x => x.id === id);
+  if (!p) return;
+  deletingId = id;
+  document.getElementById('delete-prompt-title').textContent = p.title;
+  document.getElementById('delete-modal-backdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDeleteModal() {
+  document.getElementById('delete-modal-backdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  deletingId = null;
+}
+
+// ─── Save / Delete ─────────────────────────────────────────────────
+function savePrompt() {
+  const title = document.getElementById('form-title').value.trim();
+  const slug = document.getElementById('form-slug').value.trim();
+  const useCase = document.getElementById('form-usecase').value.trim();
+  const context = document.getElementById('form-context').value.trim();
+  const promptText = document.getElementById('form-prompt').value.trim();
+  const app = document.getElementById('form-app').value;
+  const role = document.getElementById('form-role').value;
+  const difficulty = document.getElementById('form-difficulty').value;
+  const color = getSelectedColor();
+
+  if (!title || !slug || !promptText) {
+    showToast('Please fill in all required fields');
+    return;
+  }
+
+  const id = slugify(slug);
+  if (!id) {
+    showToast('Please enter a valid ID/slug');
+    return;
+  }
+
+  // Check for duplicate IDs when adding new
+  if (!editingId && allPrompts.some(p => p.id === id)) {
+    showToast('A prompt with this ID already exists');
+    return;
+  }
+
+  const apps = getAppMeta();
+  const roles = getRoleMeta();
+
+  const promptObj = {
+    id,
+    title,
+    useCase: useCase || title,
+    context: context || '',
+    prompt: promptText,
+    group: apps[app] ? apps[app].display : app,
+    category: roles[role] ? roles[role].display : role,
+    color,
+    personas: currentPersonas.length ? currentPersonas : [roles[role] ? roles[role].display : role],
+    tags: currentTags.length ? currentTags : [apps[app] ? apps[app].display : app, roles[role] ? roles[role].display : role],
+    subcategory: difficulty,
+    slug: id,
+    app,
+    role,
+    difficulty,
+    use_case: useCase || title,
+    groupId: id,
+    isPrimary: true,
+    variantCount: 1,
+    variantSlugs: [id],
+    _custom: true
+  };
+
+  if (editingId && editingId !== id) {
+    // ID changed, remove old custom prompt if it exists
+    customPrompts = customPrompts.filter(c => c.id !== editingId);
+    // If old was built-in, add to deleted
+    const wasBuiltIn = PROMPTS_DATA.some(p => p.id === editingId);
+    if (wasBuiltIn && !deletedIds.includes(editingId)) {
+      deletedIds.push(editingId);
+    }
+  }
+
+  // Update or add to custom prompts
+  const existingIndex = customPrompts.findIndex(c => c.id === id);
+  if (existingIndex >= 0) {
+    customPrompts[existingIndex] = promptObj;
+  } else {
+    customPrompts.push(promptObj);
+  }
+
+  // If this ID exists in built-in and wasn't deleted, it's now an override
+  const isBuiltIn = PROMPTS_DATA.some(p => p.id === id);
+  if (isBuiltIn && deletedIds.includes(id)) {
+    deletedIds = deletedIds.filter(did => did !== id);
+  }
+
+  saveCustomData();
+  loadData();
+  renderTable();
+  closeFormModal();
+  showToast(editingId ? 'Prompt updated' : 'Prompt added');
+}
+
+function confirmDelete() {
+  if (!deletingId) return;
+
+  const isBuiltIn = PROMPTS_DATA.some(p => p.id === deletingId);
+
+  if (isBuiltIn) {
+    // Mark built-in as deleted
+    if (!deletedIds.includes(deletingId)) {
+      deletedIds.push(deletingId);
+    }
+  }
+
+  // Remove from custom prompts if present
+  customPrompts = customPrompts.filter(c => c.id !== deletingId);
+
+  saveCustomData();
+  loadData();
+  renderTable();
+  closeDeleteModal();
+  showToast('Prompt deleted');
+}
+
+// ─── Export ────────────────────────────────────────────────────────
+function exportData() {
+  const exportObj = {
+    prompts: allPrompts,
+    exportedAt: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `copilot-prompts-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported');
+}
+
+// ─── Theme ─────────────────────────────────────────────────────────
+const THEME_ICONS = {
+  system: `<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>`,
+  light: `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`,
+  dark: `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`
+};
+
+function applyTheme(mode) {
+  const root = document.documentElement;
+  let effective = mode;
+  if (mode === 'system') {
+    effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  if (effective === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+  } else {
+    root.removeAttribute('data-theme');
+  }
+  const icon = document.getElementById('theme-icon');
+  if (icon) icon.innerHTML = THEME_ICONS[mode];
+}
+
+function cycleTheme() {
+  const current = localStorage.getItem('theme') || 'system';
+  const order = ['system', 'light', 'dark'];
+  const next = order[(order.indexOf(current) + 1) % order.length];
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
+});
+
+document.getElementById('theme-toggle').addEventListener('click', cycleTheme);
+applyTheme(localStorage.getItem('theme') || 'system');
+
+// ─── Init ──────────────────────────────────────────────────────────
+if (sessionStorage.getItem('admin_authenticated') === 'true') {
+  showAdmin();
+}
+
+// Auto-generate slug from title
+let slugDebounce;
+document.getElementById('form-title').addEventListener('input', e => {
+  const slugInput = document.getElementById('form-slug');
+  if (!editingId && !slugInput.dataset.userEdited) {
+    clearTimeout(slugDebounce);
+    slugDebounce = setTimeout(() => {
+      slugInput.value = slugify(e.target.value);
+    }, 300);
+  }
+});
+
+document.getElementById('form-slug').addEventListener('input', () => {
+  document.getElementById('form-slug').dataset.userEdited = 'true';
+});
+
+// Escape key closes modals
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeFormModal();
+    closeDeleteModal();
+  }
+});
+</script>
+</body>
+</html>

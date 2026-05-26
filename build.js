@@ -123,6 +123,58 @@ function slugFromFilename(filename) {
   return path.basename(filename, '.md');
 }
 
+/**
+ * Normalize a title for deduplication grouping.
+ * Removes articles, lowercases, strips punctuation, and slugifies.
+ * Examples:
+ *   "The Thread Dissection Surgeon" → "thread-dissection-surgeon"
+ *   "Thread Dissection Surgeon"     → "thread-dissection-surgeon"
+ */
+function normalizeTitleForGrouping(title) {
+  if (!title) return '';
+  return title
+    .toLowerCase()
+    .replace(/\b(the|a|an)\b\s*/gi, '')  // Remove leading articles
+    .replace(/[^\w\s-]/g, '')              // Remove punctuation
+    .replace(/\s+/g, '-')                  // Replace spaces with hyphens
+    .replace(/-+/g, '-')                   // Collapse multiple hyphens
+    .replace(/^-|-$/g, '');                // Trim leading/trailing hyphens
+}
+
+/**
+ * Group prompts by normalized title and mark primary variant.
+ * Primary = variant with longest prompt content.
+ * Returns { promptsData, duplicateGroups } where duplicateGroups maps groupId → [slugs].
+ */
+function deduplicatePrompts(rawPrompts) {
+  // Build groups by normalized title
+  const groups = {};
+  for (const p of rawPrompts) {
+    const groupId = normalizeTitleForGrouping(p.title);
+    if (!groupId) continue;
+    if (!groups[groupId]) groups[groupId] = [];
+    groups[groupId].push(p);
+  }
+
+  // Find primary variant for each group (longest prompt content)
+  const primaryMap = {};
+  const duplicateGroups = {};
+
+  for (const [groupId, variants] of Object.entries(groups)) {
+    // Sort by prompt length descending
+    variants.sort((a, b) => (b.prompt || '').length - (a.prompt || '').length);
+    const primarySlug = variants[0].slug;
+    primaryMap[groupId] = primarySlug;
+
+    // Track groups with multiple variants
+    if (variants.length > 1) {
+      duplicateGroups[groupId] = variants.map(v => v.slug);
+    }
+  }
+
+  return { primaryMap, duplicateGroups, groupCount: Object.keys(groups).length };
+}
+
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -190,6 +242,17 @@ function main() {
     }
   }
 
+  // Deduplicate: group by normalized title, mark primary variant
+  const { primaryMap, duplicateGroups } = deduplicatePrompts(rawPrompts);
+  const uniqueCount = Object.keys(primaryMap).length;
+  const dupCount = Object.keys(duplicateGroups).length;
+  if (dupCount > 0) {
+    console.log(`  Deduplication: ${dupCount} groups with duplicates (${rawPrompts.length} total → ${uniqueCount} unique)`);
+    for (const [groupId, slugs] of Object.entries(duplicateGroups)) {
+      console.log(`    "${groupId}": ${slugs.join(', ')}`);
+    }
+  }
+
   // 2. Build GROUPS_META (group → category → { count, color })
   //    Groups = apps, categories = roles
   const groupsMeta = {};
@@ -216,6 +279,9 @@ function main() {
     const roleKey = p.role && ROLES[p.role] ? p.role : 'general';
     const appMeta = APPS[appKey];
     const roleMeta = ROLES[roleKey];
+    const groupId = normalizeTitleForGrouping(p.title);
+    const isPrimary = primaryMap[groupId] === p.slug;
+    const variantCount = duplicateGroups[groupId] ? duplicateGroups[groupId].length : 1;
 
     return {
       id: p.slug,
@@ -235,6 +301,11 @@ function main() {
       role: roleKey,
       difficulty: p.difficulty || '',
       use_case: p.use_case || '',
+      // Deduplication fields
+      groupId,
+      isPrimary,
+      variantCount,
+      variantSlugs: duplicateGroups[groupId] || [p.slug],
     };
   });
 
@@ -276,7 +347,7 @@ function main() {
   const total = promptsData.length;
   const appsUsed = Object.keys(byApp).length;
   const rolesUsed = Object.keys(byRole).length;
-  console.log(`\nDone: ${total} prompts across ${appsUsed} apps and ${rolesUsed} roles.`);
+  console.log(`\nDone: ${total} prompts (${uniqueCount} unique) across ${appsUsed} apps and ${rolesUsed} roles.`);
 }
 
 // ─── data.js generation ──────────────────────────────────────────────
